@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional CV Generator - Multiple Templates</title>
+    <title>Professional CV Generator - Multiple Templates & Themes</title>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -108,6 +108,212 @@
             padding-bottom: 10px;
             border-bottom: 2px solid var(--secondary-color);
             color: var(--primary-color);
+        }
+
+        /* Theme Selector Styles */
+        .theme-selector {
+            margin-bottom: 20px;
+        }
+
+        .theme-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .theme-option {
+            height: 40px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .theme-option.selected {
+            border-color: #333;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Modern Template Themes */
+        .cv-template.modern.theme-blue {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #2980b9;
+            --light-color: #ecf0f1;
+        }
+
+        .cv-template.modern.theme-green {
+            --primary-color: #1e5631;
+            --secondary-color: #4CAF50;
+            --accent-color: #2E7D32;
+            --light-color: #E8F5E9;
+        }
+
+        .cv-template.modern.theme-purple {
+            --primary-color: #4A235A;
+            --secondary-color: #9B59B6;
+            --accent-color: #8E44AD;
+            --light-color: #F3E5F5;
+        }
+
+        .cv-template.modern.theme-dark {
+            --primary-color: #2C3E50;
+            --secondary-color: #34495E;
+            --accent-color: #7F8C8D;
+            --light-color: #ECF0F1;
+            --text-color: #2C3E50;
+        }
+
+        .cv-template.modern.theme-warm {
+            --primary-color: #8B4513;
+            --secondary-color: #D2691E;
+            --accent-color: #A0522D;
+            --light-color: #F5F5DC;
+        }
+
+        .cv-template.modern.theme-cool {
+            --primary-color: #1A5276;
+            --secondary-color: #3498DB;
+            --accent-color: #2E86C1;
+            --light-color: #EBF5FB;
+        }
+
+        /* Classic Template Themes */
+        .cv-template.classic.theme-blue {
+            --primary-color: #2c3e50;
+            --secondary-color: #7f8c8d;
+            --accent-color: #34495e;
+            --light-color: #f5f5f5;
+        }
+
+        .cv-template.classic.theme-green {
+            --primary-color: #2d501e;
+            --secondary-color: #556B2F;
+            --accent-color: #6B8E23;
+            --light-color: #F5F5DC;
+        }
+
+        .cv-template.classic.theme-brown {
+            --primary-color: #5D4037;
+            --secondary-color: #8D6E63;
+            --accent-color: #6D4C41;
+            --light-color: #EFEBE9;
+        }
+
+        .cv-template.classic.theme-dark {
+            --primary-color: #212121;
+            --secondary-color: #424242;
+            --accent-color: #616161;
+            --light-color: #F5F5F5;
+        }
+
+        .cv-template.classic.theme-burgundy {
+            --primary-color: #800020;
+            --secondary-color: #722F37;
+            --accent-color: #8B0000;
+            --light-color: #FAEBD7;
+        }
+
+        .cv-template.classic.theme-navy {
+            --primary-color: #0F4C75;
+            --secondary-color: #3282B8;
+            --accent-color: #1B262C;
+            --light-color: #F0F8FF;
+        }
+
+        /* Minimalist Template Themes */
+        .cv-template.minimalist.theme-black {
+            --primary-color: #000000;
+            --secondary-color: #666666;
+            --accent-color: #333333;
+            --light-color: #f0f0f0;
+        }
+
+        .cv-template.minimalist.theme-gray {
+            --primary-color: #424242;
+            --secondary-color: #757575;
+            --accent-color: #616161;
+            --light-color: #FAFAFA;
+        }
+
+        .cv-template.minimalist.theme-blue {
+            --primary-color: #1565C0;
+            --secondary-color: #42A5F5;
+            --accent-color: #0D47A1;
+            --light-color: #E3F2FD;
+        }
+
+        .cv-template.minimalist.theme-green {
+            --primary-color: #1B5E20;
+            --secondary-color: #4CAF50;
+            --accent-color: #2E7D32;
+            --light-color: #E8F5E9;
+        }
+
+        .cv-template.minimalist.theme-purple {
+            --primary-color: #4A148C;
+            --secondary-color: #7B1FA2;
+            --accent-color: #6A1B9A;
+            --light-color: #F3E5F5;
+        }
+
+        .cv-template.minimalist.theme-darkblue {
+            --primary-color: #0D47A1;
+            --secondary-color: #1976D2;
+            --accent-color: #1565C0;
+            --light-color: #E3F2FD;
+        }
+
+        /* Executive Template Themes */
+        .cv-template.executive.theme-blue {
+            --primary-color: #1a237e;
+            --secondary-color: #283593;
+            --accent-color: #303f9f;
+            --light-color: #e8eaf6;
+        }
+
+        .cv-template.executive.theme-navy {
+            --primary-color: #0d1b2a;
+            --secondary-color: #1b263b;
+            --accent-color: #415a77;
+            --light-color: #e0e1dd;
+        }
+
+        .cv-template.executive.theme-dark {
+            --primary-color: #212121;
+            --secondary-color: #424242;
+            --accent-color: #616161;
+            --light-color: #f5f5f5;
+        }
+
+        .cv-template.executive.theme-maroon {
+            --primary-color: #800000;
+            --secondary-color: #8B0000;
+            --accent-color: #A52A2A;
+            --light-color: #FAEBD7;
+        }
+
+        .cv-template.executive.theme-forest {
+            --primary-color: #1B4332;
+            --secondary-color: #2D6A4F;
+            --accent-color: #40916C;
+            --light-color: #D8F3DC;
+        }
+
+        .cv-template.executive.theme-slate {
+            --primary-color: #374151;
+            --secondary-color: #4B5563;
+            --accent-color: #6B7280;
+            --light-color: #F9FAFB;
         }
 
         .upload-area {
@@ -394,6 +600,8 @@
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 0.9rem;
+            color: var(--primary-color);
+            border: 1px solid rgba(0,0,0,0.1);
         }
 
         .cv-template.modern .two-column {
@@ -418,14 +626,14 @@
 
         .cv-template.classic .personal-info h2 {
             font-size: 2.4rem;
-            color: #2c3e50;
+            color: var(--primary-color);
             margin-bottom: 5px;
             font-weight: 600;
         }
 
         .cv-template.classic .personal-info h3 {
             font-size: 1.4rem;
-            color: #7f8c8d;
+            color: var(--secondary-color);
             font-weight: 400;
             margin-bottom: 15px;
             font-style: italic;
@@ -484,7 +692,7 @@
 
         .cv-template.classic .cv-section-title {
             font-size: 1.4rem;
-            color: #2c3e50;
+            color: var(--primary-color);
             margin-bottom: 15px;
             padding-bottom: 5px;
             border-bottom: 1px solid #d0d0d0;
@@ -506,11 +714,11 @@
         .cv-template.classic .item-title {
             font-weight: 600;
             font-size: 1.1rem;
-            color: #2c3e50;
+            color: var(--primary-color);
         }
 
         .cv-template.classic .item-date {
-            color: #7f8c8d;
+            color: var(--secondary-color);
         }
 
         .cv-template.classic .item-subtitle {
@@ -527,11 +735,12 @@
         }
 
         .cv-template.classic .skill-tag {
-            background: #f0f0f0;
+            background: var(--light-color);
             padding: 4px 10px;
             border-radius: 3px;
             font-size: 0.9rem;
             border: 1px solid #e0e0e0;
+            color: var(--primary-color);
         }
 
         /* Template 3: Minimalist */
@@ -549,14 +758,14 @@
 
         .cv-template.minimalist .personal-info h2 {
             font-size: 2rem;
-            color: #000;
+            color: var(--primary-color);
             margin-bottom: 5px;
             font-weight: 700;
         }
 
         .cv-template.minimalist .personal-info h3 {
             font-size: 1.2rem;
-            color: #666;
+            color: var(--secondary-color);
             font-weight: 400;
             margin-bottom: 10px;
         }
@@ -605,7 +814,7 @@
 
         .cv-template.minimalist .cv-section-title {
             font-size: 1.2rem;
-            color: #000;
+            color: var(--primary-color);
             margin-bottom: 15px;
             font-weight: 600;
             text-transform: uppercase;
@@ -626,7 +835,7 @@
         .cv-template.minimalist .item-title {
             font-weight: 600;
             font-size: 1rem;
-            color: #000;
+            color: var(--primary-color);
         }
 
         .cv-template.minimalist .item-date {
@@ -648,10 +857,11 @@
         }
 
         .cv-template.minimalist .skill-tag {
-            background: #f0f0f0;
+            background: var(--light-color);
             padding: 4px 10px;
             border-radius: 2px;
             font-size: 0.85rem;
+            color: var(--primary-color);
         }
 
         .cv-template.minimalist p {
@@ -671,7 +881,7 @@
             align-items: flex-start;
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 2px solid #2c3e50;
+            border-bottom: 2px solid var(--primary-color);
         }
 
         .cv-template.executive .personal-info {
@@ -680,14 +890,14 @@
 
         .cv-template.executive .personal-info h2 {
             font-size: 2.2rem;
-            color: #2c3e50;
+            color: var(--primary-color);
             margin-bottom: 5px;
             font-weight: 700;
         }
 
         .cv-template.executive .personal-info h3 {
             font-size: 1.3rem;
-            color: #7f8c8d;
+            color: var(--secondary-color);
             font-weight: 500;
             margin-bottom: 10px;
         }
@@ -736,7 +946,7 @@
 
         .cv-template.executive .cv-section-title {
             font-size: 1.3rem;
-            color: #2c3e50;
+            color: var(--primary-color);
             margin-bottom: 15px;
             padding-bottom: 5px;
             border-bottom: 1px solid #e0e0e0;
@@ -757,11 +967,11 @@
         .cv-template.executive .item-title {
             font-weight: 600;
             font-size: 1.1rem;
-            color: #2c3e50;
+            color: var(--primary-color);
         }
 
         .cv-template.executive .item-date {
-            color: #7f8c8d;
+            color: var(--secondary-color);
             font-style: italic;
         }
 
@@ -778,11 +988,12 @@
         }
 
         .cv-template.executive .skill-tag {
-            background: #f0f0f0;
+            background: var(--light-color);
             padding: 4px 10px;
             border-radius: 3px;
             font-size: 0.9rem;
             border: 1px solid #e0e0e0;
+            color: var(--primary-color);
         }
 
         .cv-template.executive .two-column {
@@ -1042,7 +1253,7 @@
                 width: 100% !important;
             }
             
-            .btn, .input-section, .download-options, header, .json-examples, .upload-area, .format-selector, .template-selector, .section-title.no-print, .no-print {
+            .btn, .input-section, .download-options, header, .json-examples, .upload-area, .format-selector, .template-selector, .section-title.no-print, .no-print, .theme-selector {
                 display: none !important;
             }
             
@@ -1269,6 +1480,9 @@
             .json-example-buttons {
                 flex-direction: column;
             }
+            .theme-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 480px) {
@@ -1297,6 +1511,9 @@
                 width: 120px;
                 height: 150px;
             }
+            .theme-options {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -1304,7 +1521,7 @@
     <div class="container">
         <header class="no-print">
             <h1>Professional CV Generator</h1>
-            <p class="subtitle">Create a polished CV with multiple templates and formats</p>
+            <p class="subtitle">Create a polished CV with multiple templates, themes and formats</p>
         </header>
 
         <div class="main-content">
@@ -1364,6 +1581,13 @@
                                     <div class="template-preview-line short"></div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    
+                    <div class="theme-selector">
+                        <h3 class="section-title">Choose Theme</h3>
+                        <div class="theme-options" id="themeOptions">
+                            <!-- Theme options will be populated by JavaScript -->
                         </div>
                     </div>
                     
@@ -1497,7 +1721,7 @@
                 <div class="preview-content">
                     <h2 class="section-title no-print">CV Preview</h2>
                     
-                    <div class="cv-template modern" id="cvPreview">
+                    <div class="cv-template modern theme-blue" id="cvPreview">
                         <div class="cv-header">
                             <div class="personal-info">
                                 <h2 id="previewName">Your Name</h2>
@@ -1615,12 +1839,87 @@
             const downloadExample = document.getElementById('downloadExample');
             const currentFormatText = document.getElementById('currentFormatText');
             const templateOptions = document.querySelectorAll('.template-option');
+            const themeOptionsContainer = document.getElementById('themeOptions');
             
             let experienceCount = 0;
             let educationCount = 0;
             let currentFormat = 'photo';
             let currentTemplate = 'modern';
+            let currentTheme = 'blue';
             let photoData = null;
+            
+            // Theme definitions for each template
+            const themes = {
+                modern: [
+                    { id: 'blue', name: 'Blue', color: '#3498db' },
+                    { id: 'green', name: 'Green', color: '#4CAF50' },
+                    { id: 'purple', name: 'Purple', color: '#9B59B6' },
+                    { id: 'dark', name: 'Dark', color: '#2C3E50' },
+                    { id: 'warm', name: 'Warm', color: '#D2691E' },
+                    { id: 'cool', name: 'Cool', color: '#3498DB' }
+                ],
+                classic: [
+                    { id: 'blue', name: 'Blue', color: '#7f8c8d' },
+                    { id: 'green', name: 'Green', color: '#556B2F' },
+                    { id: 'brown', name: 'Brown', color: '#8D6E63' },
+                    { id: 'dark', name: 'Dark', color: '#424242' },
+                    { id: 'burgundy', name: 'Burgundy', color: '#722F37' },
+                    { id: 'navy', name: 'Navy', color: '#3282B8' }
+                ],
+                minimalist: [
+                    { id: 'black', name: 'Black', color: '#000000' },
+                    { id: 'gray', name: 'Gray', color: '#757575' },
+                    { id: 'blue', name: 'Blue', color: '#42A5F5' },
+                    { id: 'green', name: 'Green', color: '#4CAF50' },
+                    { id: 'purple', name: 'Purple', color: '#7B1FA2' },
+                    { id: 'darkblue', name: 'Dark Blue', color: '#1976D2' }
+                ],
+                executive: [
+                    { id: 'blue', name: 'Blue', color: '#283593' },
+                    { id: 'navy', name: 'Navy', color: '#1b263b' },
+                    { id: 'dark', name: 'Dark', color: '#424242' },
+                    { id: 'maroon', name: 'Maroon', color: '#8B0000' },
+                    { id: 'forest', name: 'Forest', color: '#2D6A4F' },
+                    { id: 'slate', name: 'Slate', color: '#4B5563' }
+                ]
+            };
+            
+            // Initialize theme options
+            function initializeThemes() {
+                updateThemeOptions();
+            }
+            
+            // Update theme options based on current template
+            function updateThemeOptions() {
+                themeOptionsContainer.innerHTML = '';
+                const templateThemes = themes[currentTemplate];
+                
+                templateThemes.forEach(theme => {
+                    const themeOption = document.createElement('div');
+                    themeOption.className = `theme-option ${currentTheme === theme.id ? 'selected' : ''}`;
+                    themeOption.setAttribute('data-theme', theme.id);
+                    themeOption.style.backgroundColor = theme.color;
+                    themeOption.textContent = theme.name;
+                    themeOption.addEventListener('click', function() {
+                        currentTheme = theme.id;
+                        updateThemeSelection();
+                        updateCVTemplate();
+                    });
+                    themeOptionsContainer.appendChild(themeOption);
+                });
+            }
+            
+            // Update theme selection UI
+            function updateThemeSelection() {
+                const themeOptions = document.querySelectorAll('.theme-option');
+                themeOptions.forEach(option => {
+                    if (option.getAttribute('data-theme') === currentTheme) {
+                        option.classList.add('selected');
+                    } else {
+                        option.classList.remove('selected');
+                    }
+                });
+            }
             
             // Template selection handler
             templateOptions.forEach(option => {
@@ -1628,6 +1927,9 @@
                     templateOptions.forEach(opt => opt.classList.remove('selected'));
                     this.classList.add('selected');
                     currentTemplate = this.getAttribute('data-template');
+                    // Reset to default theme when template changes
+                    currentTheme = 'blue';
+                    updateThemeOptions();
                     updateCVTemplate();
                 });
             });
@@ -1653,7 +1955,7 @@
             
             // Update CV template
             function updateCVTemplate() {
-                let templateClass = `cv-template ${currentTemplate}`;
+                let templateClass = `cv-template ${currentTemplate} theme-${currentTheme}`;
                 if (currentFormat === 'international') {
                     templateClass += ' international';
                 }
@@ -1748,6 +2050,7 @@
                     exampleData = {
                         "format": "photo",
                         "template": currentTemplate,
+                        "theme": currentTheme,
                         "photo": "",
                         "personalInfo": {
                             "name": "Ali Raza Khan",
@@ -1822,11 +2125,12 @@
                             }
                         ]
                     };
-                    filename = `${currentTemplate}-photo-cv-example.json`;
+                    filename = `${currentTemplate}-${currentTheme}-photo-cv-example.json`;
                 } else {
                     exampleData = {
                         "format": "international",
                         "template": currentTemplate,
+                        "theme": currentTheme,
                         "personalInfo": {
                             "name": "Sarah Johnson",
                             "title": "Marketing Director"
@@ -1909,7 +2213,7 @@
                             }
                         ]
                     };
-                    filename = `${currentTemplate}-international-cv-example.json`;
+                    filename = `${currentTemplate}-${currentTheme}-international-cv-example.json`;
                 }
                 
                 downloadJSON(exampleData, filename);
@@ -2096,6 +2400,12 @@
                     });
                 }
                 
+                // Set theme if specified in JSON
+                if (data.theme) {
+                    currentTheme = data.theme;
+                    updateThemeOptions();
+                }
+                
                 // Set format if specified in JSON
                 if (data.format === 'photo' || data.format === 'international') {
                     currentFormat = data.format;
@@ -2215,7 +2525,8 @@
                     education: [],
                     languages: [],
                     format: currentFormat,
-                    template: currentTemplate
+                    template: currentTemplate,
+                    theme: currentTheme
                 };
                 
                 // Add photo data if available
@@ -2425,6 +2736,11 @@
                     });
                 }
                 
+                if (data.theme) {
+                    currentTheme = data.theme;
+                    updateThemeOptions();
+                }
+                
                 if (data.format === 'photo' || data.format === 'international') {
                     currentFormat = data.format;
                     if (currentFormat === 'photo') {
@@ -2443,6 +2759,7 @@
             }
             
             // Initialize with sample data
+            initializeThemes();
             addExperienceBtn.click();
             addEducationBtn.click();
             generateCV(getFormData());
