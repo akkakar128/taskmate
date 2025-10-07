@@ -301,7 +301,7 @@
             width: 150px;
             height: 180px;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 10px;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -322,12 +322,14 @@
             text-align: center;
             padding: 10px;
             line-height: 1.4;
+            border-radius: 10px;
         }
 
         .cv-template.modern .photo-preview {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 10px;
         }
 
         .cv-template.modern .cv-section {
@@ -446,6 +448,7 @@
             width: 140px;
             height: 170px;
             border: 1px solid #ddd;
+            border-radius: 8px;
             overflow: hidden;
             margin: 0 auto 15px;
             background-color: #f9f9f9;
@@ -465,6 +468,14 @@
             text-align: center;
             padding: 10px;
             line-height: 1.4;
+            border-radius: 8px;
+        }
+
+        .cv-template.classic .photo-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
         }
 
         .cv-template.classic .cv-section {
@@ -559,6 +570,7 @@
         .cv-template.minimalist .photo-container {
             width: 120px;
             height: 150px;
+            border-radius: 6px;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -577,6 +589,14 @@
             text-align: center;
             padding: 10px;
             line-height: 1.4;
+            border-radius: 6px;
+        }
+
+        .cv-template.minimalist .photo-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
         }
 
         .cv-template.minimalist .cv-section {
@@ -681,6 +701,7 @@
             width: 140px;
             height: 170px;
             border: 1px solid #ddd;
+            border-radius: 8px;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -699,6 +720,14 @@
             text-align: center;
             padding: 10px;
             line-height: 1.4;
+            border-radius: 8px;
+        }
+
+        .cv-template.executive .photo-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
         }
 
         .cv-template.executive .cv-section {
@@ -1019,7 +1048,7 @@
             
             .cv-template {
                 box-shadow: none !important;
-                padding: 0 !important;
+                padding: 30px !important; /* Added padding for print */
                 margin: 0 !important;
                 min-height: auto !important;
                 page-break-after: avoid !important;
@@ -1089,6 +1118,7 @@
                 width: 120px !important;
                 height: 150px !important;
                 border: 1px solid #ccc !important;
+                border-radius: 8px !important; /* Added border radius for print */
                 margin: 0 !important;
                 display: flex !important;
                 align-items: center !important;
@@ -1103,6 +1133,7 @@
                 width: 100% !important;
                 height: 100% !important;
                 object-fit: cover !important;
+                border-radius: 8px !important; /* Added border radius for print */
             }
             
             .cv-template.modern:not(.international) .photo-placeholder,
@@ -1110,6 +1141,7 @@
             .cv-template.executive:not(.international) .photo-placeholder {
                 font-size: 8pt !important;
                 padding: 5px !important;
+                border-radius: 8px !important; /* Added border radius for print */
             }
             
             /* Classic template - keep centered photo for print (Photo CV only) */
@@ -1122,20 +1154,36 @@
                 margin: 0 auto 10px !important;
                 width: 120px !important;
                 height: 150px !important;
+                border-radius: 8px !important; /* Added border radius for print */
             }
             
             /* Ensure proper spacing for print */
             .cv-section {
                 page-break-inside: avoid;
+                margin-bottom: 20px !important; /* Added margin for print */
             }
             
             .experience-item, .education-item {
                 page-break-inside: avoid;
+                margin-bottom: 15px !important; /* Added margin for print */
             }
             
             /* Prevent page breaks in the middle of important sections */
             .cv-header {
                 page-break-after: avoid;
+            }
+            
+            /* Added padding for text elements in print */
+            .cv-template p, 
+            .cv-template .item-title, 
+            .cv-template .item-subtitle, 
+            .cv-template .item-date,
+            .cv-template .contact-info p {
+                padding: 0 5px !important; /* Added padding for text elements */
+            }
+            
+            .cv-template .cv-section-title {
+                padding: 0 5px 5px 5px !important; /* Added padding for section titles */
             }
         }
 
@@ -2003,7 +2051,7 @@
                         photoPreview.classList.remove('hidden');
                         photoPlaceholder.classList.add('hidden');
                         
-                        // Force re-render for print
+                        // Force re-render
                         setTimeout(() => {
                             photoPreview.style.display = 'none';
                             photoPreview.offsetHeight; // Trigger reflow
