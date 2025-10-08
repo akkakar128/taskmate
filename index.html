@@ -509,12 +509,10 @@
             border: 1px solid #ddd;
             border-radius: 10px;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             background-color: #f9f9f9;
             flex-shrink: 0;
             margin-left: 30px;
+            position: relative;
         }
 
         .cv-template.modern .photo-placeholder {
@@ -535,6 +533,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
             border-radius: 10px;
         }
 
@@ -653,16 +652,14 @@
         }
 
         .cv-template.classic .photo-container {
-            width: 140px;
-            height: 170px;
+            width: 150px;
+            height: 180px;
             border: 1px solid #ddd;
             border-radius: 8px;
             overflow: hidden;
-            margin: 0 auto 15px;
+            margin: 20px auto 15px; /* Added margin for spacing */
             background-color: #f9f9f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: relative;
         }
 
         .cv-template.classic .photo-placeholder {
@@ -683,6 +680,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
             border-radius: 8px;
         }
 
@@ -777,14 +775,13 @@
         }
 
         .cv-template.minimalist .photo-container {
-            width: 120px;
-            height: 150px;
+            width: 150px;
+            height: 180px;
             border-radius: 6px;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             background-color: #f5f5f5;
+            position: relative;
+            border: 1px solid #ddd; /* Added border for minimalist template */
         }
 
         .cv-template.minimalist .photo-placeholder {
@@ -794,7 +791,7 @@
             align-items: center;
             justify-content: center;
             color: var(--light-text);
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             text-align: center;
             padding: 10px;
             line-height: 1.4;
@@ -805,6 +802,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
             border-radius: 6px;
         }
 
@@ -908,15 +906,13 @@
         }
 
         .cv-template.executive .photo-container {
-            width: 140px;
-            height: 170px;
+            width: 150px;
+            height: 180px;
             border: 1px solid #ddd;
             border-radius: 8px;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             background-color: #f9f9f9;
+            position: relative;
         }
 
         .cv-template.executive .photo-placeholder {
@@ -937,6 +933,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
             border-radius: 8px;
         }
 
@@ -1143,7 +1140,7 @@
         }
 
         .hidden {
-            display: none;
+            display: none !important;
         }
 
         .dynamic-list {
@@ -1269,11 +1266,210 @@
                 width: 100% !important;
             }
             
-            /* Force black text for better print contrast */
-            .cv-template * {
-                color: black !important;
+            /* FIXED: Apply theme colors to print/PDF */
+            .cv-template.modern.theme-blue {
+                --primary-color: #2c3e50 !important;
+                --secondary-color: #3498db !important;
+                --accent-color: #2980b9 !important;
+                --light-color: #ecf0f1 !important;
+            }
+
+            .cv-template.modern.theme-green {
+                --primary-color: #1e5631 !important;
+                --secondary-color: #4CAF50 !important;
+                --accent-color: #2E7D32 !important;
+                --light-color: #E8F5E9 !important;
+            }
+
+            .cv-template.modern.theme-purple {
+                --primary-color: #4A235A !important;
+                --secondary-color: #9B59B6 !important;
+                --accent-color: #8E44AD !important;
+                --light-color: #F3E5F5 !important;
+            }
+
+            .cv-template.modern.theme-dark {
+                --primary-color: #2C3E50 !important;
+                --secondary-color: #34495E !important;
+                --accent-color: #7F8C8D !important;
+                --light-color: #ECF0F1 !important;
+            }
+
+            .cv-template.modern.theme-warm {
+                --primary-color: #8B4513 !important;
+                --secondary-color: #D2691E !important;
+                --accent-color: #A0522D !important;
+                --light-color: #F5F5DC !important;
+            }
+
+            .cv-template.modern.theme-cool {
+                --primary-color: #1A5276 !important;
+                --secondary-color: #3498DB !important;
+                --accent-color: #2E86C1 !important;
+                --light-color: #EBF5FB !important;
+            }
+
+            /* Classic Template Themes for Print */
+            .cv-template.classic.theme-blue {
+                --primary-color: #2c3e50 !important;
+                --secondary-color: #7f8c8d !important;
+                --accent-color: #34495e !important;
+                --light-color: #f5f5f5 !important;
+            }
+
+            .cv-template.classic.theme-green {
+                --primary-color: #2d501e !important;
+                --secondary-color: #556B2F !important;
+                --accent-color: #6B8E23 !important;
+                --light-color: #F5F5DC !important;
+            }
+
+            .cv-template.classic.theme-brown {
+                --primary-color: #5D4037 !important;
+                --secondary-color: #8D6E63 !important;
+                --accent-color: #6D4C41 !important;
+                --light-color: #EFEBE9 !important;
+            }
+
+            .cv-template.classic.theme-dark {
+                --primary-color: #212121 !important;
+                --secondary-color: #424242 !important;
+                --accent-color: #616161 !important;
+                --light-color: #F5F5F5 !important;
+            }
+
+            .cv-template.classic.theme-burgundy {
+                --primary-color: #800020 !important;
+                --secondary-color: #722F37 !important;
+                --accent-color: #8B0000 !important;
+                --light-color: #FAEBD7 !important;
+            }
+
+            .cv-template.classic.theme-navy {
+                --primary-color: #0F4C75 !important;
+                --secondary-color: #3282B8 !important;
+                --accent-color: #1B262C !important;
+                --light-color: #F0F8FF !important;
+            }
+
+            /* Minimalist Template Themes for Print */
+            .cv-template.minimalist.theme-black {
+                --primary-color: #000000 !important;
+                --secondary-color: #666666 !important;
+                --accent-color: #333333 !important;
+                --light-color: #f0f0f0 !important;
+            }
+
+            .cv-template.minimalist.theme-gray {
+                --primary-color: #424242 !important;
+                --secondary-color: #757575 !important;
+                --accent-color: #616161 !important;
+                --light-color: #FAFAFA !important;
+            }
+
+            .cv-template.minimalist.theme-blue {
+                --primary-color: #1565C0 !important;
+                --secondary-color: #42A5F5 !important;
+                --accent-color: #0D47A1 !important;
+                --light-color: #E3F2FD !important;
+            }
+
+            .cv-template.minimalist.theme-green {
+                --primary-color: #1B5E20 !important;
+                --secondary-color: #4CAF50 !important;
+                --accent-color: #2E7D32 !important;
+                --light-color: #E8F5E9 !important;
+            }
+
+            .cv-template.minimalist.theme-purple {
+                --primary-color: #4A148C !important;
+                --secondary-color: #7B1FA2 !important;
+                --accent-color: #6A1B9A !important;
+                --light-color: #F3E5F5 !important;
+            }
+
+            .cv-template.minimalist.theme-darkblue {
+                --primary-color: #0D47A1 !important;
+                --secondary-color: #1976D2 !important;
+                --accent-color: #1565C0 !important;
+                --light-color: #E3F2FD !important;
+            }
+
+            /* Executive Template Themes for Print */
+            .cv-template.executive.theme-blue {
+                --primary-color: #1a237e !important;
+                --secondary-color: #283593 !important;
+                --accent-color: #303f9f !important;
+                --light-color: #e8eaf6 !important;
+            }
+
+            .cv-template.executive.theme-navy {
+                --primary-color: #0d1b2a !important;
+                --secondary-color: #1b263b !important;
+                --accent-color: #415a77 !important;
+                --light-color: #e0e1dd !important;
+            }
+
+            .cv-template.executive.theme-dark {
+                --primary-color: #212121 !important;
+                --secondary-color: #424242 !important;
+                --accent-color: #616161 !important;
+                --light-color: #f5f5f5 !important;
+            }
+
+            .cv-template.executive.theme-maroon {
+                --primary-color: #800000 !important;
+                --secondary-color: #8B0000 !important;
+                --accent-color: #A52A2A !important;
+                --light-color: #FAEBD7 !important;
+            }
+
+            .cv-template.executive.theme-forest {
+                --primary-color: #1B4332 !important;
+                --secondary-color: #2D6A4F !important;
+                --accent-color: #40916C !important;
+                --light-color: #D8F3DC !important;
+            }
+
+            .cv-template.executive.theme-slate {
+                --primary-color: #374151 !important;
+                --secondary-color: #4B5563 !important;
+                --accent-color: #6B7280 !important;
+                --light-color: #F9FAFB !important;
             }
             
+            /* Apply theme colors to print elements */
+            .cv-template .personal-info h2,
+            .cv-template .personal-info h3,
+            .cv-template .cv-section-title,
+            .cv-template .item-title,
+            .cv-template .item-subtitle,
+            .cv-template .skill-tag {
+                color: var(--primary-color) !important;
+            }
+            
+            .cv-template .cv-section-title::after,
+            .cv-template .item-date,
+            .cv-template .contact-info p {
+                color: var(--secondary-color) !important;
+            }
+            
+            .cv-template .skill-tag {
+                background: var(--light-color) !important;
+            }
+            
+            .cv-template.modern .cv-header {
+                border-bottom-color: var(--secondary-color) !important;
+            }
+            
+            .cv-template.modern .cv-section-title::after {
+                background: var(--secondary-color) !important;
+            }
+            
+            .cv-template.executive .cv-header {
+                border-bottom-color: var(--primary-color) !important;
+            }
+
             /* CRITICAL FIX: Hide photo container in international format for print */
             .cv-template.international .photo-container {
                 display: none !important;
@@ -1310,7 +1506,7 @@
                 display: block !important;
                 margin-bottom: 20px !important;
                 padding-bottom: 15px !important;
-                border-bottom: 2px solid #2c3e50 !important;
+                border-bottom: 2px solid var(--secondary-color) !important;
             }
             
             .cv-template.modern:not(.international) .personal-info,
@@ -1331,9 +1527,7 @@
                 border: 1px solid #ccc !important;
                 border-radius: 8px !important; /* Added border radius for print */
                 margin: 0 !important;
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
+                display: block !important;
                 overflow: hidden !important;
                 background: white !important;
             }
@@ -1344,28 +1538,36 @@
                 width: 100% !important;
                 height: 100% !important;
                 object-fit: cover !important;
+                object-position: center !important;
                 border-radius: 8px !important; /* Added border radius for print */
             }
             
             .cv-template.modern:not(.international) .photo-placeholder,
             .cv-template.minimalist:not(.international) .photo-placeholder,
             .cv-template.executive:not(.international) .photo-placeholder {
-                font-size: 8pt !important;
-                padding: 5px !important;
-                border-radius: 8px !important; /* Added border radius for print */
+                display: none !important;
             }
             
-            /* Classic template - keep centered photo for print (Photo CV only) */
+            /* Classic template - keep centered photo for print (Photo CV only) with margin */
             .cv-template.classic:not(.international) .cv-header {
                 text-align: center !important;
             }
             
             .cv-template.classic:not(.international) .photo-container {
                 display: block !important;
-                margin: 0 auto 10px !important;
+                margin: 20px auto 15px !important; /* Added margin for print */
                 width: 120px !important;
                 height: 150px !important;
                 border-radius: 8px !important; /* Added border radius for print */
+            }
+            
+            .cv-template.classic:not(.international) .photo-preview {
+                object-fit: cover !important;
+                object-position: center !important;
+            }
+            
+            .cv-template.classic:not(.international) .photo-placeholder {
+                display: none !important;
             }
             
             /* Ensure proper spacing for print */
@@ -1973,7 +2175,7 @@
                 photoFileInput.click();
             });
             
-            // Photo file input handler
+            // Photo file input handler - FIXED PHOTO UPLOAD ISSUE
             photoFileInput.addEventListener('change', function(e) {
                 const file = e.target.files[0];
                 if (file) {
@@ -1988,30 +2190,9 @@
                     
                     const reader = new FileReader();
                     reader.onload = function(e) {
-                        // Clear any previous photo data
-                        photoData = null;
-                        
-                        // Create new image to ensure proper loading
-                        const img = new Image();
-                        img.onload = function() {
-                            photoData = e.target.result;
-                            photoPreview.src = photoData;
-                            photoPreview.classList.remove('hidden');
-                            photoPlaceholder.classList.add('hidden');
-                            
-                            // Force re-render
-                            photoPreview.style.display = 'none';
-                            photoPreview.offsetHeight; // Trigger reflow
-                            photoPreview.style.display = 'block';
-                            
-                            // Update the CV preview
-                            updateCVPreview();
-                        };
-                        img.onerror = function() {
-                            alert('Error loading image. Please try a different image.');
-                            photoFileInput.value = '';
-                        };
-                        img.src = e.target.result;
+                        photoData = e.target.result;
+                        updateCVPreview();
+                        alert('Photo uploaded successfully!');
                     };
                     reader.onerror = function() {
                         alert('Error reading file. Please try again.');
@@ -2346,7 +2527,7 @@
                 URL.revokeObjectURL(url);
             });
             
-            // Update CV preview based on format
+            // Update CV preview based on format - FIXED PHOTO DISPLAY ISSUE
             function updateCVPreview() {
                 if (currentFormat === 'photo') {
                     // Show photo in Photo CV format
@@ -2354,13 +2535,6 @@
                         photoPreview.src = photoData;
                         photoPreview.classList.remove('hidden');
                         photoPlaceholder.classList.add('hidden');
-                        
-                        // Force re-render
-                        setTimeout(() => {
-                            photoPreview.style.display = 'none';
-                            photoPreview.offsetHeight; // Trigger reflow
-                            photoPreview.style.display = 'block';
-                        }, 100);
                     } else {
                         photoPreview.classList.add('hidden');
                         photoPlaceholder.classList.remove('hidden');
