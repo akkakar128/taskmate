@@ -1,0 +1,2976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional CV Generator - Multiple Templates & Themes</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --light-text: #7f8c8d;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            align-items: stretch;
+        }
+
+        .input-section {
+            flex: 1;
+            min-width: 400px;
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            max-height: 90vh;
+        }
+
+        .input-content {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .preview-section {
+            flex: 1;
+            min-width: 400px;
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            max-height: 90vh;
+        }
+
+        .preview-content {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        /* Theme Selector Styles */
+        .theme-selector {
+            margin-bottom: 20px;
+        }
+
+        .theme-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .theme-option {
+            height: 40px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .theme-option.selected {
+            border-color: #333;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Modern Template Themes */
+        .cv-template.modern.theme-blue {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #2980b9;
+            --light-color: #ecf0f1;
+        }
+
+        .cv-template.modern.theme-green {
+            --primary-color: #1e5631;
+            --secondary-color: #4CAF50;
+            --accent-color: #2E7D32;
+            --light-color: #E8F5E9;
+        }
+
+        .cv-template.modern.theme-purple {
+            --primary-color: #4A235A;
+            --secondary-color: #9B59B6;
+            --accent-color: #8E44AD;
+            --light-color: #F3E5F5;
+        }
+
+        .cv-template.modern.theme-dark {
+            --primary-color: #2C3E50;
+            --secondary-color: #34495E;
+            --accent-color: #7F8C8D;
+            --light-color: #ECF0F1;
+            --text-color: #2C3E50;
+        }
+
+        .cv-template.modern.theme-warm {
+            --primary-color: #8B4513;
+            --secondary-color: #D2691E;
+            --accent-color: #A0522D;
+            --light-color: #F5F5DC;
+        }
+
+        .cv-template.modern.theme-cool {
+            --primary-color: #1A5276;
+            --secondary-color: #3498DB;
+            --accent-color: #2E86C1;
+            --light-color: #EBF5FB;
+        }
+
+        /* Classic Template Themes */
+        .cv-template.classic.theme-blue {
+            --primary-color: #2c3e50;
+            --secondary-color: #7f8c8d;
+            --accent-color: #34495e;
+            --light-color: #f5f5f5;
+        }
+
+        .cv-template.classic.theme-green {
+            --primary-color: #2d501e;
+            --secondary-color: #556B2F;
+            --accent-color: #6B8E23;
+            --light-color: #F5F5DC;
+        }
+
+        .cv-template.classic.theme-brown {
+            --primary-color: #5D4037;
+            --secondary-color: #8D6E63;
+            --accent-color: #6D4C41;
+            --light-color: #EFEBE9;
+        }
+
+        .cv-template.classic.theme-dark {
+            --primary-color: #212121;
+            --secondary-color: #424242;
+            --accent-color: #616161;
+            --light-color: #F5F5F5;
+        }
+
+        .cv-template.classic.theme-burgundy {
+            --primary-color: #800020;
+            --secondary-color: #722F37;
+            --accent-color: #8B0000;
+            --light-color: #FAEBD7;
+        }
+
+        .cv-template.classic.theme-navy {
+            --primary-color: #0F4C75;
+            --secondary-color: #3282B8;
+            --accent-color: #1B262C;
+            --light-color: #F0F8FF;
+        }
+
+        /* Minimalist Template Themes */
+        .cv-template.minimalist.theme-black {
+            --primary-color: #000000;
+            --secondary-color: #666666;
+            --accent-color: #333333;
+            --light-color: #f0f0f0;
+        }
+
+        .cv-template.minimalist.theme-gray {
+            --primary-color: #424242;
+            --secondary-color: #757575;
+            --accent-color: #616161;
+            --light-color: #FAFAFA;
+        }
+
+        .cv-template.minimalist.theme-blue {
+            --primary-color: #1565C0;
+            --secondary-color: #42A5F5;
+            --accent-color: #0D47A1;
+            --light-color: #E3F2FD;
+        }
+
+        .cv-template.minimalist.theme-green {
+            --primary-color: #1B5E20;
+            --secondary-color: #4CAF50;
+            --accent-color: #2E7D32;
+            --light-color: #E8F5E9;
+        }
+
+        .cv-template.minimalist.theme-purple {
+            --primary-color: #4A148C;
+            --secondary-color: #7B1FA2;
+            --accent-color: #6A1B9A;
+            --light-color: #F3E5F5;
+        }
+
+        .cv-template.minimalist.theme-darkblue {
+            --primary-color: #0D47A1;
+            --secondary-color: #1976D2;
+            --accent-color: #1565C0;
+            --light-color: #E3F2FD;
+        }
+
+        /* Executive Template Themes */
+        .cv-template.executive.theme-blue {
+            --primary-color: #1a237e;
+            --secondary-color: #283593;
+            --accent-color: #303f9f;
+            --light-color: #e8eaf6;
+        }
+
+        .cv-template.executive.theme-navy {
+            --primary-color: #0d1b2a;
+            --secondary-color: #1b263b;
+            --accent-color: #415a77;
+            --light-color: #e0e1dd;
+        }
+
+        .cv-template.executive.theme-dark {
+            --primary-color: #212121;
+            --secondary-color: #424242;
+            --accent-color: #616161;
+            --light-color: #f5f5f5;
+        }
+
+        .cv-template.executive.theme-maroon {
+            --primary-color: #800000;
+            --secondary-color: #8B0000;
+            --accent-color: #A52A2A;
+            --light-color: #FAEBD7;
+        }
+
+        .cv-template.executive.theme-forest {
+            --primary-color: #1B4332;
+            --secondary-color: #2D6A4F;
+            --accent-color: #40916C;
+            --light-color: #D8F3DC;
+        }
+
+        .cv-template.executive.theme-slate {
+            --primary-color: #374151;
+            --secondary-color: #4B5563;
+            --accent-color: #6B7280;
+            --light-color: #F9FAFB;
+        }
+
+        .upload-area {
+            border: 2px dashed var(--light-text);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .upload-area:hover {
+            border-color: var(--secondary-color);
+            background-color: rgba(52, 152, 219, 0.05);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            color: var(--light-text);
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: var(--transition);
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* Template Selection */
+        .template-selector {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .template-option {
+            border: 2px solid #ddd;
+            border-radius: var(--border-radius);
+            padding: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .template-option.selected {
+            border-color: var(--secondary-color);
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+
+        .template-option h3 {
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .template-option p {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .template-preview {
+            height: 120px;
+            background: #f8f9fa;
+            margin: 10px 0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .template-preview-content {
+            width: 80%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .template-preview-line {
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+        }
+
+        .template-preview-line.short {
+            width: 60%;
+        }
+
+        .template-preview-line.medium {
+            width: 80%;
+        }
+
+        /* Base CV Template Styles */
+        .cv-template {
+            background: white;
+            min-height: 800px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            position: relative;
+        }
+
+        /* Template 1: Modern */
+        .cv-template.modern {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .cv-template.modern .cv-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .cv-template.modern .personal-info {
+            flex: 1;
+        }
+
+        .cv-template.modern .personal-info h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .cv-template.modern .personal-info h3 {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .cv-template.modern .contact-info p {
+            margin-bottom: 5px;
+            color: var(--light-text);
+        }
+
+        .cv-template.modern .photo-container {
+            width: 150px;
+            height: 180px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #f9f9f9;
+            flex-shrink: 0;
+            margin-left: 30px;
+            position: relative;
+        }
+
+        .cv-template.modern .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-text);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 10px;
+            line-height: 1.4;
+            border-radius: 10px;
+        }
+
+        .cv-template.modern .photo-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 10px;
+        }
+
+        .cv-template.modern .cv-section {
+            margin-bottom: 25px;
+        }
+
+        .cv-template.modern .cv-section-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+            position: relative;
+        }
+
+        .cv-template.modern .cv-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary-color);
+        }
+
+        .cv-template.modern .experience-item, 
+        .cv-template.modern .education-item {
+            margin-bottom: 20px;
+        }
+
+        .cv-template.modern .item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .cv-template.modern .item-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .cv-template.modern .item-date {
+            color: var(--light-text);
+            font-style: italic;
+        }
+
+        .cv-template.modern .item-subtitle {
+            font-weight: 500;
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+        }
+
+        .cv-template.modern .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cv-template.modern .skill-tag {
+            background: var(--light-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .cv-template.modern .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Template 2: Classic */
+        .cv-template.classic {
+            font-family: 'Georgia', serif;
+            background: #fefefe;
+            border: 1px solid #e0e0e0;
+        }
+
+        .cv-template.classic .cv-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #d0d0d0;
+        }
+
+        .cv-template.classic .personal-info h2 {
+            font-size: 2.4rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .cv-template.classic .personal-info h3 {
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-weight: 400;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .cv-template.classic .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .cv-template.classic .contact-info p {
+            margin-bottom: 0;
+            color: #555;
+        }
+
+        .cv-template.classic .photo-container {
+            width: 140px;
+            height: 170px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px auto 15px; /* Added margin for spacing */
+            background-color: #f9f9f9;
+            position: relative;
+        }
+
+        .cv-template.classic .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-text);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 10px;
+            line-height: 1.4;
+            border-radius: 8px;
+        }
+
+        .cv-template.classic .photo-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 8px;
+        }
+
+        .cv-template.classic .cv-section {
+            margin-bottom: 25px;
+        }
+
+        .cv-template.classic .cv-section-title {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #d0d0d0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cv-template.classic .experience-item, 
+        .cv-template.classic .education-item {
+            margin-bottom: 20px;
+        }
+
+        .cv-template.classic .item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .cv-template.classic .item-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .cv-template.classic .item-date {
+            color: var(--secondary-color);
+        }
+
+        .cv-template.classic .item-subtitle {
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .cv-template.classic .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .cv-template.classic .skill-tag {
+            background: var(--light-color);
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-size: 0.9rem;
+            border: 1px solid #e0e0e0;
+            color: var(--primary-color);
+        }
+
+        /* Template 3: Minimalist */
+        .cv-template.minimalist {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: #fff;
+        }
+
+        .cv-template.minimalist .cv-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .cv-template.minimalist .personal-info h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .cv-template.minimalist .personal-info h3 {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .cv-template.minimalist .contact-info p {
+            margin-bottom: 5px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .cv-template.minimalist .photo-container {
+            width: 120px;
+            height: 150px;
+            border-radius: 6px;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            position: relative;
+        }
+
+        .cv-template.minimalist .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-text);
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 10px;
+            line-height: 1.4;
+            border-radius: 6px;
+        }
+
+        .cv-template.minimalist .photo-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 6px;
+        }
+
+        .cv-template.minimalist .cv-section {
+            margin-bottom: 25px;
+        }
+
+        .cv-template.minimalist .cv-section-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cv-template.minimalist .experience-item, 
+        .cv-template.minimalist .education-item {
+            margin-bottom: 20px;
+        }
+
+        .cv-template.minimalist .item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .cv-template.minimalist .item-title {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--primary-color);
+        }
+
+        .cv-template.minimalist .item-date {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .cv-template.minimalist .item-subtitle {
+            font-weight: 500;
+            color: #666;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .cv-template.minimalist .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .cv-template.minimalist .skill-tag {
+            background: var(--light-color);
+            padding: 4px 10px;
+            border-radius: 2px;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+        }
+
+        .cv-template.minimalist p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Template 4: Executive */
+        .cv-template.executive {
+            font-family: 'Times New Roman', Times, serif;
+            background: #fff;
+        }
+
+        .cv-template.executive .cv-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .cv-template.executive .personal-info {
+            flex: 1;
+        }
+
+        .cv-template.executive .personal-info h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .cv-template.executive .personal-info h3 {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .cv-template.executive .contact-info p {
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .cv-template.executive .photo-container {
+            width: 140px;
+            height: 170px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #f9f9f9;
+            position: relative;
+        }
+
+        .cv-template.executive .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-text);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 10px;
+            line-height: 1.4;
+            border-radius: 8px;
+        }
+
+        .cv-template.executive .photo-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 8px;
+        }
+
+        .cv-template.executive .cv-section {
+            margin-bottom: 25px;
+        }
+
+        .cv-template.executive .cv-section-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #e0e0e0;
+            font-weight: 600;
+        }
+
+        .cv-template.executive .experience-item, 
+        .cv-template.executive .education-item {
+            margin-bottom: 20px;
+        }
+
+        .cv-template.executive .item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .cv-template.executive .item-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .cv-template.executive .item-date {
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+
+        .cv-template.executive .item-subtitle {
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .cv-template.executive .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .cv-template.executive .skill-tag {
+            background: var(--light-color);
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-size: 0.9rem;
+            border: 1px solid #e0e0e0;
+            color: var(--primary-color);
+        }
+
+        .cv-template.executive .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* International CV Format - Hide Photo */
+        .cv-template.international .photo-container {
+            display: none !important;
+            visibility: hidden !important;
+            width: 0 !important;
+            height: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+        }
+
+        .cv-template.international .cv-header {
+            display: block !important;
+        }
+
+        .cv-template.international.modern .cv-header,
+        .cv-template.international.minimalist .cv-header,
+        .cv-template.international.executive .cv-header {
+            display: block !important;
+        }
+
+        .cv-template.international.modern .personal-info,
+        .cv-template.international.minimalist .personal-info,
+        .cv-template.international.executive .personal-info {
+            width: 100% !important;
+        }
+
+        /* Format selector */
+        .format-selector {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .format-option {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .format-option.selected {
+            border-color: var(--secondary-color);
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+
+        .format-option h3 {
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .format-option p {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .photo-upload-area {
+            border: 2px dashed var(--light-text);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 15px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .photo-upload-area:hover {
+            border-color: var(--secondary-color);
+            background-color: rgba(52, 152, 219, 0.05);
+        }
+
+        .photo-upload-icon {
+            font-size: 2rem;
+            color: var(--light-text);
+            margin-bottom: 10px;
+        }
+
+        .photo-size-info {
+            font-size: 0.8rem;
+            color: var(--light-text);
+            margin-top: 5px;
+        }
+
+        .photo-error {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .json-examples {
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .json-examples h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .json-example-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-example {
+            background: var(--light-color);
+            color: var(--primary-color);
+            border: 1px solid #ddd;
+        }
+
+        .btn-example:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .download-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-download {
+            background: var(--primary-color);
+        }
+
+        .btn-download:hover {
+            background: var(--dark-color);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .dynamic-list {
+            margin-top: 15px;
+        }
+
+        .dynamic-item {
+            background: var(--light-color);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .remove-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .add-btn {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 8px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .sticky-footer {
+            position: sticky;
+            bottom: 0;
+            background: white;
+            padding: 15px 0;
+            border-top: 1px solid #eee;
+            margin-top: 20px;
+        }
+
+        .json-upload-info {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--light-text);
+            text-align: center;
+        }
+
+        /* Print styles for all templates - FIXED FOR INTERNATIONAL CV */
+        @media print {
+            @page {
+                margin: 0.5in;
+                size: A4;
+            }
+
+            body, html {
+                height: auto;
+                overflow: visible !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: white !important;
+                width: 100% !important;
+            }
+
+            body * {
+                visibility: hidden;
+            }
+            
+            .preview-section, .preview-section * {
+                visibility: visible;
+            }
+            
+            .preview-section {
+                position: static !important;
+                left: auto !important;
+                top: auto !important;
+                width: 100% !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                height: auto !important;
+                background: white !important;
+                page-break-inside: avoid;
+            }
+            
+            .container {
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            .main-content {
+                display: block !important;
+                width: 100% !important;
+            }
+            
+            .btn, .input-section, .download-options, header, .json-examples, .upload-area, .format-selector, .template-selector, .section-title.no-print, .no-print, .theme-selector {
+                display: none !important;
+            }
+            
+            .cv-template {
+                box-shadow: none !important;
+                padding: 30px !important; /* Added padding for print */
+                margin: 0 !important;
+                min-height: auto !important;
+                page-break-after: avoid !important;
+                page-break-inside: avoid !important;
+                height: auto !important;
+                background: white !important;
+                width: 100% !important;
+            }
+            
+            /* FIXED: Apply theme colors to print/PDF */
+            .cv-template.modern.theme-blue {
+                --primary-color: #2c3e50 !important;
+                --secondary-color: #3498db !important;
+                --accent-color: #2980b9 !important;
+                --light-color: #ecf0f1 !important;
+            }
+
+            .cv-template.modern.theme-green {
+                --primary-color: #1e5631 !important;
+                --secondary-color: #4CAF50 !important;
+                --accent-color: #2E7D32 !important;
+                --light-color: #E8F5E9 !important;
+            }
+
+            .cv-template.modern.theme-purple {
+                --primary-color: #4A235A !important;
+                --secondary-color: #9B59B6 !important;
+                --accent-color: #8E44AD !important;
+                --light-color: #F3E5F5 !important;
+            }
+
+            .cv-template.modern.theme-dark {
+                --primary-color: #2C3E50 !important;
+                --secondary-color: #34495E !important;
+                --accent-color: #7F8C8D !important;
+                --light-color: #ECF0F1 !important;
+            }
+
+            .cv-template.modern.theme-warm {
+                --primary-color: #8B4513 !important;
+                --secondary-color: #D2691E !important;
+                --accent-color: #A0522D !important;
+                --light-color: #F5F5DC !important;
+            }
+
+            .cv-template.modern.theme-cool {
+                --primary-color: #1A5276 !important;
+                --secondary-color: #3498DB !important;
+                --accent-color: #2E86C1 !important;
+                --light-color: #EBF5FB !important;
+            }
+
+            /* Classic Template Themes for Print */
+            .cv-template.classic.theme-blue {
+                --primary-color: #2c3e50 !important;
+                --secondary-color: #7f8c8d !important;
+                --accent-color: #34495e !important;
+                --light-color: #f5f5f5 !important;
+            }
+
+            .cv-template.classic.theme-green {
+                --primary-color: #2d501e !important;
+                --secondary-color: #556B2F !important;
+                --accent-color: #6B8E23 !important;
+                --light-color: #F5F5DC !important;
+            }
+
+            .cv-template.classic.theme-brown {
+                --primary-color: #5D4037 !important;
+                --secondary-color: #8D6E63 !important;
+                --accent-color: #6D4C41 !important;
+                --light-color: #EFEBE9 !important;
+            }
+
+            .cv-template.classic.theme-dark {
+                --primary-color: #212121 !important;
+                --secondary-color: #424242 !important;
+                --accent-color: #616161 !important;
+                --light-color: #F5F5F5 !important;
+            }
+
+            .cv-template.classic.theme-burgundy {
+                --primary-color: #800020 !important;
+                --secondary-color: #722F37 !important;
+                --accent-color: #8B0000 !important;
+                --light-color: #FAEBD7 !important;
+            }
+
+            .cv-template.classic.theme-navy {
+                --primary-color: #0F4C75 !important;
+                --secondary-color: #3282B8 !important;
+                --accent-color: #1B262C !important;
+                --light-color: #F0F8FF !important;
+            }
+
+            /* Minimalist Template Themes for Print */
+            .cv-template.minimalist.theme-black {
+                --primary-color: #000000 !important;
+                --secondary-color: #666666 !important;
+                --accent-color: #333333 !important;
+                --light-color: #f0f0f0 !important;
+            }
+
+            .cv-template.minimalist.theme-gray {
+                --primary-color: #424242 !important;
+                --secondary-color: #757575 !important;
+                --accent-color: #616161 !important;
+                --light-color: #FAFAFA !important;
+            }
+
+            .cv-template.minimalist.theme-blue {
+                --primary-color: #1565C0 !important;
+                --secondary-color: #42A5F5 !important;
+                --accent-color: #0D47A1 !important;
+                --light-color: #E3F2FD !important;
+            }
+
+            .cv-template.minimalist.theme-green {
+                --primary-color: #1B5E20 !important;
+                --secondary-color: #4CAF50 !important;
+                --accent-color: #2E7D32 !important;
+                --light-color: #E8F5E9 !important;
+            }
+
+            .cv-template.minimalist.theme-purple {
+                --primary-color: #4A148C !important;
+                --secondary-color: #7B1FA2 !important;
+                --accent-color: #6A1B9A !important;
+                --light-color: #F3E5F5 !important;
+            }
+
+            .cv-template.minimalist.theme-darkblue {
+                --primary-color: #0D47A1 !important;
+                --secondary-color: #1976D2 !important;
+                --accent-color: #1565C0 !important;
+                --light-color: #E3F2FD !important;
+            }
+
+            /* Executive Template Themes for Print */
+            .cv-template.executive.theme-blue {
+                --primary-color: #1a237e !important;
+                --secondary-color: #283593 !important;
+                --accent-color: #303f9f !important;
+                --light-color: #e8eaf6 !important;
+            }
+
+            .cv-template.executive.theme-navy {
+                --primary-color: #0d1b2a !important;
+                --secondary-color: #1b263b !important;
+                --accent-color: #415a77 !important;
+                --light-color: #e0e1dd !important;
+            }
+
+            .cv-template.executive.theme-dark {
+                --primary-color: #212121 !important;
+                --secondary-color: #424242 !important;
+                --accent-color: #616161 !important;
+                --light-color: #f5f5f5 !important;
+            }
+
+            .cv-template.executive.theme-maroon {
+                --primary-color: #800000 !important;
+                --secondary-color: #8B0000 !important;
+                --accent-color: #A52A2A !important;
+                --light-color: #FAEBD7 !important;
+            }
+
+            .cv-template.executive.theme-forest {
+                --primary-color: #1B4332 !important;
+                --secondary-color: #2D6A4F !important;
+                --accent-color: #40916C !important;
+                --light-color: #D8F3DC !important;
+            }
+
+            .cv-template.executive.theme-slate {
+                --primary-color: #374151 !important;
+                --secondary-color: #4B5563 !important;
+                --accent-color: #6B7280 !important;
+                --light-color: #F9FAFB !important;
+            }
+            
+            /* Apply theme colors to print elements */
+            .cv-template .personal-info h2,
+            .cv-template .personal-info h3,
+            .cv-template .cv-section-title,
+            .cv-template .item-title,
+            .cv-template .item-subtitle,
+            .cv-template .skill-tag {
+                color: var(--primary-color) !important;
+            }
+            
+            .cv-template .cv-section-title::after,
+            .cv-template .item-date,
+            .cv-template .contact-info p {
+                color: var(--secondary-color) !important;
+            }
+            
+            .cv-template .skill-tag {
+                background: var(--light-color) !important;
+            }
+            
+            .cv-template.modern .cv-header {
+                border-bottom-color: var(--secondary-color) !important;
+            }
+            
+            .cv-template.modern .cv-section-title::after {
+                background: var(--secondary-color) !important;
+            }
+            
+            .cv-template.executive .cv-header {
+                border-bottom-color: var(--primary-color) !important;
+            }
+
+            /* CRITICAL FIX: Hide photo container in international format for print */
+            .cv-template.international .photo-container {
+                display: none !important;
+                visibility: hidden !important;
+                width: 0 !important;
+                height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                border: none !important;
+            }
+            
+            /* For international CV, ensure header layout is proper */
+            .cv-template.international .cv-header {
+                display: block !important;
+            }
+            
+            .cv-template.international.modern .cv-header,
+            .cv-template.international.minimalist .cv-header,
+            .cv-template.international.executive .cv-header {
+                display: block !important;
+            }
+            
+            .cv-template.international.modern .personal-info,
+            .cv-template.international.minimalist .personal-info,
+            .cv-template.international.executive .personal-info {
+                width: 100% !important;
+            }
+            
+            /* Photo positioning for print in Modern, Minimalist, Executive templates (Photo CV only) */
+            .cv-template.modern:not(.international) .cv-header,
+            .cv-template.minimalist:not(.international) .cv-header,
+            .cv-template.executive:not(.international) .cv-header {
+                position: relative !important;
+                display: block !important;
+                margin-bottom: 20px !important;
+                padding-bottom: 15px !important;
+                border-bottom: 2px solid var(--secondary-color) !important;
+            }
+            
+            .cv-template.modern:not(.international) .personal-info,
+            .cv-template.minimalist:not(.international) .personal-info,
+            .cv-template.executive:not(.international) .personal-info {
+                width: 65% !important;
+                display: block !important;
+            }
+            
+            .cv-template.modern:not(.international) .photo-container,
+            .cv-template.minimalist:not(.international) .photo-container,
+            .cv-template.executive:not(.international) .photo-container {
+                position: absolute !important;
+                top: 0 !important;
+                right: 0 !important;
+                width: 120px !important;
+                height: 150px !important;
+                border: 1px solid #ccc !important;
+                border-radius: 8px !important; /* Added border radius for print */
+                margin: 0 !important;
+                display: block !important;
+                overflow: hidden !important;
+                background: white !important;
+            }
+            
+            .cv-template.modern:not(.international) .photo-preview,
+            .cv-template.minimalist:not(.international) .photo-preview,
+            .cv-template.executive:not(.international) .photo-preview {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+                object-position: center !important;
+                border-radius: 8px !important; /* Added border radius for print */
+            }
+            
+            .cv-template.modern:not(.international) .photo-placeholder,
+            .cv-template.minimalist:not(.international) .photo-placeholder,
+            .cv-template.executive:not(.international) .photo-placeholder {
+                display: none !important;
+            }
+            
+            /* Classic template - keep centered photo for print (Photo CV only) with margin */
+            .cv-template.classic:not(.international) .cv-header {
+                text-align: center !important;
+            }
+            
+            .cv-template.classic:not(.international) .photo-container {
+                display: block !important;
+                margin: 20px auto 15px !important; /* Added margin for print */
+                width: 120px !important;
+                height: 150px !important;
+                border-radius: 8px !important; /* Added border radius for print */
+            }
+            
+            .cv-template.classic:not(.international) .photo-preview {
+                object-fit: cover !important;
+                object-position: center !important;
+            }
+            
+            .cv-template.classic:not(.international) .photo-placeholder {
+                display: none !important;
+            }
+            
+            /* Ensure proper spacing for print */
+            .cv-section {
+                page-break-inside: avoid;
+                margin-bottom: 20px !important; /* Added margin for print */
+            }
+            
+            .experience-item, .education-item {
+                page-break-inside: avoid;
+                margin-bottom: 15px !important; /* Added margin for print */
+            }
+            
+            /* Prevent page breaks in the middle of important sections */
+            .cv-header {
+                page-break-after: avoid;
+            }
+            
+            /* Added padding for text elements in print */
+            .cv-template p, 
+            .cv-template .item-title, 
+            .cv-template .item-subtitle, 
+            .cv-template .item-date,
+            .cv-template .contact-info p {
+                padding: 0 5px !important; /* Added padding for text elements */
+            }
+            
+            .cv-template .cv-section-title {
+                padding: 0 5px 5px 5px !important; /* Added padding for section titles */
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .main-content {
+                gap: 20px;
+            }
+            .input-section, .preview-section {
+                min-width: 350px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .main-content {
+                flex-direction: column;
+            }
+            .input-section, .preview-section {
+                width: 100%;
+                min-width: 100%;
+                max-height: none;
+            }
+            .input-content, .preview-content {
+                overflow-y: visible;
+            }
+            .template-selector {
+                grid-template-columns: 1fr;
+            }
+            .cv-template.modern .cv-header,
+            .cv-template.minimalist .cv-header,
+            .cv-template.executive .cv-header {
+                flex-direction: column;
+            }
+            .cv-template.modern .photo-container,
+            .cv-template.minimalist .photo-container,
+            .cv-template.executive .photo-container {
+                margin-left: 0;
+                margin-top: 15px;
+                align-self: flex-start;
+            }
+            .contact-info {
+                text-align: left;
+                margin-top: 15px;
+            }
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            header {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .input-section, .preview-section {
+                padding: 15px;
+            }
+            .cv-template {
+                padding: 20px;
+            }
+            .personal-info h2 {
+                font-size: 1.8rem;
+            }
+            .personal-info h3 {
+                font-size: 1.1rem;
+            }
+            .download-options {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            .format-selector {
+                flex-direction: column;
+            }
+            .json-example-buttons {
+                flex-direction: column;
+            }
+            .theme-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            .subtitle {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+            .cv-section-title {
+                font-size: 1.1rem;
+            }
+            .item-header {
+                flex-direction: column;
+            }
+            .item-date {
+                margin-top: 5px;
+            }
+            .cv-template.modern .photo-container,
+            .cv-template.classic .photo-container,
+            .cv-template.minimalist .photo-container,
+            .cv-template.executive .photo-container {
+                width: 120px;
+                height: 150px;
+            }
+            .theme-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="no-print">
+            <h1>Professional CV Generator</h1>
+            <p class="subtitle">Create a polished CV with multiple templates, themes and formats</p>
+        </header>
+
+        <div class="main-content">
+            <div class="input-section no-print">
+                <div class="input-content">
+                    <h2 class="section-title">Input Your Data</h2>
+                    
+                    <div class="template-selector">
+                        <div class="template-option selected" data-template="modern">
+                            <h3>Modern</h3>
+                            <p>Clean, professional design with accent colors</p>
+                            <div class="template-preview">
+                                <div class="template-preview-content">
+                                    <div class="template-preview-line" style="background: #2c3e50;"></div>
+                                    <div class="template-preview-line short" style="background: #3498db;"></div>
+                                    <div class="template-preview-line medium"></div>
+                                    <div class="template-preview-line"></div>
+                                    <div class="template-preview-line short"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="template-option" data-template="classic">
+                            <h3>Classic</h3>
+                            <p>Traditional, elegant layout with centered header</p>
+                            <div class="template-preview">
+                                <div class="template-preview-content">
+                                    <div class="template-preview-line" style="background: #2c3e50;"></div>
+                                    <div class="template-preview-line short" style="background: #7f8c8d;"></div>
+                                    <div class="template-preview-line medium"></div>
+                                    <div class="template-preview-line"></div>
+                                    <div class="template-preview-line short"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="template-option" data-template="minimalist">
+                            <h3>Minimalist</h3>
+                            <p>Simple, clean design with maximum readability</p>
+                            <div class="template-preview">
+                                <div class="template-preview-content">
+                                    <div class="template-preview-line" style="background: #000;"></div>
+                                    <div class="template-preview-line short" style="background: #666;"></div>
+                                    <div class="template-preview-line medium"></div>
+                                    <div class="template-preview-line"></div>
+                                    <div class="template-preview-line short"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="template-option" data-template="executive">
+                            <h3>Executive</h3>
+                            <p>Professional layout suitable for senior roles</p>
+                            <div class="template-preview">
+                                <div class="template-preview-content">
+                                    <div class="template-preview-line" style="background: #2c3e50;"></div>
+                                    <div class="template-preview-line short" style="background: #7f8c8d;"></div>
+                                    <div class="template-preview-line medium"></div>
+                                    <div class="template-preview-line"></div>
+                                    <div class="template-preview-line short"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="theme-selector">
+                        <h3 class="section-title">Choose Theme</h3>
+                        <div class="theme-options" id="themeOptions">
+                            <!-- Theme options will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="format-selector">
+                        <div class="format-option selected" id="photoFormat">
+                            <h3>Photo CV</h3>
+                            <p>Includes photo</p>
+                        </div>
+                        <div class="format-option" id="internationalFormat">
+                            <h3>International CV</h3>
+                            <p>No photo</p>
+                        </div>
+                    </div>
+                    
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-icon">📄</div>
+                        <h3>Upload JSON File</h3>
+                        <p>Drag & drop or click to upload your CV data as JSON</p>
+                        <input type="file" id="jsonFile" accept=".json" class="hidden">
+                    </div>
+                    <p class="json-upload-info">Use the JSON format shown in the example below</p>
+                    
+                    <div class="json-examples">
+                        <h3>Don't know JSON format? Download example:</h3>
+                        <div class="json-example-buttons">
+                            <button id="downloadExample" class="btn btn-example">Download <span id="currentFormatText">Photo</span> Format Example</button>
+                        </div>
+                    </div>
+                    
+                    <p style="text-align: center; margin: 15px 0; color: var(--light-text);">- OR -</p>
+                    
+                    <form id="cvForm">
+                        <div id="photoUploadSection">
+                            <div class="form-group">
+                                <label>Professional Photo (Photo CV)</label>
+                                <div class="photo-upload-area" id="photoUploadArea">
+                                    <div class="photo-upload-icon">📷</div>
+                                    <h4>Upload Your Photo</h4>
+                                    <p>Click to select a photo (Max: 200KB)</p>
+                                    <input type="file" id="photoFile" accept="image/*" class="hidden">
+                                </div>
+                                <p class="photo-size-info">Recommended size: 150x180 pixels, Max file size: 200KB</p>
+                                <p class="photo-error" id="photoError">File size exceeds 200KB limit. Please choose a smaller image.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" placeholder="John Doe" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="jobTitle">Professional Title</label>
+                            <input type="text" id="jobTitle" placeholder="e.g., Marketing Manager, Software Engineer, Nurse" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="john.doe@example.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" placeholder="+1 (555) 123-4567">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" placeholder="New York, NY">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="linkedin">LinkedIn Profile</label>
+                            <input type="url" id="linkedin" placeholder="https://linkedin.com/in/johndoe">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="github">GitHub Profile</label>
+                            <input type="url" id="github" placeholder="https://github.com/username">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="portfolio">Portfolio/Website</label>
+                            <input type="url" id="portfolio" placeholder="https://johndoe.dev">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="summary">Professional Summary</label>
+                            <textarea id="summary" placeholder="Brief overview of your experience, skills, and career goals..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="skills">Skills (comma separated)</label>
+                            <textarea id="skills" placeholder="Project Management, Data Analysis, Customer Service, Team Leadership"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="languages">Languages (comma separated, with proficiency if needed)</label>
+                            <textarea id="languages" placeholder="English (Native), Spanish (Intermediate), French (Basic)"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Professional Experience</label>
+                            <div id="experienceList" class="dynamic-list">
+                                <!-- Experience items will be added here dynamically -->
+                            </div>
+                            <button type="button" id="addExperience" class="add-btn">+ Add Experience</button>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Education</label>
+                            <div id="educationList" class="dynamic-list">
+                                <!-- Education items will be added here dynamically -->
+                            </div>
+                            <button type="button" id="addEducation" class="add-btn">+ Add Education</button>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="certifications">Certifications (comma separated)</label>
+                            <textarea id="certifications" placeholder="PMP, Google Analytics, Salesforce Administrator"></textarea>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="sticky-footer">
+                    <button type="button" id="generateBtn" class="btn btn-block">Generate CV</button>
+                </div>
+            </div>
+            
+            <div class="preview-section">
+                <div class="preview-content">
+                    <h2 class="section-title no-print">CV Preview</h2>
+                    
+                    <div class="cv-template modern theme-blue" id="cvPreview">
+                        <div class="cv-header">
+                            <div class="personal-info">
+                                <h2 id="previewName">Your Name</h2>
+                                <h3 id="previewTitle">Professional Title</h3>
+                                <div class="contact-info">
+                                    <p id="previewEmail">email@example.com</p>
+                                    <p id="previewPhone">+1 (555) 123-4567</p>
+                                    <p id="previewLocation">City, State</p>
+                                    <p id="previewLinkedIn">linkedin.com/in/username</p>
+                                    <p id="previewGithub">github.com/username</p>
+                                    <p id="previewPortfolio">yourwebsite.com</p>
+                                </div>
+                            </div>
+                            <div class="photo-container">
+                                <div class="photo-placeholder" id="photoPlaceholder">
+                                    Professional Photo<br>(150x180 px)
+                                </div>
+                                <img id="photoPreview" class="photo-preview hidden" src="" alt="Professional Photo">
+                            </div>
+                        </div>
+                        
+                        <div class="cv-section">
+                            <h3 class="cv-section-title">Professional Summary</h3>
+                            <p id="previewSummary">Your professional summary will appear here. This should be a brief overview of your experience, skills, and career goals.</p>
+                        </div>
+                        
+                        <div class="two-column">
+                            <div class="cv-section">
+                                <h3 class="cv-section-title">Skills</h3>
+                                <div class="skills-list" id="previewSkills">
+                                    <div class="skill-tag">Sample Skill 1</div>
+                                    <div class="skill-tag">Sample Skill 2</div>
+                                    <div class="skill-tag">Sample Skill 3</div>
+                                </div>
+                            </div>
+                            
+                            <div class="cv-section">
+                                <h3 class="cv-section-title">Languages</h3>
+                                <div class="skills-list" id="previewLanguages">
+                                    <div class="skill-tag">English (Native)</div>
+                                    <div class="skill-tag">Spanish (Intermediate)</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="cv-section">
+                            <h3 class="cv-section-title">Professional Experience</h3>
+                            <div id="previewExperience">
+                                <div class="experience-item">
+                                    <div class="item-header">
+                                        <div class="item-title">Job Title</div>
+                                        <div class="item-date">Jan 2020 - Present</div>
+                                    </div>
+                                    <div class="item-subtitle">Company Name, Location</div>
+                                    <p>Brief description of your responsibilities and achievements in this role.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="cv-section">
+                            <h3 class="cv-section-title">Education</h3>
+                            <div id="previewEducation">
+                                <div class="education-item">
+                                    <div class="item-header">
+                                        <div class="item-title">Degree Name</div>
+                                        <div class="item-date">2016 - 2020</div>
+                                    </div>
+                                    <div class="item-subtitle">University Name, Location</div>
+                                    <p>Additional details about your education, honors, or relevant coursework.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="cv-section">
+                            <h3 class="cv-section-title">Certifications</h3>
+                            <div class="skills-list" id="previewCertifications">
+                                <div class="skill-tag">Sample Certification 1</div>
+                                <div class="skill-tag">Sample Certification 2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="download-options no-print">
+                    <button id="printBtn" class="btn btn-download">Print CV</button>
+                    <button id="pdfBtn" class="btn btn-download">Save as PDF</button>
+                    <button id="exportJsonBtn" class="btn btn-download">Export JSON</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const jsonFileInput = document.getElementById('jsonFile');
+            const uploadArea = document.getElementById('uploadArea');
+            const generateBtn = document.getElementById('generateBtn');
+            const printBtn = document.getElementById('printBtn');
+            const pdfBtn = document.getElementById('pdfBtn');
+            const exportJsonBtn = document.getElementById('exportJsonBtn');
+            const form = document.getElementById('cvForm');
+            const addExperienceBtn = document.getElementById('addExperience');
+            const addEducationBtn = document.getElementById('addEducation');
+            const experienceList = document.getElementById('experienceList');
+            const educationList = document.getElementById('educationList');
+            const photoFormat = document.getElementById('photoFormat');
+            const internationalFormat = document.getElementById('internationalFormat');
+            const photoUploadArea = document.getElementById('photoUploadArea');
+            const photoFileInput = document.getElementById('photoFile');
+            const photoPreview = document.getElementById('photoPreview');
+            const photoPlaceholder = document.getElementById('photoPlaceholder');
+            const photoError = document.getElementById('photoError');
+            const photoUploadSection = document.getElementById('photoUploadSection');
+            const cvPreview = document.getElementById('cvPreview');
+            const downloadExample = document.getElementById('downloadExample');
+            const currentFormatText = document.getElementById('currentFormatText');
+            const templateOptions = document.querySelectorAll('.template-option');
+            const themeOptionsContainer = document.getElementById('themeOptions');
+            
+            let experienceCount = 0;
+            let educationCount = 0;
+            let currentFormat = 'photo';
+            let currentTemplate = 'modern';
+            let currentTheme = 'blue';
+            let photoData = null;
+            
+            // Theme definitions for each template
+            const themes = {
+                modern: [
+                    { id: 'blue', name: 'Blue', color: '#3498db' },
+                    { id: 'green', name: 'Green', color: '#4CAF50' },
+                    { id: 'purple', name: 'Purple', color: '#9B59B6' },
+                    { id: 'dark', name: 'Dark', color: '#2C3E50' },
+                    { id: 'warm', name: 'Warm', color: '#D2691E' },
+                    { id: 'cool', name: 'Cool', color: '#3498DB' }
+                ],
+                classic: [
+                    { id: 'blue', name: 'Blue', color: '#7f8c8d' },
+                    { id: 'green', name: 'Green', color: '#556B2F' },
+                    { id: 'brown', name: 'Brown', color: '#8D6E63' },
+                    { id: 'dark', name: 'Dark', color: '#424242' },
+                    { id: 'burgundy', name: 'Burgundy', color: '#722F37' },
+                    { id: 'navy', name: 'Navy', color: '#3282B8' }
+                ],
+                minimalist: [
+                    { id: 'black', name: 'Black', color: '#000000' },
+                    { id: 'gray', name: 'Gray', color: '#757575' },
+                    { id: 'blue', name: 'Blue', color: '#42A5F5' },
+                    { id: 'green', name: 'Green', color: '#4CAF50' },
+                    { id: 'purple', name: 'Purple', color: '#7B1FA2' },
+                    { id: 'darkblue', name: 'Dark Blue', color: '#1976D2' }
+                ],
+                executive: [
+                    { id: 'blue', name: 'Blue', color: '#283593' },
+                    { id: 'navy', name: 'Navy', color: '#1b263b' },
+                    { id: 'dark', name: 'Dark', color: '#424242' },
+                    { id: 'maroon', name: 'Maroon', color: '#8B0000' },
+                    { id: 'forest', name: 'Forest', color: '#2D6A4F' },
+                    { id: 'slate', name: 'Slate', color: '#4B5563' }
+                ]
+            };
+            
+            // Initialize theme options
+            function initializeThemes() {
+                updateThemeOptions();
+            }
+            
+            // Update theme options based on current template
+            function updateThemeOptions() {
+                themeOptionsContainer.innerHTML = '';
+                const templateThemes = themes[currentTemplate];
+                
+                templateThemes.forEach(theme => {
+                    const themeOption = document.createElement('div');
+                    themeOption.className = `theme-option ${currentTheme === theme.id ? 'selected' : ''}`;
+                    themeOption.setAttribute('data-theme', theme.id);
+                    themeOption.style.backgroundColor = theme.color;
+                    themeOption.textContent = theme.name;
+                    themeOption.addEventListener('click', function() {
+                        currentTheme = theme.id;
+                        updateThemeSelection();
+                        updateCVTemplate();
+                    });
+                    themeOptionsContainer.appendChild(themeOption);
+                });
+            }
+            
+            // Update theme selection UI
+            function updateThemeSelection() {
+                const themeOptions = document.querySelectorAll('.theme-option');
+                themeOptions.forEach(option => {
+                    if (option.getAttribute('data-theme') === currentTheme) {
+                        option.classList.add('selected');
+                    } else {
+                        option.classList.remove('selected');
+                    }
+                });
+            }
+            
+            // Template selection handler
+            templateOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    templateOptions.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    currentTemplate = this.getAttribute('data-template');
+                    // Reset to default theme when template changes
+                    currentTheme = 'blue';
+                    updateThemeOptions();
+                    updateCVTemplate();
+                });
+            });
+            
+            // Format selection handler
+            photoFormat.addEventListener('click', function() {
+                photoFormat.classList.add('selected');
+                internationalFormat.classList.remove('selected');
+                currentFormat = 'photo';
+                currentFormatText.textContent = 'Photo';
+                photoUploadSection.style.display = 'block';
+                updateCVTemplate();
+            });
+            
+            internationalFormat.addEventListener('click', function() {
+                internationalFormat.classList.add('selected');
+                photoFormat.classList.remove('selected');
+                currentFormat = 'international';
+                currentFormatText.textContent = 'International';
+                photoUploadSection.style.display = 'none';
+                updateCVTemplate();
+            });
+            
+            // Update CV template
+            function updateCVTemplate() {
+                let templateClass = `cv-template ${currentTemplate} theme-${currentTheme}`;
+                if (currentFormat === 'international') {
+                    templateClass += ' international';
+                }
+                cvPreview.className = templateClass;
+                updateCVPreview();
+            }
+            
+            // Upload area click handler
+            uploadArea.addEventListener('click', function() {
+                jsonFileInput.click();
+            });
+            
+            // Photo upload area click handler
+            photoUploadArea.addEventListener('click', function() {
+                photoFileInput.click();
+            });
+            
+            // Photo file input handler - FIXED PHOTO UPLOAD ISSUE
+            photoFileInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    // Check file size (max 200KB)
+                    if (file.size > 200 * 1024) {
+                        photoError.style.display = 'block';
+                        photoFileInput.value = ''; // Clear the invalid file
+                        return;
+                    } else {
+                        photoError.style.display = 'none';
+                    }
+                    
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        // Clear any previous photo data
+                        photoData = null;
+                        
+                        // Create new image to ensure proper loading
+                        const img = new Image();
+                        img.onload = function() {
+                            photoData = e.target.result;
+                            photoPreview.src = photoData;
+                            photoPreview.classList.remove('hidden');
+                            photoPlaceholder.classList.add('hidden');
+                            
+                            // Remove flex properties from photo container when photo is uploaded
+                            const photoContainer = document.querySelector('.photo-container');
+                            if (photoContainer) {
+                                photoContainer.style.display = 'block';
+                            }
+                            
+                            // Update the CV preview
+                            updateCVPreview();
+                        };
+                        img.onerror = function() {
+                            alert('Error loading image. Please try a different image.');
+                            photoFileInput.value = '';
+                        };
+                        img.src = e.target.result;
+                    };
+                    reader.onerror = function() {
+                        alert('Error reading file. Please try again.');
+                        photoFileInput.value = '';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            // JSON file upload handler
+            jsonFileInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        try {
+                            const jsonData = JSON.parse(e.target.result);
+                            populateForm(jsonData);
+                            generateCV(jsonData);
+                            alert('JSON file loaded successfully!');
+                        } catch (error) {
+                            alert('Error parsing JSON file. Please check the format.');
+                            console.error(error);
+                        }
+                    };
+                    reader.readAsText(file);
+                }
+            });
+            
+            // Download JSON Example based on current format
+            downloadExample.addEventListener('click', function() {
+                let exampleData;
+                let filename;
+                
+                if (currentFormat === 'photo') {
+                    exampleData = {
+                        "format": "photo",
+                        "template": currentTemplate,
+                        "theme": currentTheme,
+                        "photo": "",
+                        "personalInfo": {
+                            "name": "Ali Raza Khan",
+                            "title": "Senior Software Engineer"
+                        },
+                        "contact": {
+                            "email": "ali.khan@example.com",
+                            "phone": "+92 300 123 4567",
+                            "location": "Lahore, Pakistan",
+                            "linkedin": "https://linkedin.com/in/alirazakhan",
+                            "github": "https://github.com/alirazakhan",
+                            "portfolio": "https://alikhan.dev"
+                        },
+                        "summary": "Results-driven Software Engineer with 6+ years of experience in full-stack web development. Specialized in JavaScript technologies with a proven track record of delivering high-quality software solutions for international clients.",
+                        "skills": [
+                            "JavaScript",
+                            "React.js",
+                            "Node.js",
+                            "Python",
+                            "MongoDB",
+                            "PostgreSQL",
+                            "AWS",
+                            "Docker",
+                            "Git",
+                            "RESTful APIs"
+                        ],
+                        "certifications": [
+                            "AWS Certified Developer - Associate",
+                            "Scrum Master Certified (SMC)",
+                            "Microsoft Azure Fundamentals"
+                        ],
+                        "experience": [
+                            {
+                                "title": "Senior Software Engineer",
+                                "company": "TechSolutions Pakistan",
+                                "location": "Lahore, Pakistan",
+                                "startDate": "Mar 2020",
+                                "endDate": "Present",
+                                "description": "Lead a team of 5 developers in building scalable web applications. Improved application performance by 40% through code optimization and implemented CI/CD pipelines reducing deployment time by 60%."
+                            },
+                            {
+                                "title": "Software Engineer",
+                                "company": "Digital Innovations Ltd.",
+                                "location": "Karachi, Pakistan",
+                                "startDate": "Jun 2017",
+                                "endDate": "Feb 2020",
+                                "description": "Developed and maintained multiple client projects using React and Node.js. Collaborated with cross-functional teams to deliver projects on time and within budget."
+                            }
+                        ],
+                        "education": [
+                            {
+                                "degree": "Bachelor of Science in Computer Science",
+                                "institution": "Lahore University of Management Sciences (LUMS)",
+                                "location": "Lahore, Pakistan",
+                                "startDate": "2012",
+                                "endDate": "2016",
+                                "description": "Graduated with Magna Cum Laude. Relevant coursework: Data Structures, Algorithms, Database Systems, Web Technologies."
+                            }
+                        ],
+                        "languages": [
+                            {
+                                "language": "Urdu",
+                                "proficiency": "Native"
+                            },
+                            {
+                                "language": "English",
+                                "proficiency": "Fluent"
+                            },
+                            {
+                                "language": "Punjabi",
+                                "proficiency": "Native"
+                            }
+                        ]
+                    };
+                    filename = `${currentTemplate}-${currentTheme}-photo-cv-example.json`;
+                } else {
+                    exampleData = {
+                        "format": "international",
+                        "template": currentTemplate,
+                        "theme": currentTheme,
+                        "personalInfo": {
+                            "name": "Sarah Johnson",
+                            "title": "Marketing Director"
+                        },
+                        "contact": {
+                            "email": "sarah.johnson@example.com",
+                            "phone": "+1 (555) 123-4567",
+                            "location": "New York, NY, USA",
+                            "linkedin": "https://linkedin.com/in/sarahjohnson",
+                            "github": "https://github.com/sarahjohnson",
+                            "portfolio": "https://sarahjohnsonportfolio.com"
+                        },
+                        "summary": "Strategic Marketing Director with 10+ years of experience driving brand growth and revenue through innovative marketing strategies. Proven expertise in digital marketing, brand management, and team leadership.",
+                        "skills": [
+                            "Digital Marketing",
+                            "Brand Strategy",
+                            "Market Research",
+                            "Team Leadership",
+                            "Budget Management",
+                            "SEO/SEM",
+                            "Social Media Marketing",
+                            "Content Strategy",
+                            "Data Analytics",
+                            "Project Management"
+                        ],
+                        "certifications": [
+                            "Google Analytics Certified",
+                            "HubSpot Inbound Marketing Certified",
+                            "PMP (Project Management Professional)",
+                            "Facebook Blueprint Certified"
+                        ],
+                        "experience": [
+                            {
+                                "title": "Marketing Director",
+                                "company": "Global Brands Inc.",
+                                "location": "New York, NY",
+                                "startDate": "Jan 2019",
+                                "endDate": "Present",
+                                "description": "Lead a team of 12 marketing professionals overseeing $5M annual budget. Developed and executed comprehensive marketing strategies that increased brand awareness by 40% and drove 30% revenue growth."
+                            },
+                            {
+                                "title": "Senior Marketing Manager",
+                                "company": "Innovate Solutions",
+                                "location": "Chicago, IL",
+                                "startDate": "Mar 2015",
+                                "endDate": "Dec 2018",
+                                "description": "Managed digital marketing campaigns across multiple channels resulting in 35% increase in web traffic and 20% growth in conversion rates."
+                            }
+                        ],
+                        "education": [
+                            {
+                                "degree": "Master of Business Administration (MBA)",
+                                "institution": "Harvard Business School",
+                                "location": "Boston, MA",
+                                "startDate": "2010",
+                                "endDate": "2012",
+                                "description": "Concentration in Marketing and Strategy. Graduated in top 10% of class. President of Marketing Club."
+                            },
+                            {
+                                "degree": "Bachelor of Arts in Communications",
+                                "institution": "Stanford University",
+                                "location": "Stanford, CA",
+                                "startDate": "2006",
+                                "endDate": "2010",
+                                "description": "Minor in Business Administration. Dean's List for 6 semesters. Captain of Debate Team."
+                            }
+                        ],
+                        "languages": [
+                            {
+                                "language": "English",
+                                "proficiency": "Native"
+                            },
+                            {
+                                "language": "Spanish",
+                                "proficiency": "Professional"
+                            },
+                            {
+                                "language": "French",
+                                "proficiency": "Intermediate"
+                            }
+                        ]
+                    };
+                    filename = `${currentTemplate}-${currentTheme}-international-cv-example.json`;
+                }
+                
+                downloadJSON(exampleData, filename);
+            });
+            
+            // Helper function to download JSON
+            function downloadJSON(data, filename) {
+                const jsonString = JSON.stringify(data, null, 2);
+                const blob = new Blob([jsonString], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }
+            
+            // Add experience handler
+            addExperienceBtn.addEventListener('click', function() {
+                experienceCount++;
+                const experienceItem = document.createElement('div');
+                experienceItem.className = 'dynamic-item';
+                experienceItem.innerHTML = `
+                    <button type="button" class="remove-btn" onclick="this.parentElement.remove()">×</button>
+                    <div class="form-group">
+                        <label for="expTitle${experienceCount}">Job Title</label>
+                        <input type="text" id="expTitle${experienceCount}" placeholder="e.g., Marketing Manager">
+                    </div>
+                    <div class="form-group">
+                        <label for="expCompany${experienceCount}">Company</label>
+                        <input type="text" id="expCompany${experienceCount}" placeholder="Company Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="expLocation${experienceCount}">Location</label>
+                        <input type="text" id="expLocation${experienceCount}" placeholder="City, State">
+                    </div>
+                    <div class="form-group">
+                        <label for="expStart${experienceCount}">Start Date</label>
+                        <input type="text" id="expStart${experienceCount}" placeholder="MMM YYYY (e.g., Jan 2020)">
+                    </div>
+                    <div class="form-group">
+                        <label for="expEnd${experienceCount}">End Date</label>
+                        <input type="text" id="expEnd${experienceCount}" placeholder="MMM YYYY or Present">
+                    </div>
+                    <div class="form-group">
+                        <label for="expDescription${experienceCount}">Description</label>
+                        <textarea id="expDescription${experienceCount}" placeholder="Describe your responsibilities and achievements"></textarea>
+                    </div>
+                `;
+                experienceList.appendChild(experienceItem);
+            });
+            
+            // Add education handler
+            addEducationBtn.addEventListener('click', function() {
+                educationCount++;
+                const educationItem = document.createElement('div');
+                educationItem.className = 'dynamic-item';
+                educationItem.innerHTML = `
+                    <button type="button" class="remove-btn" onclick="this.parentElement.remove()">×</button>
+                    <div class="form-group">
+                        <label for="eduDegree${educationCount}">Degree/Certificate</label>
+                        <input type="text" id="eduDegree${educationCount}" placeholder="e.g., Bachelor of Science in Business">
+                    </div>
+                    <div class="form-group">
+                        <label for="eduInstitution${educationCount}">Institution</label>
+                        <input type="text" id="eduInstitution${educationCount}" placeholder="University Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="eduLocation${educationCount}">Location</label>
+                        <input type="text" id="eduLocation${educationCount}" placeholder="City, State">
+                    </div>
+                    <div class="form-group">
+                        <label for="eduStart${educationCount}">Start Date</label>
+                        <input type="text" id="eduStart${educationCount}" placeholder="MMM YYYY (e.g., Aug 2016)">
+                    </div>
+                    <div class="form-group">
+                        <label for="eduEnd${educationCount}">End Date</label>
+                        <input type="text" id="eduEnd${educationCount}" placeholder="MMM YYYY or Present">
+                    </div>
+                    <div class="form-group">
+                        <label for="eduDescription${educationCount}">Description</label>
+                        <textarea id="eduDescription${educationCount}" placeholder="Honors, relevant coursework, or achievements"></textarea>
+                    </div>
+                `;
+                educationList.appendChild(educationItem);
+            });
+            
+            // Generate CV from form data
+            generateBtn.addEventListener('click', function() {
+                const formData = getFormData();
+                generateCV(formData);
+            });
+            
+            // Print CV - UPDATED
+            printBtn.addEventListener('click', function() {
+                // Ensure the CV template is updated before printing
+                updateCVTemplate();
+                
+                // Add a small delay to ensure DOM is updated
+                setTimeout(() => {
+                    window.print();
+                }, 100);
+            });
+            
+            // Save as PDF (using browser's print to PDF functionality) - UPDATED
+            pdfBtn.addEventListener('click', function() {
+                // Ensure the CV template is updated before printing
+                updateCVTemplate();
+                
+                // Add a small delay to ensure DOM is updated
+                setTimeout(() => {
+                    window.print();
+                }, 100);
+            });
+            
+            // Export JSON
+            exportJsonBtn.addEventListener('click', function() {
+                const formData = getFormData();
+                const jsonString = JSON.stringify(formData, null, 2);
+                const blob = new Blob([jsonString], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'cv-data.json';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+            
+            // Update CV preview based on format - FIXED PHOTO DISPLAY ISSUE
+            function updateCVPreview() {
+                if (currentFormat === 'photo') {
+                    // Show photo in Photo CV format
+                    if (photoData) {
+                        photoPreview.src = photoData;
+                        photoPreview.classList.remove('hidden');
+                        photoPlaceholder.classList.add('hidden');
+                        
+                        // Remove flex properties from photo container when photo is uploaded
+                        const photoContainer = document.querySelector('.photo-container');
+                        if (photoContainer) {
+                            photoContainer.style.display = 'block';
+                        }
+                    } else {
+                        photoPreview.classList.add('hidden');
+                        photoPlaceholder.classList.remove('hidden');
+                        
+                        // Restore flex properties when no photo is uploaded
+                        const photoContainer = document.querySelector('.photo-container');
+                        if (photoContainer) {
+                            photoContainer.style.display = 'flex';
+                        }
+                    }
+                } else {
+                    // Hide photo in International format
+                    photoPreview.classList.add('hidden');
+                    photoPlaceholder.classList.add('hidden');
+                }
+            }
+            
+            // Helper function to populate form with JSON data
+            function populateForm(data) {
+                document.getElementById('fullName').value = data.personalInfo?.name || '';
+                document.getElementById('jobTitle').value = data.personalInfo?.title || '';
+                document.getElementById('email').value = data.contact?.email || '';
+                document.getElementById('phone').value = data.contact?.phone || '';
+                document.getElementById('location').value = data.contact?.location || '';
+                document.getElementById('linkedin').value = data.contact?.linkedin || '';
+                document.getElementById('github').value = data.contact?.github || '';
+                document.getElementById('portfolio').value = data.contact?.portfolio || '';
+                document.getElementById('summary').value = data.summary || '';
+                document.getElementById('skills').value = data.skills?.join(', ') || '';
+                document.getElementById('languages').value = data.languages?.map(lang => 
+                    `${lang.language}${lang.proficiency ? ` (${lang.proficiency})` : ''}`).join(', ') || '';
+                document.getElementById('certifications').value = data.certifications?.join(', ') || '';
+                
+                // Set template if specified in JSON
+                if (data.template && ['modern', 'classic', 'minimalist', 'executive'].includes(data.template)) {
+                    currentTemplate = data.template;
+                    templateOptions.forEach(option => {
+                        if (option.getAttribute('data-template') === currentTemplate) {
+                            option.classList.add('selected');
+                        } else {
+                            option.classList.remove('selected');
+                        }
+                    });
+                }
+                
+                // Set theme if specified in JSON
+                if (data.theme) {
+                    currentTheme = data.theme;
+                    updateThemeOptions();
+                }
+                
+                // Set format if specified in JSON
+                if (data.format === 'photo' || data.format === 'international') {
+                    currentFormat = data.format;
+                    if (currentFormat === 'photo') {
+                        photoFormat.click();
+                    } else {
+                        internationalFormat.click();
+                    }
+                }
+                
+                // Set photo if available in JSON
+                if (data.photo) {
+                    photoData = data.photo;
+                    updateCVPreview();
+                }
+                
+                // Clear existing dynamic lists
+                experienceList.innerHTML = '';
+                educationList.innerHTML = '';
+                
+                // Populate experience
+                if (data.experience && data.experience.length > 0) {
+                    data.experience.forEach((exp, index) => {
+                        experienceCount++;
+                        const experienceItem = document.createElement('div');
+                        experienceItem.className = 'dynamic-item';
+                        experienceItem.innerHTML = `
+                            <button type="button" class="remove-btn" onclick="this.parentElement.remove()">×</button>
+                            <div class="form-group">
+                                <label for="expTitle${experienceCount}">Job Title</label>
+                                <input type="text" id="expTitle${experienceCount}" value="${exp.title || ''}" placeholder="e.g., Marketing Manager">
+                            </div>
+                            <div class="form-group">
+                                <label for="expCompany${experienceCount}">Company</label>
+                                <input type="text" id="expCompany${experienceCount}" value="${exp.company || ''}" placeholder="Company Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="expLocation${experienceCount}">Location</label>
+                                <input type="text" id="expLocation${experienceCount}" value="${exp.location || ''}" placeholder="City, State">
+                            </div>
+                            <div class="form-group">
+                                <label for="expStart${experienceCount}">Start Date</label>
+                                <input type="text" id="expStart${experienceCount}" value="${exp.startDate || ''}" placeholder="MMM YYYY (e.g., Jan 2020)">
+                            </div>
+                            <div class="form-group">
+                                <label for="expEnd${experienceCount}">End Date</label>
+                                <input type="text" id="expEnd${experienceCount}" value="${exp.endDate || ''}" placeholder="MMM YYYY or Present">
+                            </div>
+                            <div class="form-group">
+                                <label for="expDescription${experienceCount}">Description</label>
+                                <textarea id="expDescription${experienceCount}" placeholder="Describe your responsibilities and achievements">${exp.description || ''}</textarea>
+                            </div>
+                        `;
+                        experienceList.appendChild(experienceItem);
+                    });
+                }
+                
+                // Populate education
+                if (data.education && data.education.length > 0) {
+                    data.education.forEach((edu, index) => {
+                        educationCount++;
+                        const educationItem = document.createElement('div');
+                        educationItem.className = 'dynamic-item';
+                        educationItem.innerHTML = `
+                            <button type="button" class="remove-btn" onclick="this.parentElement.remove()">×</button>
+                            <div class="form-group">
+                                <label for="eduDegree${educationCount}">Degree/Certificate</label>
+                                <input type="text" id="eduDegree${educationCount}" value="${edu.degree || ''}" placeholder="e.g., Bachelor of Science in Business">
+                            </div>
+                            <div class="form-group">
+                                <label for="eduInstitution${educationCount}">Institution</label>
+                                <input type="text" id="eduInstitution${educationCount}" value="${edu.institution || ''}" placeholder="University Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="eduLocation${educationCount}">Location</label>
+                                <input type="text" id="eduLocation${educationCount}" value="${edu.location || ''}" placeholder="City, State">
+                            </div>
+                            <div class="form-group">
+                                <label for="eduStart${educationCount}">Start Date</label>
+                                <input type="text" id="eduStart${educationCount}" value="${edu.startDate || ''}" placeholder="MMM YYYY (e.g., Aug 2016)">
+                            </div>
+                            <div class="form-group">
+                                <label for="eduEnd${educationCount}">End Date</label>
+                                <input type="text" id="eduEnd${educationCount}" value="${edu.endDate || ''}" placeholder="MMM YYYY or Present">
+                            </div>
+                            <div class="form-group">
+                                <label for="eduDescription${educationCount}">Description</label>
+                                <textarea id="eduDescription${educationCount}" placeholder="Honors, relevant coursework, or achievements">${edu.description || ''}</textarea>
+                            </div>
+                        `;
+                        educationList.appendChild(educationItem);
+                    });
+                }
+                
+                updateCVTemplate();
+            }
+            
+            // Helper function to get form data
+            function getFormData() {
+                const data = {
+                    personalInfo: {
+                        name: document.getElementById('fullName').value,
+                        title: document.getElementById('jobTitle').value
+                    },
+                    contact: {
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        location: document.getElementById('location').value,
+                        linkedin: document.getElementById('linkedin').value,
+                        github: document.getElementById('github').value,
+                        portfolio: document.getElementById('portfolio').value
+                    },
+                    summary: document.getElementById('summary').value,
+                    skills: document.getElementById('skills').value.split(',').map(skill => skill.trim()),
+                    certifications: document.getElementById('certifications').value.split(',').map(cert => cert.trim()),
+                    experience: [],
+                    education: [],
+                    languages: [],
+                    format: currentFormat,
+                    template: currentTemplate,
+                    theme: currentTheme
+                };
+                
+                // Add photo data if available
+                if (photoData) {
+                    data.photo = photoData;
+                }
+                
+                // Parse languages
+                const languagesInput = document.getElementById('languages').value;
+                if (languagesInput) {
+                    data.languages = languagesInput.split(',').map(lang => {
+                        const langParts = lang.trim().split('(');
+                        const language = langParts[0].trim();
+                        const proficiency = langParts[1] ? langParts[1].replace(')', '').trim() : '';
+                        return { language, proficiency };
+                    });
+                }
+                
+                // Get experience data
+                const experienceItems = document.querySelectorAll('#experienceList .dynamic-item');
+                experienceItems.forEach(item => {
+                    const title = item.querySelector('input[id^="expTitle"]').value;
+                    const company = item.querySelector('input[id^="expCompany"]').value;
+                    const location = item.querySelector('input[id^="expLocation"]').value;
+                    const startDate = item.querySelector('input[id^="expStart"]').value;
+                    const endDate = item.querySelector('input[id^="expEnd"]').value;
+                    const description = item.querySelector('textarea[id^="expDescription"]').value;
+                    
+                    if (title || company) {
+                        data.experience.push({
+                            title,
+                            company,
+                            location,
+                            startDate,
+                            endDate,
+                            description
+                        });
+                    }
+                });
+                
+                // Get education data
+                const educationItems = document.querySelectorAll('#educationList .dynamic-item');
+                educationItems.forEach(item => {
+                    const degree = item.querySelector('input[id^="eduDegree"]').value;
+                    const institution = item.querySelector('input[id^="eduInstitution"]').value;
+                    const location = item.querySelector('input[id^="eduLocation"]').value;
+                    const startDate = item.querySelector('input[id^="eduStart"]').value;
+                    const endDate = item.querySelector('input[id^="eduEnd"]').value;
+                    const description = item.querySelector('textarea[id^="eduDescription"]').value;
+                    
+                    if (degree || institution) {
+                        data.education.push({
+                            degree,
+                            institution,
+                            location,
+                            startDate,
+                            endDate,
+                            description
+                        });
+                    }
+                });
+                
+                return data;
+            }
+            
+            // Main function to generate CV from data
+            function generateCV(data) {
+                // Update personal info
+                document.getElementById('previewName').textContent = data.personalInfo?.name || 'Your Name';
+                document.getElementById('previewTitle').textContent = data.personalInfo?.title || 'Professional Title';
+                
+                // Update contact info
+                document.getElementById('previewEmail').textContent = data.contact?.email || 'email@example.com';
+                document.getElementById('previewPhone').textContent = data.contact?.phone || '+1 (555) 123-4567';
+                document.getElementById('previewLocation').textContent = data.contact?.location || 'City, State';
+                document.getElementById('previewLinkedIn').textContent = data.contact?.linkedin ? 
+                    data.contact.linkedin.replace(/^https?:\/\//, '') : 'linkedin.com/in/username';
+                document.getElementById('previewGithub').textContent = data.contact?.github ? 
+                    data.contact.github.replace(/^https?:\/\//, '') : 'github.com/username';
+                document.getElementById('previewPortfolio').textContent = data.contact?.portfolio ? 
+                    data.contact.portfolio.replace(/^https?:\/\//, '') : 'yourwebsite.com';
+                
+                // Update summary
+                document.getElementById('previewSummary').textContent = data.summary || 
+                    'Your professional summary will appear here. This should be a brief overview of your experience, skills, and career goals.';
+                
+                // Update skills
+                const skillsContainer = document.getElementById('previewSkills');
+                skillsContainer.innerHTML = '';
+                if (data.skills && data.skills.length > 0) {
+                    data.skills.forEach(skill => {
+                        if (skill.trim()) {
+                            const skillElement = document.createElement('div');
+                            skillElement.className = 'skill-tag';
+                            skillElement.textContent = skill;
+                            skillsContainer.appendChild(skillElement);
+                        }
+                    });
+                } else {
+                    skillsContainer.innerHTML = '<div class="skill-tag">Sample Skill 1</div><div class="skill-tag">Sample Skill 2</div><div class="skill-tag">Sample Skill 3</div>';
+                }
+                
+                // Update languages
+                const languagesContainer = document.getElementById('previewLanguages');
+                languagesContainer.innerHTML = '';
+                if (data.languages && data.languages.length > 0) {
+                    data.languages.forEach(lang => {
+                        const langElement = document.createElement('div');
+                        langElement.className = 'skill-tag';
+                        langElement.textContent = lang.proficiency ? 
+                            `${lang.language} (${lang.proficiency})` : lang.language;
+                        languagesContainer.appendChild(langElement);
+                    });
+                } else {
+                    languagesContainer.innerHTML = '<div class="skill-tag">English (Native)</div><div class="skill-tag">Spanish (Intermediate)</div>';
+                }
+                
+                // Update certifications
+                const certificationsContainer = document.getElementById('previewCertifications');
+                certificationsContainer.innerHTML = '';
+                if (data.certifications && data.certifications.length > 0) {
+                    data.certifications.forEach(cert => {
+                        if (cert.trim()) {
+                            const certElement = document.createElement('div');
+                            certElement.className = 'skill-tag';
+                            certElement.textContent = cert;
+                            certificationsContainer.appendChild(certElement);
+                        }
+                    });
+                } else {
+                    certificationsContainer.innerHTML = '<div class="skill-tag">Sample Certification 1</div><div class="skill-tag">Sample Certification 2</div>';
+                }
+                
+                // Update experience
+                const experienceContainer = document.getElementById('previewExperience');
+                experienceContainer.innerHTML = '';
+                if (data.experience && data.experience.length > 0) {
+                    data.experience.forEach(exp => {
+                        const expElement = document.createElement('div');
+                        expElement.className = 'experience-item';
+                        
+                        expElement.innerHTML = `
+                            <div class="item-header">
+                                <div class="item-title">${exp.title || 'Job Title'}</div>
+                                <div class="item-date">${exp.startDate || 'Start'} - ${exp.endDate || 'End'}</div>
+                            </div>
+                            <div class="item-subtitle">${exp.company || 'Company Name'}, ${exp.location || 'Location'}</div>
+                            <p>${exp.description || 'Brief description of your responsibilities and achievements in this role.'}</p>
+                        `;
+                        
+                        experienceContainer.appendChild(expElement);
+                    });
+                } else {
+                    experienceContainer.innerHTML = `
+                        <div class="experience-item">
+                            <div class="item-header">
+                                <div class="item-title">Job Title</div>
+                                <div class="item-date">Jan 2020 - Present</div>
+                            </div>
+                            <div class="item-subtitle">Company Name, Location</div>
+                            <p>Brief description of your responsibilities and achievements in this role.</p>
+                        </div>
+                    `;
+                }
+                
+                // Update education
+                const educationContainer = document.getElementById('previewEducation');
+                educationContainer.innerHTML = '';
+                if (data.education && data.education.length > 0) {
+                    data.education.forEach(edu => {
+                        const eduElement = document.createElement('div');
+                        eduElement.className = 'education-item';
+                        
+                        eduElement.innerHTML = `
+                            <div class="item-header">
+                                <div class="item-title">${edu.degree || 'Degree Name'}</div>
+                                <div class="item-date">${edu.startDate || 'Start'} - ${edu.endDate || 'End'}</div>
+                            </div>
+                            <div class="item-subtitle">${edu.institution || 'University Name'}, ${edu.location || 'Location'}</div>
+                            <p>${edu.description || 'Additional details about your education, honors, or relevant coursework.'}</p>
+                        `;
+                        
+                        educationContainer.appendChild(eduElement);
+                    });
+                } else {
+                    educationContainer.innerHTML = `
+                        <div class="education-item">
+                            <div class="item-header">
+                                <div class="item-title">Degree Name</div>
+                                <div class="item-date">2016 - 2020</div>
+                            </div>
+                            <div class="item-subtitle">University Name, Location</div>
+                            <p>Additional details about your education, honors, or relevant coursework.</p>
+                        </div>
+                    `;
+                }
+                
+                // Update template and format
+                if (data.template && ['modern', 'classic', 'minimalist', 'executive'].includes(data.template)) {
+                    currentTemplate = data.template;
+                    templateOptions.forEach(option => {
+                        if (option.getAttribute('data-template') === currentTemplate) {
+                            option.classList.add('selected');
+                        } else {
+                            option.classList.remove('selected');
+                        }
+                    });
+                }
+                
+                if (data.theme) {
+                    currentTheme = data.theme;
+                    updateThemeOptions();
+                }
+                
+                if (data.format === 'photo' || data.format === 'international') {
+                    currentFormat = data.format;
+                    if (currentFormat === 'photo') {
+                        photoFormat.click();
+                    } else {
+                        internationalFormat.click();
+                    }
+                }
+                
+                if (data.photo) {
+                    photoData = data.photo;
+                    updateCVPreview();
+                }
+                
+                updateCVTemplate();
+            }
+            
+            // Initialize with sample data
+            initializeThemes();
+            addExperienceBtn.click();
+            addEducationBtn.click();
+            generateCV(getFormData());
+        });
+    </script>
+</body>
+</html>
