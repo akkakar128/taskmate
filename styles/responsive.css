@@ -1,0 +1,117 @@
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .main-content {
+        gap: 20px;
+    }
+    .input-section, .preview-section {
+        min-width: 350px;
+    }
+}
+
+@media (max-width: 992px) {
+    .main-content {
+        flex-direction: column;
+    }
+    .input-section, .preview-section {
+        width: 100%;
+        min-width: 100%;
+        max-height: none;
+    }
+    .input-content, .preview-content {
+        overflow-y: visible;
+    }
+    .template-selector {
+        grid-template-columns: 1fr;
+    }
+    .cv-template.modern .cv-header,
+    .cv-template.minimalist .cv-header,
+    .cv-template.executive .cv-header {
+        flex-direction: column;
+    }
+    .cv-template.modern .photo-container,
+    .cv-template.minimalist .photo-container,
+    .cv-template.executive .photo-container {
+        margin-left: 0;
+        margin-top: 15px;
+        align-self: flex-start;
+    }
+    .contact-info {
+        text-align: left;
+        margin-top: 15px;
+    }
+    .two-column {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    header {
+        padding: 15px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    .input-section, .preview-section {
+        padding: 15px;
+    }
+    .cv-template {
+        padding: 20px;
+    }
+    .personal-info h2 {
+        font-size: 1.8rem;
+    }
+    .personal-info h3 {
+        font-size: 1.1rem;
+    }
+    .download-options {
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    .format-selector {
+        flex-direction: column;
+    }
+    .json-example-buttons {
+        flex-direction: column;
+    }
+    .theme-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    .subtitle {
+        font-size: 1rem;
+    }
+    .section-title {
+        font-size: 1.3rem;
+    }
+    .cv-section-title {
+        font-size: 1.1rem;
+    }
+    .item-header {
+        flex-direction: column;
+    }
+    .item-date {
+        margin-top: 5px;
+    }
+    .cv-template.modern .photo-container,
+    .cv-template.classic .photo-container,
+    .cv-template.minimalist .photo-container,
+    .cv-template.executive .photo-container {
+        width: 120px;
+        height: 150px;
+    }
+    .theme-options {
+        grid-template-columns: 1fr;
+    }
+}
