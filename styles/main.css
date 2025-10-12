@@ -128,13 +128,13 @@ h1 {
     font-size: 0.8rem;
     font-weight: 600;
     color: white;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .theme-option.selected {
     border-color: #333;
     transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Modern Template Themes */
@@ -367,7 +367,9 @@ label {
     color: var(--primary-color);
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
     width: 100%;
     padding: 12px;
     border: 1px solid #ddd;
@@ -376,7 +378,9 @@ input, textarea, select {
     transition: var(--transition);
 }
 
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
     outline: none;
     border-color: var(--secondary-color);
     box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
@@ -554,7 +558,7 @@ textarea {
     background: var(--secondary-color);
 }
 
-.cv-template.modern .experience-item, 
+.cv-template.modern .experience-item,
 .cv-template.modern .education-item {
     margin-bottom: 20px;
 }
@@ -594,7 +598,7 @@ textarea {
     border-radius: 20px;
     font-size: 0.9rem;
     color: var(--primary-color);
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .cv-template.modern .two-column {
@@ -651,7 +655,8 @@ textarea {
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
-    margin: 20px auto 15px; /* Added margin for spacing */
+    margin: 20px auto 15px;
+    /* Added margin for spacing */
     background-color: #f9f9f9;
     position: relative;
 }
@@ -692,7 +697,7 @@ textarea {
     letter-spacing: 1px;
 }
 
-.cv-template.classic .experience-item, 
+.cv-template.classic .experience-item,
 .cv-template.classic .education-item {
     margin-bottom: 20px;
 }
@@ -775,7 +780,8 @@ textarea {
     overflow: hidden;
     background-color: #f5f5f5;
     position: relative;
-    border: 1px solid #ddd; /* Added border for minimalist template */
+    border: 1px solid #ddd;
+    /* Added border for minimalist template */
 }
 
 .cv-template.minimalist .photo-placeholder {
@@ -813,7 +819,7 @@ textarea {
     letter-spacing: 1px;
 }
 
-.cv-template.minimalist .experience-item, 
+.cv-template.minimalist .experience-item,
 .cv-template.minimalist .education-item {
     margin-bottom: 20px;
 }
@@ -944,7 +950,7 @@ textarea {
     font-weight: 600;
 }
 
-.cv-template.executive .experience-item, 
+.cv-template.executive .experience-item,
 .cv-template.executive .education-item {
     margin-bottom: 20px;
 }
@@ -1195,14 +1201,15 @@ textarea {
     text-align: center;
 }
 
-/* Print styles for all templates - FIXED FOR INTERNATIONAL CV */
+/* Print styles for all templates - IMPROVED PAGE BREAKS */
 @media print {
     @page {
         margin: 0.5in;
         size: A4;
     }
 
-    body, html {
+    body,
+    html {
         height: auto;
         overflow: visible !important;
         margin: 0 !important;
@@ -1214,11 +1221,12 @@ textarea {
     body * {
         visibility: hidden;
     }
-    
-    .preview-section, .preview-section * {
+
+    .preview-section,
+    .preview-section * {
         visibility: visible;
     }
-    
+
     .preview-section {
         position: static !important;
         left: auto !important;
@@ -1231,35 +1239,185 @@ textarea {
         background: white !important;
         page-break-inside: avoid;
     }
-    
+
     .container {
         width: 100% !important;
         max-width: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
     }
-    
+
     .main-content {
         display: block !important;
         width: 100% !important;
     }
-    
-    .btn, .input-section, .download-options, header, .json-examples, .upload-area, .format-selector, .template-selector, .section-title.no-print, .no-print, .theme-selector {
+
+    .btn,
+    .input-section,
+    .download-options,
+    header,
+    .json-examples,
+    .upload-area,
+    .format-selector,
+    .template-selector,
+    .section-title.no-print,
+    .no-print,
+    .theme-selector {
         display: none !important;
     }
-    
+
     .cv-template {
         box-shadow: none !important;
-        padding: 30px !important; /* Added padding for print */
+        padding: 20px 30px !important;
+        /* Reduced padding for more content space */
         margin: 0 !important;
         min-height: auto !important;
-        page-break-after: avoid !important;
         page-break-inside: avoid !important;
         height: auto !important;
         background: white !important;
         width: 100% !important;
+        font-size: 12px !important;
+        /* Slightly smaller font for more content */
+        line-height: 1.3 !important;
     }
-    
+
+    /* Improved section spacing for print */
+    .cv-section {
+        margin-bottom: 15px !important;
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    /* Better handling for experience and education items */
+    .experience-item,
+    .education-item {
+        margin-bottom: 12px !important;
+        page-break-inside: avoid;
+        page-break-before: auto;
+    }
+
+    /* Prevent small items from being split across pages */
+    .experience-item:last-child,
+    .education-item:last-child {
+        page-break-after: avoid;
+    }
+
+    /* Allow page breaks within long content sections */
+    .cv-section:not(:first-child) {
+        page-break-before: auto;
+    }
+
+    /* Better handling for two-column layouts in print */
+    .two-column {
+        display: block !important;
+    }
+
+    .two-column .cv-section {
+        margin-bottom: 15px !important;
+        page-break-inside: avoid;
+    }
+
+    /* Improved header spacing */
+    .cv-header {
+        margin-bottom: 20px !important;
+        padding-bottom: 15px !important;
+        page-break-after: avoid;
+    }
+
+    /* Better text sizing for print */
+    .cv-template .personal-info h2 {
+        font-size: 1.8rem !important;
+        margin-bottom: 5px !important;
+    }
+
+    .cv-template .personal-info h3 {
+        font-size: 1.2rem !important;
+        margin-bottom: 8px !important;
+    }
+
+    .cv-template .cv-section-title {
+        font-size: 1.1rem !important;
+        margin-bottom: 10px !important;
+        padding-bottom: 5px !important;
+    }
+
+    .cv-template p,
+    .cv-template .item-title,
+    .cv-template .item-subtitle,
+    .cv-template .item-date,
+    .cv-template .contact-info p {
+        font-size: 11px !important;
+        line-height: 1.3 !important;
+        margin-bottom: 4px !important;
+    }
+
+    /* Compact skills and tags */
+    .skills-list {
+        gap: 5px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .skill-tag {
+        padding: 3px 8px !important;
+        font-size: 10px !important;
+        margin-bottom: 3px !important;
+    }
+
+    /* Improved item headers */
+    .item-header {
+        margin-bottom: 5px !important;
+    }
+
+    .item-title {
+        font-size: 11px !important;
+        font-weight: 600 !important;
+    }
+
+    .item-date {
+        font-size: 10px !important;
+    }
+
+    .item-subtitle {
+        font-size: 10.5px !important;
+        margin-bottom: 5px !important;
+    }
+
+    /* Smart page breaks - allow breaks between items but not in the middle */
+    .experience-item:nth-child(n+2),
+    .education-item:nth-child(n+2) {
+        page-break-before: auto;
+    }
+
+    /* Prevent single lines at bottom/top of pages (widows/orphans) */
+    p,
+    .item-title,
+    .item-subtitle {
+        orphans: 2;
+        widows: 2;
+    }
+
+    /* Better contact info layout */
+    .contact-info p {
+        margin-bottom: 2px !important;
+        font-size: 10px !important;
+    }
+
+    /* Photo sizing for print */
+    .cv-template.modern:not(.international) .photo-container,
+    .cv-template.minimalist:not(.international) .photo-container,
+    .cv-template.executive:not(.international) .photo-container {
+        width: 100px !important;
+        height: 125px !important;
+        top: 5px !important;
+        right: 5px !important;
+    }
+
+    .cv-template.classic:not(.international) .photo-container {
+        width: 100px !important;
+        height: 125px !important;
+        margin: 10px auto 8px !important;
+    }
+
     /* FIXED: Apply theme colors to print/PDF */
     .cv-template.modern.theme-blue {
         --primary-color: #2c3e50 !important;
@@ -1431,7 +1589,7 @@ textarea {
         --accent-color: #6B7280 !important;
         --light-color: #F9FAFB !important;
     }
-    
+
     /* Apply theme colors to print elements */
     .cv-template .personal-info h2,
     .cv-template .personal-info h3,
@@ -1441,25 +1599,25 @@ textarea {
     .cv-template .skill-tag {
         color: var(--primary-color) !important;
     }
-    
+
     .cv-template .cv-section-title::after,
     .cv-template .item-date,
     .cv-template .contact-info p {
         color: var(--secondary-color) !important;
     }
-    
+
     .cv-template .skill-tag {
         background: var(--light-color) !important;
     }
-    
+
     .cv-template.modern .cv-header {
         border-bottom-color: var(--secondary-color) !important;
     }
-    
+
     .cv-template.modern .cv-section-title::after {
         background: var(--secondary-color) !important;
     }
-    
+
     .cv-template.executive .cv-header {
         border-bottom-color: var(--primary-color) !important;
     }
@@ -1474,58 +1632,58 @@ textarea {
         padding: 0 !important;
         border: none !important;
     }
-    
+
     /* For international CV, ensure header layout is proper */
     .cv-template.international .cv-header {
         display: block !important;
     }
-    
+
     .cv-template.international.modern .cv-header,
     .cv-template.international.minimalist .cv-header,
     .cv-template.international.executive .cv-header {
         display: block !important;
     }
-    
+
     .cv-template.international.modern .personal-info,
     .cv-template.international.minimalist .personal-info,
     .cv-template.international.executive .personal-info {
         width: 100% !important;
     }
-    
+
     /* Photo positioning for print in Modern, Minimalist, Executive templates (Photo CV only) */
     .cv-template.modern:not(.international) .cv-header,
     .cv-template.minimalist:not(.international) .cv-header,
     .cv-template.executive:not(.international) .cv-header {
         position: relative !important;
         display: block !important;
-        margin-bottom: 20px !important;
-        padding-bottom: 15px !important;
+        margin-bottom: 15px !important;
+        padding-bottom: 10px !important;
         border-bottom: 2px solid var(--secondary-color) !important;
     }
-    
+
     .cv-template.modern:not(.international) .personal-info,
     .cv-template.minimalist:not(.international) .personal-info,
     .cv-template.executive:not(.international) .personal-info {
         width: 65% !important;
         display: block !important;
     }
-    
+
     .cv-template.modern:not(.international) .photo-container,
     .cv-template.minimalist:not(.international) .photo-container,
     .cv-template.executive:not(.international) .photo-container {
         position: absolute !important;
         top: 0 !important;
         right: 0 !important;
-        width: 120px !important;
-        height: 150px !important;
+        width: 100px !important;
+        height: 125px !important;
         border: 1px solid #ccc !important;
-        border-radius: 8px !important; /* Added border radius for print */
+        border-radius: 6px !important;
         margin: 0 !important;
         display: block !important;
         overflow: hidden !important;
         background: white !important;
     }
-    
+
     .cv-template.modern:not(.international) .photo-preview,
     .cv-template.minimalist:not(.international) .photo-preview,
     .cv-template.executive:not(.international) .photo-preview {
@@ -1533,63 +1691,80 @@ textarea {
         height: 100% !important;
         object-fit: cover !important;
         object-position: center !important;
-        border-radius: 8px !important; /* Added border radius for print */
+        border-radius: 6px !important;
     }
-    
+
     .cv-template.modern:not(.international) .photo-placeholder,
     .cv-template.minimalist:not(.international) .photo-placeholder,
     .cv-template.executive:not(.international) .photo-placeholder {
         display: none !important;
     }
-    
+
     /* Classic template - keep centered photo for print (Photo CV only) with margin */
     .cv-template.classic:not(.international) .cv-header {
         text-align: center !important;
     }
-    
+
     .cv-template.classic:not(.international) .photo-container {
         display: block !important;
-        margin: 20px auto 15px !important; /* Added margin for print */
-        width: 120px !important;
-        height: 150px !important;
-        border-radius: 8px !important; /* Added border radius for print */
+        margin: 10px auto 8px !important;
+        width: 100px !important;
+        height: 125px !important;
+        border-radius: 6px !important;
     }
-    
+
     .cv-template.classic:not(.international) .photo-preview {
         object-fit: cover !important;
         object-position: center !important;
     }
-    
+
     .cv-template.classic:not(.international) .photo-placeholder {
         display: none !important;
     }
-    
+
+    /* Smart page break handling - allow breaks between items */
+    .experience-item+.experience-item,
+    .education-item+.education-item {
+        page-break-before: auto;
+        margin-top: 8px !important;
+    }
+
+    /* Prevent single lines at bottom of page (orphans) and top of page (widows) */
+    p,
+    li,
+    .item-title,
+    .item-subtitle {
+        orphans: 3;
+        widows: 3;
+    }
+
     /* Ensure proper spacing for print */
     .cv-section {
         page-break-inside: avoid;
-        margin-bottom: 20px !important; /* Added margin for print */
+        margin-bottom: 15px !important;
     }
-    
-    .experience-item, .education-item {
+
+    .experience-item,
+    .education-item {
         page-break-inside: avoid;
-        margin-bottom: 15px !important; /* Added margin for print */
+        margin-bottom: 10px !important;
     }
-    
+
     /* Prevent page breaks in the middle of important sections */
     .cv-header {
         page-break-after: avoid;
     }
-    
+
     /* Added padding for text elements in print */
-    .cv-template p, 
-    .cv-template .item-title, 
-    .cv-template .item-subtitle, 
+    .cv-template p,
+    .cv-template .item-title,
+    .cv-template .item-subtitle,
     .cv-template .item-date,
     .cv-template .contact-info p {
-        padding: 0 5px !important; /* Added padding for text elements */
+        padding: 0 2px !important;
     }
-    
+
     .cv-template .cv-section-title {
-        padding: 0 5px 5px 5px !important; /* Added padding for section titles */
+        padding: 0 2px 3px 2px !important;
     }
 }

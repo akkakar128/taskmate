@@ -986,6 +986,53 @@ const CVGenerator = (function () {
         updateCVTemplate();
     }
 
+    // Optional: Function to optimize content for PDF
+    function optimizeForPDF() {
+        const cvTemplate = document.getElementById('cvPreview');
+
+        // Reduce font sizes slightly for PDF
+        cvTemplate.style.fontSize = '13px';
+
+        // Compact spacing
+        const sections = cvTemplate.querySelectorAll('.cv-section');
+        sections.forEach(section => {
+            section.style.marginBottom = '15px';
+        });
+
+        const items = cvTemplate.querySelectorAll('.experience-item, .education-item');
+        items.forEach(item => {
+            item.style.marginBottom = '10px';
+        });
+
+        // Compact skills
+        const skillTags = cvTemplate.querySelectorAll('.skill-tag');
+        skillTags.forEach(tag => {
+            tag.style.padding = '3px 8px';
+            tag.style.fontSize = '11px';
+            tag.style.margin = '2px';
+        });
+    }
+
+    // Update the PDF button handler to use this optimization
+    function handleSaveAsPDF() {
+        // Optimize for PDF first
+        optimizeForPDF();
+
+        // Ensure the CV template is updated before printing
+        updateCVTemplate();
+
+        // Add a small delay to ensure DOM is updated
+        setTimeout(() => {
+            window.print();
+
+            // Restore original styles after printing
+            setTimeout(() => {
+                const cvTemplate = document.getElementById('cvPreview');
+                cvTemplate.style.fontSize = '';
+            }, 1000);
+        }, 100);
+    }
+
     // Public API
     return {
         init: init,
