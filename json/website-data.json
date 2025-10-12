@@ -1,0 +1,163 @@
+{
+  "website": {
+    "name": "CVPro",
+    "description": "Professional CV Generator & Career Tools",
+    "url": "https://yourwebsite.com",
+    "email": "contact@yourwebsite.com",
+    "phone": "+1 (555) 123-4567"
+  },
+  "header": {
+    "logo": {
+      "src": "assets/logo.svg",
+      "alt": "CVPro - Professional CV Generator",
+      "width": "150",
+      "height": "40"
+    },
+    "navigation": [
+      {
+        "title": "Home",
+        "url": "/",
+        "icon": "🏠"
+      },
+      {
+        "title": "CV Generator",
+        "url": "/cv-generator",
+        "icon": "📄",
+        "current": true
+      },
+      {
+        "title": "Tools",
+        "url": "/tools",
+        "icon": "🛠️",
+        "dropdown": [
+          {
+            "title": "Cover Letter Builder",
+            "url": "/cover-letter-builder"
+          },
+          {
+            "title": "Resume Templates",
+            "url": "/resume-templates"
+          },
+          {
+            "title": "CV Samples",
+            "url": "/cv-samples"
+          }
+        ]
+      },
+      {
+        "title": "Blog",
+        "url": "/blog",
+        "icon": "📝"
+      },
+      {
+        "title": "About Us",
+        "url": "/about",
+        "icon": "👥"
+      },
+      {
+        "title": "Contact",
+        "url": "/contact",
+        "icon": "📞"
+      }
+    ],
+    "ctaButton": {
+      "text": "Create Your CV",
+      "url": "/cv-generator",
+      "style": "primary"
+    }
+  },
+  "footer": {
+    "companyInfo": {
+      "description": "CVPro helps professionals create stunning CVs and resumes that get noticed. Our free tools are used by thousands of job seekers worldwide.",
+      "logo": {
+        "src": "assets/logo.svg",
+        "alt": "CVPro - Professional CV Generator"
+      }
+    },
+    "socialMedia": [
+      {
+        "name": "LinkedIn",
+        "url": "https://linkedin.com/company/cvpro",
+        "icon": "linkedin",
+        "color": "#0077B5"
+      },
+      {
+        "name": "Twitter",
+        "url": "https://twitter.com/cvpro",
+        "icon": "twitter",
+        "color": "#1DA1F2"
+      },
+      {
+        "name": "Facebook",
+        "url": "https://facebook.com/cvpro",
+        "icon": "facebook",
+        "color": "#4267B2"
+      },
+      {
+        "name": "Instagram",
+        "url": "https://instagram.com/cvpro",
+        "icon": "instagram",
+        "color": "#E4405F"
+      },
+      {
+        "name": "YouTube",
+        "url": "https://youtube.com/cvpro",
+        "icon": "youtube",
+        "color": "#FF0000"
+      }
+    ],
+    "quickLinks": [
+      {
+        "title": "Quick Links",
+        "links": [
+          { "name": "Home", "url": "/" },
+          { "name": "CV Generator", "url": "/cv-generator" },
+          { "name": "Resume Templates", "url": "/resume-templates" },
+          { "name": "Cover Letter Builder", "url": "/cover-letter-builder" },
+          { "name": "Career Blog", "url": "/blog" }
+        ]
+      },
+      {
+        "title": "Resources",
+        "links": [
+          { "name": "CV Examples", "url": "/cv-examples" },
+          { "name": "Resume Samples", "url": "/resume-samples" },
+          { "name": "Career Tips", "url": "/career-tips" },
+          { "name": "Job Search Guide", "url": "/job-search-guide" },
+          { "name": "Interview Preparation", "url": "/interview-prep" }
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          { "name": "About Us", "url": "/about" },
+          { "name": "Contact", "url": "/contact" },
+          { "name": "Privacy Policy", "url": "/privacy" },
+          { "name": "Terms of Service", "url": "/terms" },
+          { "name": "Cookie Policy", "url": "/cookies" }
+        ]
+      },
+      {
+        "title": "Support",
+        "links": [
+          { "name": "Help Center", "url": "/help" },
+          { "name": "FAQ", "url": "/faq" },
+          { "name": "Feedback", "url": "/feedback" },
+          { "name": "Report Issue", "url": "/report-issue" },
+          { "name": "Feature Request", "url": "/feature-request" }
+        ]
+      }
+    ],
+    "contactInfo": {
+      "email": "support@yourwebsite.com",
+      "phone": "+1 (555) 123-4567",
+      "address": "123 Career Street, Professional City, PC 12345"
+    },
+    "newsletter": {
+      "title": "Stay Updated",
+      "description": "Get the latest career tips and new features delivered to your inbox.",
+      "placeholder": "Enter your email address",
+      "buttonText": "Subscribe"
+    }
+  }
+}

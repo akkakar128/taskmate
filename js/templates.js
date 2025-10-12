@@ -1,5 +1,5 @@
 // Templates and themes management
-const CVGenerator = (function() {
+const CVGenerator = (function () {
     // Theme definitions for each template
     const themes = {
         modern: [
@@ -61,12 +61,13 @@ const CVGenerator = (function() {
     // Cache DOM elements for better performance
     function cacheElements() {
         elements = {
-            jsonFileInput: document.getElementById('jsonFile'),
+            dataFileInput: document.getElementById('dataFile'),
             uploadArea: document.getElementById('uploadArea'),
             generateBtn: document.getElementById('generateBtn'),
             printBtn: document.getElementById('printBtn'),
             pdfBtn: document.getElementById('pdfBtn'),
             exportJsonBtn: document.getElementById('exportJsonBtn'),
+            exportTxtBtn: document.getElementById('exportTxtBtn'),
             form: document.getElementById('cvForm'),
             addExperienceBtn: document.getElementById('addExperience'),
             addEducationBtn: document.getElementById('addEducation'),
@@ -81,8 +82,10 @@ const CVGenerator = (function() {
             photoError: document.getElementById('photoError'),
             photoUploadSection: document.getElementById('photoUploadSection'),
             cvPreview: document.getElementById('cvPreview'),
-            downloadExample: document.getElementById('downloadExample'),
+            downloadJsonExample: document.getElementById('downloadJsonExample'),
+            downloadTxtExample: document.getElementById('downloadTxtExample'),
             currentFormatText: document.getElementById('currentFormatText'),
+            currentFormatText2: document.getElementById('currentFormatText2'),
             templateOptions: document.querySelectorAll('.template-option'),
             themeOptionsContainer: document.getElementById('themeOptions')
         };
@@ -100,19 +103,21 @@ const CVGenerator = (function() {
         elements.internationalFormat.addEventListener('click', handleInternationalFormatSelection);
 
         // File uploads
-        elements.uploadArea.addEventListener('click', () => elements.jsonFileInput.click());
+        elements.uploadArea.addEventListener('click', () => elements.dataFileInput.click());
         elements.photoUploadArea.addEventListener('click', () => elements.photoFileInput.click());
-        
+
         // File input handlers
         elements.photoFileInput.addEventListener('change', handlePhotoUpload);
-        elements.jsonFileInput.addEventListener('change', handleJsonUpload);
+        elements.dataFileInput.addEventListener('change', handleDataFileUpload);
 
         // Form actions
         elements.generateBtn.addEventListener('click', handleGenerateCV);
         elements.printBtn.addEventListener('click', handlePrintCV);
         elements.pdfBtn.addEventListener('click', handleSaveAsPDF);
         elements.exportJsonBtn.addEventListener('click', handleExportJSON);
-        elements.downloadExample.addEventListener('click', handleDownloadExample);
+        elements.exportTxtBtn.addEventListener('click', handleExportTXT);
+        elements.downloadJsonExample.addEventListener('click', handleDownloadJsonExample);
+        elements.downloadTxtExample.addEventListener('click', handleDownloadTxtExample);
 
         // Dynamic form elements
         elements.addExperienceBtn.addEventListener('click', handleAddExperience);
@@ -135,6 +140,7 @@ const CVGenerator = (function() {
         elements.internationalFormat.classList.remove('selected');
         state.currentFormat = 'photo';
         elements.currentFormatText.textContent = 'Photo';
+        elements.currentFormatText2.textContent = 'Photo';
         elements.photoUploadSection.style.display = 'block';
         updateCVTemplate();
     }
@@ -144,6 +150,7 @@ const CVGenerator = (function() {
         elements.photoFormat.classList.remove('selected');
         state.currentFormat = 'international';
         elements.currentFormatText.textContent = 'International';
+        elements.currentFormatText2.textContent = 'International';
         elements.photoUploadSection.style.display = 'none';
         updateCVTemplate();
     }
@@ -159,14 +166,14 @@ const CVGenerator = (function() {
             } else {
                 elements.photoError.style.display = 'none';
             }
-            
+
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 state.photoData = e.target.result;
                 updateCVPreview();
                 alert('Photo uploaded successfully!');
             };
-            reader.onerror = function() {
+            reader.onerror = function () {
                 alert('Error reading file. Please try again.');
                 elements.photoFileInput.value = '';
             };
@@ -174,20 +181,54 @@ const CVGenerator = (function() {
         }
     }
 
-    function handleJsonUpload(e) {
+    // Temporary debug function - add this to js/templates.js
+    function debugFileUpload(content, filename) {
+        console.log('=== FILE UPLOAD DEBUG ===');
+        console.log('Filename:', filename);
+        console.log('File content:', content);
+        console.log('File type:', filename.endsWith('.json') ? 'JSON' : 'TXT');
+
+        try {
+            let data;
+            if (filename.endsWith('.json')) {
+                data = JSON.parse(content);
+                console.log('Parsed JSON data:', data);
+            } else if (filename.endsWith('.txt')) {
+                data = parseTxtFile(content);
+                console.log('Parsed TXT data:', data);
+            }
+            console.log('=== END DEBUG ===');
+            return data;
+        } catch (error) {
+            console.error('Parse error:', error);
+            console.log('=== END DEBUG ===');
+            throw error;
+        }
+    }
+
+    function handleDataFileUpload(e) {
         const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 try {
-                    const jsonData = JSON.parse(e.target.result);
-                    FormHandler.populateForm(jsonData);
-                    generateCV(jsonData);
-                    alert('JSON file loaded successfully!');
+                    console.log('Starting file upload processing...');
+                    const data = debugFileUpload(e.target.result, file.name);
+
+                    // First populate the form with the loaded data
+                    FormHandler.populateForm(data);
+
+                    // Then generate the CV preview with the loaded data
+                    generateCV(data);
+
+                    alert('Data file loaded successfully! CV preview updated.');
                 } catch (error) {
-                    alert('Error parsing JSON file. Please check the format.');
-                    console.error(error);
+                    alert('Error parsing file. Please check the format. Error: ' + error.message);
+                    console.error('File parsing error:', error);
                 }
+            };
+            reader.onerror = function () {
+                alert('Error reading file. Please try again.');
             };
             reader.readAsText(file);
         }
@@ -201,7 +242,7 @@ const CVGenerator = (function() {
     function handlePrintCV() {
         // Ensure the CV template is updated before printing
         updateCVTemplate();
-        
+
         // Add a small delay to ensure DOM is updated
         setTimeout(() => {
             window.print();
@@ -211,7 +252,7 @@ const CVGenerator = (function() {
     function handleSaveAsPDF() {
         // Ensure the CV template is updated before printing
         updateCVTemplate();
-        
+
         // Add a small delay to ensure DOM is updated
         setTimeout(() => {
             window.print();
@@ -221,23 +262,113 @@ const CVGenerator = (function() {
     function handleExportJSON() {
         const formData = FormHandler.getFormData();
         const jsonString = JSON.stringify(formData, null, 2);
-        const blob = new Blob([jsonString], { type: 'application/json' });
+        downloadFile(jsonString, 'cv-data.json', 'application/json');
+    }
+
+    function handleExportTXT() {
+        const formData = FormHandler.getFormData();
+        const txtContent = convertToTxtFormat(formData);
+        downloadFile(txtContent, 'cv-data.txt', 'text/plain');
+    }
+
+    function handleDownloadJsonExample() {
+        const exampleData = generateExampleData();
+        const jsonString = JSON.stringify(exampleData, null, 2);
+        const filename = `${state.currentTemplate}-${state.currentTheme}-${state.currentFormat}-cv-example.json`;
+        downloadFile(jsonString, filename, 'application/json');
+    }
+
+    function handleDownloadTxtExample() {
+        const exampleData = generateExampleData();
+        const txtContent = convertToTxtFormat(exampleData);
+        const filename = `${state.currentTemplate}-${state.currentTheme}-${state.currentFormat}-cv-example.txt`;
+        downloadFile(txtContent, filename, 'text/plain');
+    }
+
+    function handleAddExperience() {
+        state.experienceCount++;
+        const experienceItem = document.createElement('div');
+        experienceItem.className = 'dynamic-item';
+        experienceItem.innerHTML = `
+            <button type="button" class="remove-btn" onclick="this.parentElement.remove()">×</button>
+            <div class="form-group">
+                <label for="expTitle${state.experienceCount}">Job Title</label>
+                <input type="text" id="expTitle${state.experienceCount}" placeholder="e.g., Marketing Manager">
+            </div>
+            <div class="form-group">
+                <label for="expCompany${state.experienceCount}">Company</label>
+                <input type="text" id="expCompany${state.experienceCount}" placeholder="Company Name">
+            </div>
+            <div class="form-group">
+                <label for="expLocation${state.experienceCount}">Location</label>
+                <input type="text" id="expLocation${state.experienceCount}" placeholder="City, State">
+            </div>
+            <div class="form-group">
+                <label for="expStart${state.experienceCount}">Start Date</label>
+                <input type="text" id="expStart${state.experienceCount}" placeholder="MMM YYYY (e.g., Jan 2020)">
+            </div>
+            <div class="form-group">
+                <label for="expEnd${state.experienceCount}">End Date</label>
+                <input type="text" id="expEnd${state.experienceCount}" placeholder="MMM YYYY or Present">
+            </div>
+            <div class="form-group">
+                <label for="expDescription${state.experienceCount}">Description</label>
+                <textarea id="expDescription${state.experienceCount}" placeholder="Describe your responsibilities and achievements"></textarea>
+            </div>
+        `;
+        elements.experienceList.appendChild(experienceItem);
+    }
+
+    function handleAddEducation() {
+        state.educationCount++;
+        const educationItem = document.createElement('div');
+        educationItem.className = 'dynamic-item';
+        educationItem.innerHTML = `
+            <button type="button" class="remove-btn" onclick="this.parentElement.remove()">×</button>
+            <div class="form-group">
+                <label for="eduDegree${state.educationCount}">Degree/Certificate</label>
+                <input type="text" id="eduDegree${state.educationCount}" placeholder="e.g., Bachelor of Science in Business">
+            </div>
+            <div class="form-group">
+                <label for="eduInstitution${state.educationCount}">Institution</label>
+                <input type="text" id="eduInstitution${state.educationCount}" placeholder="University Name">
+            </div>
+            <div class="form-group">
+                <label for="eduLocation${state.educationCount}">Location</label>
+                <input type="text" id="eduLocation${state.educationCount}" placeholder="City, State">
+            </div>
+            <div class="form-group">
+                <label for="eduStart${state.educationCount}">Start Date</label>
+                <input type="text" id="eduStart${state.educationCount}" placeholder="MMM YYYY (e.g., Aug 2016)">
+            </div>
+            <div class="form-group">
+                <label for="eduEnd${state.educationCount}">End Date</label>
+                <input type="text" id="eduEnd${state.educationCount}" placeholder="MMM YYYY or Present">
+            </div>
+            <div class="form-group">
+                <label for="eduDescription${state.educationCount}">Description</label>
+                <textarea id="eduDescription${state.educationCount}" placeholder="Honors, relevant coursework, or achievements"></textarea>
+            </div>
+        `;
+        elements.educationList.appendChild(educationItem);
+    }
+
+    // Helper functions
+    function downloadFile(content, filename, mimeType) {
+        const blob = new Blob([content], { type: mimeType });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'cv-data.json';
+        a.download = filename;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
     }
 
-    function handleDownloadExample() {
-        let exampleData;
-        let filename;
-        
+    function generateExampleData() {
         if (state.currentFormat === 'photo') {
-            exampleData = {
+            return {
                 "format": "photo",
                 "template": state.currentTemplate,
                 "theme": state.currentTheme,
@@ -315,9 +446,8 @@ const CVGenerator = (function() {
                     }
                 ]
             };
-            filename = `${state.currentTemplate}-${state.currentTheme}-photo-cv-example.json`;
         } else {
-            exampleData = {
+            return {
                 "format": "international",
                 "template": state.currentTemplate,
                 "theme": state.currentTheme,
@@ -403,92 +533,218 @@ const CVGenerator = (function() {
                     }
                 ]
             };
-            filename = `${state.currentTemplate}-${state.currentTheme}-international-cv-example.json`;
         }
-        
-        downloadJSON(exampleData, filename);
     }
 
-    function handleAddExperience() {
-        state.experienceCount++;
-        const experienceItem = document.createElement('div');
-        experienceItem.className = 'dynamic-item';
-        experienceItem.innerHTML = `
-            <button type="button" class="remove-btn" onclick="this.parentElement.remove()">×</button>
-            <div class="form-group">
-                <label for="expTitle${state.experienceCount}">Job Title</label>
-                <input type="text" id="expTitle${state.experienceCount}" placeholder="e.g., Marketing Manager">
-            </div>
-            <div class="form-group">
-                <label for="expCompany${state.experienceCount}">Company</label>
-                <input type="text" id="expCompany${state.experienceCount}" placeholder="Company Name">
-            </div>
-            <div class="form-group">
-                <label for="expLocation${state.experienceCount}">Location</label>
-                <input type="text" id="expLocation${state.experienceCount}" placeholder="City, State">
-            </div>
-            <div class="form-group">
-                <label for="expStart${state.experienceCount}">Start Date</label>
-                <input type="text" id="expStart${state.experienceCount}" placeholder="MMM YYYY (e.g., Jan 2020)">
-            </div>
-            <div class="form-group">
-                <label for="expEnd${state.experienceCount}">End Date</label>
-                <input type="text" id="expEnd${state.experienceCount}" placeholder="MMM YYYY or Present">
-            </div>
-            <div class="form-group">
-                <label for="expDescription${state.experienceCount}">Description</label>
-                <textarea id="expDescription${state.experienceCount}" placeholder="Describe your responsibilities and achievements"></textarea>
-            </div>
-        `;
-        elements.experienceList.appendChild(experienceItem);
+    function parseTxtFile(content) {
+        const lines = content.split('\n');
+        const data = {
+            personalInfo: {},
+            contact: {},
+            skills: [],
+            certifications: [],
+            experience: [],
+            education: [],
+            languages: []
+        };
+
+        let currentSection = '';
+        let currentExperience = null;
+        let currentEducation = null;
+
+        lines.forEach(line => {
+            line = line.trim();
+            if (!line) return;
+
+            // Section headers
+            if (line.startsWith('===')) {
+                currentSection = line.replace(/===/g, '').trim().toLowerCase();
+                return;
+            }
+
+            // Parse data based on current section
+            switch (currentSection) {
+                case 'personal info':
+                    if (line.startsWith('Name:')) data.personalInfo.name = line.replace('Name:', '').trim();
+                    if (line.startsWith('Title:')) data.personalInfo.title = line.replace('Title:', '').trim();
+                    break;
+
+                case 'contact':
+                    if (line.startsWith('Email:')) data.contact.email = line.replace('Email:', '').trim();
+                    if (line.startsWith('Phone:')) data.contact.phone = line.replace('Phone:', '').trim();
+                    if (line.startsWith('Location:')) data.contact.location = line.replace('Location:', '').trim();
+                    if (line.startsWith('LinkedIn:')) data.contact.linkedin = line.replace('LinkedIn:', '').trim();
+                    if (line.startsWith('GitHub:')) data.contact.github = line.replace('GitHub:', '').trim();
+                    if (line.startsWith('Portfolio:')) data.contact.portfolio = line.replace('Portfolio:', '').trim();
+                    break;
+
+                case 'summary':
+                    data.summary = line;
+                    break;
+
+                case 'skills':
+                    data.skills = line.split(',').map(skill => skill.trim());
+                    break;
+
+                case 'certifications':
+                    data.certifications = line.split(',').map(cert => cert.trim());
+                    break;
+
+                case 'languages':
+                    data.languages = line.split(',').map(lang => {
+                        const langParts = lang.trim().split('(');
+                        const language = langParts[0].trim();
+                        const proficiency = langParts[1] ? langParts[1].replace(')', '').trim() : '';
+                        return { language, proficiency };
+                    });
+                    break;
+
+                case 'experience':
+                    if (line.startsWith('Title:')) {
+                        if (currentExperience) data.experience.push(currentExperience);
+                        currentExperience = {
+                            title: line.replace('Title:', '').trim(),
+                            company: '',
+                            location: '',
+                            startDate: '',
+                            endDate: '',
+                            description: ''
+                        };
+                    } else if (currentExperience) {
+                        if (line.startsWith('Company:')) currentExperience.company = line.replace('Company:', '').trim();
+                        if (line.startsWith('Location:')) currentExperience.location = line.replace('Location:', '').trim();
+                        if (line.startsWith('Start Date:')) currentExperience.startDate = line.replace('Start Date:', '').trim();
+                        if (line.startsWith('End Date:')) currentExperience.endDate = line.replace('End Date:', '').trim();
+                        if (line.startsWith('Description:')) currentExperience.description = line.replace('Description:', '').trim();
+                    }
+                    break;
+
+                case 'education':
+                    if (line.startsWith('Degree:')) {
+                        if (currentEducation) data.education.push(currentEducation);
+                        currentEducation = {
+                            degree: line.replace('Degree:', '').trim(),
+                            institution: '',
+                            location: '',
+                            startDate: '',
+                            endDate: '',
+                            description: ''
+                        };
+                    } else if (currentEducation) {
+                        if (line.startsWith('Institution:')) currentEducation.institution = line.replace('Institution:', '').trim();
+                        if (line.startsWith('Location:')) currentEducation.location = line.replace('Location:', '').trim();
+                        if (line.startsWith('Start Date:')) currentEducation.startDate = line.replace('Start Date:', '').trim();
+                        if (line.startsWith('End Date:')) currentEducation.endDate = line.replace('End Date:', '').trim();
+                        if (line.startsWith('Description:')) currentEducation.description = line.replace('Description:', '').trim();
+                    }
+                    break;
+
+                case 'format':
+                    data.format = line.toLowerCase();
+                    break;
+
+                case 'template':
+                    data.template = line.toLowerCase();
+                    break;
+
+                case 'theme':
+                    data.theme = line.toLowerCase();
+                    break;
+            }
+        });
+
+        // Push the last experience and education items
+        if (currentExperience) data.experience.push(currentExperience);
+        if (currentEducation) data.education.push(currentEducation);
+
+        return data;
     }
 
-    function handleAddEducation() {
-        state.educationCount++;
-        const educationItem = document.createElement('div');
-        educationItem.className = 'dynamic-item';
-        educationItem.innerHTML = `
-            <button type="button" class="remove-btn" onclick="this.parentElement.remove()">×</button>
-            <div class="form-group">
-                <label for="eduDegree${state.educationCount}">Degree/Certificate</label>
-                <input type="text" id="eduDegree${state.educationCount}" placeholder="e.g., Bachelor of Science in Business">
-            </div>
-            <div class="form-group">
-                <label for="eduInstitution${state.educationCount}">Institution</label>
-                <input type="text" id="eduInstitution${state.educationCount}" placeholder="University Name">
-            </div>
-            <div class="form-group">
-                <label for="eduLocation${state.educationCount}">Location</label>
-                <input type="text" id="eduLocation${state.educationCount}" placeholder="City, State">
-            </div>
-            <div class="form-group">
-                <label for="eduStart${state.educationCount}">Start Date</label>
-                <input type="text" id="eduStart${state.educationCount}" placeholder="MMM YYYY (e.g., Aug 2016)">
-            </div>
-            <div class="form-group">
-                <label for="eduEnd${state.educationCount}">End Date</label>
-                <input type="text" id="eduEnd${state.educationCount}" placeholder="MMM YYYY or Present">
-            </div>
-            <div class="form-group">
-                <label for="eduDescription${state.educationCount}">Description</label>
-                <textarea id="eduDescription${state.educationCount}" placeholder="Honors, relevant coursework, or achievements"></textarea>
-            </div>
-        `;
-        elements.educationList.appendChild(educationItem);
-    }
+    function convertToTxtFormat(data) {
+        let txtContent = '';
 
-    // Helper functions
-    function downloadJSON(data, filename) {
-        const jsonString = JSON.stringify(data, null, 2);
-        const blob = new Blob([jsonString], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
+        // Personal Info
+        txtContent += '=== Personal Info ===\n';
+        txtContent += `Name: ${data.personalInfo?.name || ''}\n`;
+        txtContent += `Title: ${data.personalInfo?.title || ''}\n\n`;
+
+        // Contact
+        txtContent += '=== Contact ===\n';
+        txtContent += `Email: ${data.contact?.email || ''}\n`;
+        txtContent += `Phone: ${data.contact?.phone || ''}\n`;
+        txtContent += `Location: ${data.contact?.location || ''}\n`;
+        txtContent += `LinkedIn: ${data.contact?.linkedin || ''}\n`;
+        txtContent += `GitHub: ${data.contact?.github || ''}\n`;
+        txtContent += `Portfolio: ${data.contact?.portfolio || ''}\n\n`;
+
+        // Summary
+        txtContent += '=== Summary ===\n';
+        txtContent += `${data.summary || ''}\n\n`;
+
+        // Skills
+        txtContent += '=== Skills ===\n';
+        txtContent += `${data.skills?.join(', ') || ''}\n\n`;
+
+        // Languages
+        txtContent += '=== Languages ===\n';
+        if (data.languages && data.languages.length > 0) {
+            const languagesStr = data.languages.map(lang =>
+                `${lang.language}${lang.proficiency ? ` (${lang.proficiency})` : ''}`
+            ).join(', ');
+            txtContent += `${languagesStr}\n\n`;
+        } else {
+            txtContent += '\n\n';
+        }
+
+        // Certifications
+        txtContent += '=== Certifications ===\n';
+        txtContent += `${data.certifications?.join(', ') || ''}\n\n`;
+
+        // Experience
+        txtContent += '=== Experience ===\n';
+        if (data.experience && data.experience.length > 0) {
+            data.experience.forEach((exp, index) => {
+                txtContent += `Title: ${exp.title || ''}\n`;
+                txtContent += `Company: ${exp.company || ''}\n`;
+                txtContent += `Location: ${exp.location || ''}\n`;
+                txtContent += `Start Date: ${exp.startDate || ''}\n`;
+                txtContent += `End Date: ${exp.endDate || ''}\n`;
+                txtContent += `Description: ${exp.description || ''}\n`;
+                if (index < data.experience.length - 1) txtContent += '---\n';
+            });
+            txtContent += '\n';
+        } else {
+            txtContent += '\n';
+        }
+
+        // Education
+        txtContent += '=== Education ===\n';
+        if (data.education && data.education.length > 0) {
+            data.education.forEach((edu, index) => {
+                txtContent += `Degree: ${edu.degree || ''}\n`;
+                txtContent += `Institution: ${edu.institution || ''}\n`;
+                txtContent += `Location: ${edu.location || ''}\n`;
+                txtContent += `Start Date: ${edu.startDate || ''}\n`;
+                txtContent += `End Date: ${edu.endDate || ''}\n`;
+                txtContent += `Description: ${edu.description || ''}\n`;
+                if (index < data.education.length - 1) txtContent += '---\n';
+            });
+            txtContent += '\n';
+        } else {
+            txtContent += '\n';
+        }
+
+        // Format, Template, Theme
+        txtContent += '=== Format ===\n';
+        txtContent += `${data.format || 'photo'}\n\n`;
+
+        txtContent += '=== Template ===\n';
+        txtContent += `${data.template || 'modern'}\n\n`;
+
+        txtContent += '=== Theme ===\n';
+        txtContent += `${data.theme || 'blue'}\n`;
+
+        return txtContent;
     }
 
     // Initialize theme options
@@ -500,14 +756,14 @@ const CVGenerator = (function() {
     function updateThemeOptions() {
         elements.themeOptionsContainer.innerHTML = '';
         const templateThemes = themes[state.currentTemplate];
-        
+
         templateThemes.forEach(theme => {
             const themeOption = document.createElement('div');
             themeOption.className = `theme-option ${state.currentTheme === theme.id ? 'selected' : ''}`;
             themeOption.setAttribute('data-theme', theme.id);
             themeOption.style.backgroundColor = theme.color;
             themeOption.textContent = theme.name;
-            themeOption.addEventListener('click', function() {
+            themeOption.addEventListener('click', function () {
                 state.currentTheme = theme.id;
                 updateThemeSelection();
                 updateCVTemplate();
@@ -569,22 +825,22 @@ const CVGenerator = (function() {
         // Update personal info
         document.getElementById('previewName').textContent = data.personalInfo?.name || 'Your Name';
         document.getElementById('previewTitle').textContent = data.personalInfo?.title || 'Professional Title';
-        
+
         // Update contact info
         document.getElementById('previewEmail').textContent = data.contact?.email || 'email@example.com';
         document.getElementById('previewPhone').textContent = data.contact?.phone || '+1 (555) 123-4567';
         document.getElementById('previewLocation').textContent = data.contact?.location || 'City, State';
-        document.getElementById('previewLinkedIn').textContent = data.contact?.linkedin ? 
+        document.getElementById('previewLinkedIn').textContent = data.contact?.linkedin ?
             data.contact.linkedin.replace(/^https?:\/\//, '') : 'linkedin.com/in/username';
-        document.getElementById('previewGithub').textContent = data.contact?.github ? 
+        document.getElementById('previewGithub').textContent = data.contact?.github ?
             data.contact.github.replace(/^https?:\/\//, '') : 'github.com/username';
-        document.getElementById('previewPortfolio').textContent = data.contact?.portfolio ? 
+        document.getElementById('previewPortfolio').textContent = data.contact?.portfolio ?
             data.contact.portfolio.replace(/^https?:\/\//, '') : 'yourwebsite.com';
-        
+
         // Update summary
-        document.getElementById('previewSummary').textContent = data.summary || 
+        document.getElementById('previewSummary').textContent = data.summary ||
             'Your professional summary will appear here. This should be a brief overview of your experience, skills, and career goals.';
-        
+
         // Update skills
         const skillsContainer = document.getElementById('previewSkills');
         skillsContainer.innerHTML = '';
@@ -600,7 +856,7 @@ const CVGenerator = (function() {
         } else {
             skillsContainer.innerHTML = '<div class="skill-tag">Sample Skill 1</div><div class="skill-tag">Sample Skill 2</div><div class="skill-tag">Sample Skill 3</div>';
         }
-        
+
         // Update languages
         const languagesContainer = document.getElementById('previewLanguages');
         languagesContainer.innerHTML = '';
@@ -608,14 +864,14 @@ const CVGenerator = (function() {
             data.languages.forEach(lang => {
                 const langElement = document.createElement('div');
                 langElement.className = 'skill-tag';
-                langElement.textContent = lang.proficiency ? 
+                langElement.textContent = lang.proficiency ?
                     `${lang.language} (${lang.proficiency})` : lang.language;
                 languagesContainer.appendChild(langElement);
             });
         } else {
             languagesContainer.innerHTML = '<div class="skill-tag">English (Native)</div><div class="skill-tag">Spanish (Intermediate)</div>';
         }
-        
+
         // Update certifications
         const certificationsContainer = document.getElementById('previewCertifications');
         certificationsContainer.innerHTML = '';
@@ -631,7 +887,7 @@ const CVGenerator = (function() {
         } else {
             certificationsContainer.innerHTML = '<div class="skill-tag">Sample Certification 1</div><div class="skill-tag">Sample Certification 2</div>';
         }
-        
+
         // Update experience
         const experienceContainer = document.getElementById('previewExperience');
         experienceContainer.innerHTML = '';
@@ -639,7 +895,7 @@ const CVGenerator = (function() {
             data.experience.forEach(exp => {
                 const expElement = document.createElement('div');
                 expElement.className = 'experience-item';
-                
+
                 expElement.innerHTML = `
                     <div class="item-header">
                         <div class="item-title">${exp.title || 'Job Title'}</div>
@@ -648,7 +904,7 @@ const CVGenerator = (function() {
                     <div class="item-subtitle">${exp.company || 'Company Name'}, ${exp.location || 'Location'}</div>
                     <p>${exp.description || 'Brief description of your responsibilities and achievements in this role.'}</p>
                 `;
-                
+
                 experienceContainer.appendChild(expElement);
             });
         } else {
@@ -663,7 +919,7 @@ const CVGenerator = (function() {
                 </div>
             `;
         }
-        
+
         // Update education
         const educationContainer = document.getElementById('previewEducation');
         educationContainer.innerHTML = '';
@@ -671,7 +927,7 @@ const CVGenerator = (function() {
             data.education.forEach(edu => {
                 const eduElement = document.createElement('div');
                 eduElement.className = 'education-item';
-                
+
                 eduElement.innerHTML = `
                     <div class="item-header">
                         <div class="item-title">${edu.degree || 'Degree Name'}</div>
@@ -680,7 +936,7 @@ const CVGenerator = (function() {
                     <div class="item-subtitle">${edu.institution || 'University Name'}, ${edu.location || 'Location'}</div>
                     <p>${edu.description || 'Additional details about your education, honors, or relevant coursework.'}</p>
                 `;
-                
+
                 educationContainer.appendChild(eduElement);
             });
         } else {
@@ -695,7 +951,7 @@ const CVGenerator = (function() {
                 </div>
             `;
         }
-        
+
         // Update template and format
         if (data.template && ['modern', 'classic', 'minimalist', 'executive'].includes(data.template)) {
             state.currentTemplate = data.template;
@@ -707,12 +963,12 @@ const CVGenerator = (function() {
                 }
             });
         }
-        
+
         if (data.theme) {
             state.currentTheme = data.theme;
             updateThemeOptions();
         }
-        
+
         if (data.format === 'photo' || data.format === 'international') {
             state.currentFormat = data.format;
             if (state.currentFormat === 'photo') {
@@ -721,12 +977,12 @@ const CVGenerator = (function() {
                 handleInternationalFormatSelection();
             }
         }
-        
+
         if (data.photo) {
             state.photoData = data.photo;
             updateCVPreview();
         }
-        
+
         updateCVTemplate();
     }
 
@@ -735,6 +991,10 @@ const CVGenerator = (function() {
         init: init,
         generateCV: generateCV,
         getState: () => state,
-        setState: (newState) => { state = { ...state, ...newState }; }
+        setState: (newState) => { state = { ...state, ...newState }; },
+        updateThemeOptions: updateThemeOptions,
+        updateThemeSelection: updateThemeSelection,
+        updateCVTemplate: updateCVTemplate,
+        updateCVPreview: updateCVPreview
     };
 })();
