@@ -1,105 +1,75 @@
 <header class="main-header">
-    <div class="header-container">
-        <!-- Logo -->
-        <div class="logo-section">
-            <a href="/" class="logo-link">
-                <img src="assets/logo.svg" alt="CVPro - Professional CV Generator" class="logo">
-                <span class="logo-text">CVPro</span>
-            </a>
-        </div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <a href="/index.html" class="logo-link">
+                    <img src="/assets/logo.svg" alt="TASKMATE - Productivity Tools" class="logo-img">
+                    <span class="logo-text">TASKMATE</span>
+                </a>
+            </div>
 
-        <!-- Navigation -->
-        <nav class="main-nav">
-            <ul class="nav-list">
+            <!-- Navigation Menu -->
+            <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="/" class="nav-link">
-                        <span class="nav-icon">🏠</span>
-                        Home
-                    </a>
-                </li>
-                <li class="nav-item current">
-                    <a href="/cv-generator" class="nav-link">
-                        <span class="nav-icon">📄</span>
-                        CV Generator
-                    </a>
+                    <a href="/index.html" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="/tools" class="nav-link">
-                        <span class="nav-icon">🛠️</span>
-                        Tools
-                        <span class="dropdown-arrow">▼</span>
-                    </a>
+                    <a href="/tools.html" class="nav-link">Tools ▾</a>
                     <div class="dropdown-menu">
-                        <a href="/cover-letter-builder" class="dropdown-link">Cover Letter Builder</a>
-                        <a href="/resume-templates" class="dropdown-link">Resume Templates</a>
-                        <a href="/cv-samples" class="dropdown-link">CV Samples</a>
+                        <a href="/cv-generator.html" class="dropdown-link">CV Generator</a>
+                        <a href="/task-manager.html" class="dropdown-link">Task Manager</a>
+                        <a href="/document-tools.html" class="dropdown-link">Document Tools</a>
+                        <a href="/project-planner.html" class="dropdown-link">Project Planner</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="/blog" class="nav-link">
-                        <span class="nav-icon">📝</span>
-                        Blog
-                    </a>
+                    <a href="/blog.html" class="nav-link">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/about" class="nav-link">
-                        <span class="nav-icon">👥</span>
-                        About Us
-                    </a>
+                    <a href="/about.html" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/contact" class="nav-link">
-                        <span class="nav-icon">📞</span>
-                        Contact
-                    </a>
+                    <a href="/contact.html" class="nav-link">Contact</a>
                 </li>
             </ul>
-        </nav>
 
-        <!-- CTA Button -->
-        <div class="header-actions">
-            <a href="/cv-generator" class="cta-button">Create Your CV</a>
+            <!-- User Actions -->
+            <div class="nav-actions">
+                <button class="btn-search" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <a href="/login.html" class="btn-login">Login</a>
+                <a href="/signup.html" class="btn-signup">Sign Up Free</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
+    </nav>
 
-        <!-- Mobile Menu Button -->
-        <button class="mobile-menu-btn" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
-
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav">
-        <div class="mobile-nav-content">
-            <a href="/" class="mobile-nav-link">
-                <span class="nav-icon">🏠</span>
-                Home
-            </a>
-            <a href="/cv-generator" class="mobile-nav-link current">
-                <span class="nav-icon">📄</span>
-                CV Generator
-            </a>
-            <a href="/cover-letter-builder" class="mobile-nav-link">
-                <span class="nav-icon">📝</span>
-                Cover Letter Builder
-            </a>
-            <a href="/resume-templates" class="mobile-nav-link">
-                <span class="nav-icon">🎨</span>
-                Resume Templates
-            </a>
-            <a href="/blog" class="mobile-nav-link">
-                <span class="nav-icon">📚</span>
-                Blog
-            </a>
-            <a href="/about" class="mobile-nav-link">
-                <span class="nav-icon">👥</span>
-                About Us
-            </a>
-            <a href="/contact" class="mobile-nav-link">
-                <span class="nav-icon">📞</span>
-                Contact
-            </a>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-container">
+            <a href="/index.html" class="mobile-nav-link">Home</a>
+            <a href="/tools.html" class="mobile-nav-link">Tools</a>
+            <a href="/cv-generator.html" class="mobile-nav-link mobile-sub-link">CV Generator</a>
+            <a href="/task-manager.html" class="mobile-nav-link mobile-sub-link">Task Manager</a>
+            <a href="/document-tools.html" class="mobile-nav-link mobile-sub-link">Document Tools</a>
+            <a href="/project-planner.html" class="mobile-nav-link mobile-sub-link">Project Planner</a>
+            <a href="/blog.html" class="mobile-nav-link">Blog</a>
+            <a href="/about.html" class="mobile-nav-link">About</a>
+            <a href="/contact.html" class="mobile-nav-link">Contact</a>
+            <div class="mobile-actions">
+                <a href="/login.html" class="btn-login-mobile">Login</a>
+                <a href="/signup.html" class="btn-signup-mobile">Sign Up Free</a>
+            </div>
         </div>
     </div>
 </header>

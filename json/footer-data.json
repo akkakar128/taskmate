@@ -1,0 +1,91 @@
+{
+  "companyInfo": {
+    "name": "TASKMATE",
+    "description": "Your all-in-one productivity solution. Streamline your workflow with our powerful tools and resources.",
+    "email": "support@taskmate.com",
+    "phone": "+92 325 8510774",
+    "address": "123 Business Ave, Suite 100, City, State 12345"
+  },
+  "socialMedia": [
+    {
+      "name": "LinkedIn",
+      "icon": "linkedin",
+      "url": "https://linkedin.com/company/taskmate",
+      "color": "#0077b5"
+    },
+    {
+      "name": "Twitter",
+      "icon": "twitter",
+      "url": "https://twitter.com/taskmate",
+      "color": "#1da1f2"
+    },
+    {
+      "name": "Facebook",
+      "icon": "facebook",
+      "url": "https://facebook.com/taskmate",
+      "color": "#1877f2"
+    },
+    {
+      "name": "Instagram",
+      "icon": "instagram",
+      "url": "https://instagram.com/taskmate",
+      "color": "#e4405f"
+    },
+    {
+      "name": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/taskmate",
+      "color": "#333"
+    }
+  ],
+  "quickLinks": [
+    {
+      "title": "Products",
+      "links": [
+        {"name": "CV Generator", "url": "/cv-generator.html"},
+        {"name": "Task Manager", "url": "/task-manager.html"},
+        {"name": "Document Tools", "url": "/document-tools.html"},
+        {"name": "Project Planner", "url": "/project-planner.html"}
+      ]
+    },
+    {
+      "title": "Company",
+      "links": [
+        {"name": "About Us", "url": "/about.html"},
+        {"name": "Our Team", "url": "/team.html"},
+        {"name": "Careers", "url": "/careers.html"},
+        {"name": "Press Kit", "url": "/press.html"}
+      ]
+    },
+    {
+      "title": "Resources",
+      "links": [
+        {"name": "Blog", "url": "/blog.html"},
+        {"name": "Tutorials", "url": "/tutorials.html"},
+        {"name": "Documentation", "url": "/docs.html"},
+        {"name": "API", "url": "/api.html"}
+      ]
+    },
+    {
+      "title": "Support",
+      "links": [
+        {"name": "Help Center", "url": "/help.html"},
+        {"name": "Contact Us", "url": "/contact.html"},
+        {"name": "Status", "url": "/status.html"},
+        {"name": "Community", "url": "/community.html"}
+      ]
+    }
+  ],
+  "legal": [
+    {"name": "Privacy Policy", "url": "/privacy.html"},
+    {"name": "Terms of Service", "url": "/terms.html"},
+    {"name": "Cookie Policy", "url": "/cookies.html"},
+    {"name": "Data Processing", "url": "/data-processing.html"}
+  ],
+  "newsletter": {
+    "title": "Stay Updated",
+    "description": "Get the latest updates on new tools and features",
+    "placeholder": "Enter your email",
+    "buttonText": "Subscribe"
+  }
+}
