@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional CV Generator - Multiple Templates & Themes</title>
+    <title>Professional CV Generator - Create Perfect CVs in Minutes | Free Online Tool</title>
+    <meta name="description"
+        content="Free professional CV generator with multiple templates. Create ATS-friendly CVs, download as PDF/Word, and get hired faster. No registration required.">
+    <meta name="keywords"
+        content="cv generator, resume builder, professional cv, free cv maker, job cv, cv templates, pdf cv, international cv">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/responsive.css">
 </head>
+
 <body>
     <div class="container">
         <header class="no-print">
@@ -18,7 +24,7 @@
             <div class="input-section no-print">
                 <div class="input-content">
                     <h2 class="section-title">Input Your Data</h2>
-                    
+
                     <div class="template-selector">
                         <div class="template-option selected" data-template="modern">
                             <h3>Modern</h3>
@@ -73,14 +79,14 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="theme-selector">
                         <h3 class="section-title">Choose Theme</h3>
                         <div class="theme-options" id="themeOptions">
                             <!-- Theme options will be populated by JavaScript -->
                         </div>
                     </div>
-                    
+
                     <div class="format-selector">
                         <div class="format-option selected" id="photoFormat">
                             <h3>Photo CV</h3>
@@ -91,24 +97,27 @@
                             <p>No photo</p>
                         </div>
                     </div>
-                    
+
                     <div class="upload-area" id="uploadArea">
                         <div class="upload-icon">📄</div>
-                        <h3>Upload JSON File</h3>
-                        <p>Drag & drop or click to upload your CV data as JSON</p>
-                        <input type="file" id="jsonFile" accept=".json" class="hidden">
+                        <h3>Upload Data File</h3>
+                        <p>Drag & drop or click to upload your CV data as JSON or TXT</p>
+                        <input type="file" id="dataFile" accept=".json,.txt" class="hidden">
                     </div>
-                    <p class="json-upload-info">Use the JSON format shown in the example below</p>
-                    
+                    <p class="json-upload-info">Use the format shown in the examples below</p>
+
                     <div class="json-examples">
-                        <h3>Don't know JSON format? Download example:</h3>
+                        <h3>Download Example Files:</h3>
                         <div class="json-example-buttons">
-                            <button id="downloadExample" class="btn btn-example">Download <span id="currentFormatText">Photo</span> Format Example</button>
+                            <button id="downloadJsonExample" class="btn btn-example">Download <span
+                                    id="currentFormatText">Photo</span> JSON Example</button>
+                            <button id="downloadTxtExample" class="btn btn-example">Download <span
+                                    id="currentFormatText2">Photo</span> TXT Example</button>
                         </div>
                     </div>
-                    
+
                     <p style="text-align: center; margin: 15px 0; color: var(--light-text);">- OR -</p>
-                    
+
                     <form id="cvForm">
                         <div id="photoUploadSection">
                             <div class="form-group">
@@ -120,65 +129,70 @@
                                     <input type="file" id="photoFile" accept="image/*" class="hidden">
                                 </div>
                                 <p class="photo-size-info">Recommended size: 150x180 pixels, Max file size: 200KB</p>
-                                <p class="photo-error" id="photoError">File size exceeds 200KB limit. Please choose a smaller image.</p>
+                                <p class="photo-error" id="photoError">File size exceeds 200KB limit. Please choose a
+                                    smaller image.</p>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="fullName">Full Name</label>
                             <input type="text" id="fullName" placeholder="John Doe" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="jobTitle">Professional Title</label>
-                            <input type="text" id="jobTitle" placeholder="e.g., Marketing Manager, Software Engineer, Nurse" required>
+                            <input type="text" id="jobTitle"
+                                placeholder="e.g., Marketing Manager, Software Engineer, Nurse" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" id="email" placeholder="john.doe@example.com" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="phone">Phone</label>
                             <input type="tel" id="phone" placeholder="+1 (555) 123-4567">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="location">Location</label>
                             <input type="text" id="location" placeholder="New York, NY">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="linkedin">LinkedIn Profile</label>
                             <input type="url" id="linkedin" placeholder="https://linkedin.com/in/johndoe">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="github">GitHub Profile</label>
                             <input type="url" id="github" placeholder="https://github.com/username">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="portfolio">Portfolio/Website</label>
                             <input type="url" id="portfolio" placeholder="https://johndoe.dev">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="summary">Professional Summary</label>
-                            <textarea id="summary" placeholder="Brief overview of your experience, skills, and career goals..."></textarea>
+                            <textarea id="summary"
+                                placeholder="Brief overview of your experience, skills, and career goals..."></textarea>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="skills">Skills (comma separated)</label>
-                            <textarea id="skills" placeholder="Project Management, Data Analysis, Customer Service, Team Leadership"></textarea>
+                            <textarea id="skills"
+                                placeholder="Project Management, Data Analysis, Customer Service, Team Leadership"></textarea>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="languages">Languages (comma separated, with proficiency if needed)</label>
-                            <textarea id="languages" placeholder="English (Native), Spanish (Intermediate), French (Basic)"></textarea>
+                            <textarea id="languages"
+                                placeholder="English (Native), Spanish (Intermediate), French (Basic)"></textarea>
                         </div>
-                        
+
                         <div class="form-group">
                             <label>Professional Experience</label>
                             <div id="experienceList" class="dynamic-list">
@@ -186,7 +200,7 @@
                             </div>
                             <button type="button" id="addExperience" class="add-btn">+ Add Experience</button>
                         </div>
-                        
+
                         <div class="form-group">
                             <label>Education</label>
                             <div id="educationList" class="dynamic-list">
@@ -194,23 +208,24 @@
                             </div>
                             <button type="button" id="addEducation" class="add-btn">+ Add Education</button>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="certifications">Certifications (comma separated)</label>
-                            <textarea id="certifications" placeholder="PMP, Google Analytics, Salesforce Administrator"></textarea>
+                            <textarea id="certifications"
+                                placeholder="PMP, Google Analytics, Salesforce Administrator"></textarea>
                         </div>
                     </form>
                 </div>
-                
+
                 <div class="sticky-footer">
                     <button type="button" id="generateBtn" class="btn btn-block">Generate CV</button>
                 </div>
             </div>
-            
+
             <div class="preview-section">
                 <div class="preview-content">
                     <h2 class="section-title no-print">CV Preview</h2>
-                    
+
                     <div class="cv-template modern theme-blue" id="cvPreview">
                         <div class="cv-header">
                             <div class="personal-info">
@@ -232,12 +247,13 @@
                                 <img id="photoPreview" class="photo-preview hidden" src="" alt="Professional Photo">
                             </div>
                         </div>
-                        
+
                         <div class="cv-section">
                             <h3 class="cv-section-title">Professional Summary</h3>
-                            <p id="previewSummary">Your professional summary will appear here. This should be a brief overview of your experience, skills, and career goals.</p>
+                            <p id="previewSummary">Your professional summary will appear here. This should be a brief
+                                overview of your experience, skills, and career goals.</p>
                         </div>
-                        
+
                         <div class="two-column">
                             <div class="cv-section">
                                 <h3 class="cv-section-title">Skills</h3>
@@ -247,7 +263,7 @@
                                     <div class="skill-tag">Sample Skill 3</div>
                                 </div>
                             </div>
-                            
+
                             <div class="cv-section">
                                 <h3 class="cv-section-title">Languages</h3>
                                 <div class="skills-list" id="previewLanguages">
@@ -256,7 +272,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="cv-section">
                             <h3 class="cv-section-title">Professional Experience</h3>
                             <div id="previewExperience">
@@ -270,7 +286,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="cv-section">
                             <h3 class="cv-section-title">Education</h3>
                             <div id="previewEducation">
@@ -284,7 +300,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="cv-section">
                             <h3 class="cv-section-title">Certifications</h3>
                             <div class="skills-list" id="previewCertifications">
@@ -294,19 +310,154 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="download-options no-print">
                     <button id="printBtn" class="btn btn-download">Print CV</button>
                     <button id="pdfBtn" class="btn btn-download">Save as PDF</button>
                     <button id="exportJsonBtn" class="btn btn-download">Export JSON</button>
+                    <button id="exportTxtBtn" class="btn btn-download">Export TXT</button>
                 </div>
             </div>
         </div>
     </div>
+    <section class="instructions-section no-print">
+        <div class="instructions-content">
+            <h2>How to Create Your Professional CV in 5 Easy Steps</h2>
 
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Choose Your Template & Theme</h3>
+                        <p>Select from 4 professional templates (Modern, Classic, Minimalist, Executive) and customize
+                            with different color themes to match your industry and personal style.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Select CV Format</h3>
+                        <p>Choose between <strong>Photo CV</strong> (includes professional photo) or
+                            <strong>International CV</strong> (no photo) based on your country's job application
+                            standards.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Input Your Information</h3>
+                        <p>Fill in your details manually or upload a JSON/TXT file. Use our examples to understand the
+                            format. Add multiple work experiences and education entries as needed.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Preview & Customize</h3>
+                        <p>See your CV in real-time as you type. Make adjustments to ensure everything looks perfect and
+                            professional.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Download & Apply</h3>
+                        <p>Download your CV as PDF for printing, save as JSON/TXT for future edits, or export to Word
+                            format. Your CV is now ready for job applications!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pro-tips">
+                <h3>💡 Professional Tips for Best Results</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h4>Keep it Concise</h4>
+                        <p>Limit your CV to 2 pages maximum. Recruiters spend only 6-8 seconds on initial screening.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Use Action Verbs</h4>
+                        <p>Start bullet points with words like "Managed," "Developed," "Increased," "Implemented."</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Tailor for Each Job</h4>
+                        <p>Customize your CV for specific job applications by highlighting relevant skills and
+                            experiences.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Quantify Achievements</h4>
+                        <p>Use numbers to show impact: "Increased sales by 25%," "Managed team of 10 people."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section no-print">
+        <div class="faq-content">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>🤔 Is this CV generator completely free?</h3>
+                    <p>Yes! Our professional CV generator is 100% free with no hidden costs, no registration required,
+                        and no watermarks on your downloaded CVs.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>📄 What formats can I download my CV in?</h3>
+                    <p>You can download your CV as PDF (perfect for job applications), JSON (for future editing), or TXT
+                        (simple text format). All formats maintain professional formatting.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>🎨 How many templates are available?</h3>
+                    <p>We offer 4 professionally designed templates: Modern, Classic, Minimalist, and Executive. Each
+                        template has multiple color themes to match different industries.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>🌍 Should I use Photo CV or International CV?</h3>
+                    <p>Use <strong>Photo CV</strong> for countries where photos are standard (most of Europe, Asia). Use
+                        <strong>International CV</strong> for countries where photos are discouraged (USA, UK, Canada)
+                        to prevent bias.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>💾 Can I save my CV and edit it later?</h3>
+                    <p>Yes! Export your CV as JSON or TXT file and upload it later to continue editing. Your data never
+                        leaves your computer - we don't store any personal information.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>📱 Is the CV generator mobile-friendly?</h3>
+                    <p>Absolutely! Our CV generator works perfectly on desktop, tablet, and mobile devices. Create or
+                        edit your CV anywhere, anytime.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>🔒 Is my data secure?</h3>
+                    <p>100% secure! All processing happens in your browser. We don't store, transmit, or have access to
+                        any of your personal information or CV data.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>⚡ How long does it take to create a CV?</h3>
+                    <p>Most users create a professional CV in 5-10 minutes. The real-time preview lets you see changes
+                        instantly, speeding up the process significantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="js/templates.js"></script>
     <script src="js/form-handler.js"></script>
     <script src="js/pdf-export.js"></script>
     <script src="js/app.js"></script>
 </body>
+
 </html>
