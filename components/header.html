@@ -5,7 +5,6 @@
             <div class="nav-logo">
                 <a href="/index.html" class="logo-link">
                     <img src="/assets/logo.svg" alt="TASKMATE - Productivity Tools" class="logo-img">
-                    <span class="logo-text">TASKMATE</span>
                 </a>
             </div>
 
@@ -30,6 +29,9 @@
                     <a href="/about.html" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
+                    <a href="/team.html" class="nav-link">Team</a>
+                </li>
+                <li class="nav-item">
                     <a href="/contact.html" class="nav-link">Contact</a>
                 </li>
             </ul>
@@ -46,7 +48,7 @@
             </div>
 
             <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <button class="mobile-menu-btn" aria-label="Toggle menu" id="mobileMenuBtn">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -55,17 +57,26 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu">
+    <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-container">
             <a href="/index.html" class="mobile-nav-link">Home</a>
-            <a href="/tools.html" class="mobile-nav-link">Tools</a>
-            <a href="/cv-generator.html" class="mobile-nav-link mobile-sub-link">CV Generator</a>
-            <a href="/task-manager.html" class="mobile-nav-link mobile-sub-link">Task Manager</a>
-            <a href="/document-tools.html" class="mobile-nav-link mobile-sub-link">Document Tools</a>
-            <a href="/project-planner.html" class="mobile-nav-link mobile-sub-link">Project Planner</a>
+            
+            <!-- Tools dropdown in mobile menu -->
+            <div class="nav-item dropdown">
+                <a href="/tools.html" class="mobile-nav-link nav-link">Tools ▾</a>
+                <div class="dropdown-menu">
+                    <a href="/cv-generator.html" class="dropdown-link mobile-sub-link">CV Generator</a>
+                    <a href="/task-manager.html" class="dropdown-link mobile-sub-link">Task Manager</a>
+                    <a href="/document-tools.html" class="dropdown-link mobile-sub-link">Document Tools</a>
+                    <a href="/project-planner.html" class="dropdown-link mobile-sub-link">Project Planner</a>
+                </div>
+            </div>
+            
             <a href="/blog.html" class="mobile-nav-link">Blog</a>
             <a href="/about.html" class="mobile-nav-link">About</a>
+            <a href="/team.html" class="mobile-nav-link">Team</a>
             <a href="/contact.html" class="mobile-nav-link">Contact</a>
+            
             <div class="mobile-actions">
                 <a href="/login.html" class="btn-login-mobile">Login</a>
                 <a href="/signup.html" class="btn-signup-mobile">Sign Up Free</a>

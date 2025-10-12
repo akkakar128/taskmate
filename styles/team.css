@@ -1,0 +1,419 @@
+/* Team Page Styles */
+.team-page {
+    min-height: 100vh;
+}
+
+/* Team Hero Section */
+.team-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 100px 0 80px;
+    text-align: center;
+}
+
+.team-hero .hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.team-hero .hero-subtitle {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+}
+
+.team-hero .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.team-hero .stat {
+    text-align: center;
+}
+
+.team-hero .stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #fff, #e2e8f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.team-hero .stat-label {
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+/* Leadership Spotlight */
+.leadership-spotlight {
+    padding: 100px 0;
+    background: #f8fafc;
+}
+
+.leadership-card {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.leader-avatar {
+    font-size: 6rem;
+    flex-shrink: 0;
+}
+
+.leader-content h3 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.leader-title {
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.leader-bio {
+    margin-bottom: 2rem;
+}
+
+.leader-bio p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.leader-bio p:last-child {
+    margin-bottom: 0;
+}
+
+.leader-expertise h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.expertise-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.expertise-tag {
+    background: var(--light-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Full Team Section */
+.full-team {
+    padding: 100px 0;
+    background: white;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-member.detailed {
+    background: #f8fafc;
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.team-member.detailed:hover {
+    transform: translateY(-5px);
+    border-color: var(--secondary-color);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.team-member.detailed .member-avatar {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+.team-member.detailed h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.team-member.detailed .member-role {
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.team-member.detailed .member-bio {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.member-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.skill-tag {
+    background: white;
+    color: var(--primary-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid var(--light-color);
+}
+
+/* Team Values Section */
+.team-values {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #1a202c, #2d3748);
+    color: white;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.team-values .section-header h2 {
+    color: white;
+}
+
+.team-values .section-header p {
+    color: rgba(255,255,255,0.8);
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.value-card {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+}
+
+.value-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.value-card h3 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.value-card p {
+    line-height: 1.6;
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* Join Mission Section */
+.join-mission {
+    padding: 100px 0;
+    background: white;
+    text-align: center;
+}
+
+.mission-content h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.mission-content p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+}
+
+.mission-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Team Achievements */
+.team-achievements {
+    padding: 100px 0;
+    background: #f8fafc;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.achievement {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.achievement:hover {
+    transform: translateY(-5px);
+}
+
+.achievement-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.achievement-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.achievement-content p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .team-hero .hero-title {
+        font-size: 3rem;
+    }
+    
+    .leadership-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .leader-avatar {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-hero {
+        padding: 80px 0 60px;
+    }
+    
+    .team-hero .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .team-hero .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .team-hero .hero-stats {
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+    
+    .team-hero .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .leadership-card {
+        padding: 2rem;
+    }
+    
+    .leader-content h3 {
+        font-size: 2rem;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .achievement {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .mission-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-hero .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .leader-content h3 {
+        font-size: 1.8rem;
+    }
+    
+    .expertise-tags {
+        justify-content: center;
+    }
+    
+    .member-skills {
+        justify-content: center;
+    }
+}

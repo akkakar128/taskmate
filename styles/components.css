@@ -1,7 +1,7 @@
 /* Header Styles */
 .main-header {
     background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -93,7 +93,7 @@
     left: 0;
     background: white;
     min-width: 200px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 0.5rem 0;
     opacity: 0;
@@ -339,7 +339,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     color: white;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -347,7 +347,7 @@
 
 .social-link:hover {
     transform: translateY(-2px);
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 /* Quick Links */
@@ -374,7 +374,7 @@
 }
 
 .footer-links-list a {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -398,13 +398,13 @@
     padding: 0.75rem;
     border: none;
     border-radius: 6px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     color: white;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .input-group input::placeholder {
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .newsletter-btn {
@@ -426,7 +426,7 @@
 
 /* Feedback Section */
 .feedback-section {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     padding: 2rem;
     border-radius: 12px;
     margin: 2rem 0;
@@ -461,7 +461,7 @@
 
 /* Footer Bottom */
 .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 2rem 0;
 }
 
@@ -481,7 +481,7 @@
 }
 
 .legal-links a {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.3s ease;
@@ -499,7 +499,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 2000;
     align-items: center;
     justify-content: center;
@@ -574,39 +574,40 @@
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
     }
-    
+
     .footer-links-grid {
         grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 768px) {
+
     .nav-menu,
     .nav-actions {
         display: none;
     }
-    
+
     .mobile-menu-btn {
         display: flex;
     }
-    
+
     .footer-content {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .footer-bottom-content {
         flex-direction: column;
         gap: 1rem;
         text-align: center;
     }
-    
+
     .legal-links {
         flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
     }
-    
+
     .input-group {
         flex-direction: column;
     }
@@ -616,16 +617,264 @@
     .nav-container {
         padding: 1rem;
     }
-    
+
     .footer-container {
         padding: 0 1rem;
     }
-    
+
     .feedback-form {
         padding: 1rem;
     }
-    
+
     .form-actions {
         flex-direction: column;
     }
+}
+
+/* Mobile Menu Button Animation */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    gap: 4px;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    z-index: 1001;
+}
+
+.mobile-menu-btn span {
+    width: 25px;
+    height: 3px;
+    background: var(--text-color);
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* Mobile menu button animation when active */
+.mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+}
+
+.mobile-menu.active {
+    transform: translateX(0);
+    display: block;
+}
+
+.mobile-menu-container {
+    padding: 80px 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.mobile-nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--light-color);
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+    color: var(--secondary-color);
+}
+
+.mobile-sub-link {
+    padding-left: 1rem;
+    font-size: 1rem;
+    color: var(--light-text);
+}
+
+.mobile-actions {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--light-color);
+}
+
+.btn-login-mobile,
+.btn-signup-mobile {
+    text-decoration: none;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-login-mobile {
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.btn-login-mobile:hover {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.btn-signup-mobile {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.btn-signup-mobile:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Show mobile menu button on mobile */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .nav-menu,
+    .nav-actions {
+        display: none;
+    }
+
+    /* Ensure mobile menu is above other content */
+    .mobile-menu {
+        z-index: 9999;
+    }
+
+    .mobile-menu-btn {
+        z-index: 10000;
+    }
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.mobile-menu-open {
+    overflow: hidden;
+}
+
+/* Dropdown Menu - Desktop Only */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+/* Show dropdown on hover for desktop */
+@media (min-width: 769px) {
+    .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-link {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.dropdown-link:hover {
+    background: var(--light-color);
+    color: var(--secondary-color);
+}
+
+/* Mobile Dropdown Styles */
+@media (max-width: 768px) {
+
+    /* Hide dropdown menu by default on mobile */
+    .dropdown-menu {
+        display: none;
+        position: static;
+        box-shadow: none;
+        background: #f8fafc;
+        border-radius: 0;
+        padding: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        border-left: 3px solid var(--secondary-color);
+        margin-left: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    /* Show dropdown when parent has active class */
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-link {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    .dropdown-link:last-child {
+        border-bottom: none;
+    }
+
+    /* Add dropdown arrow indicator */
+    .dropdown>.nav-link::after {
+        content: ' ▾';
+        font-size: 0.8em;
+    }
+
+    .dropdown.active>.nav-link::after {
+        content: ' ▴';
+    }
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.mobile-menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+/* Ensure mobile menu can still scroll */
+.mobile-menu.active {
+    overflow-y: auto;
 }

@@ -433,7 +433,7 @@
 
 .btn-secondary:hover {
     background: white;
-    color: var(--primary-color);
+    color: white;
     transform: translateY(-2px);
 }
 
