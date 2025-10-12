@@ -1,0 +1,639 @@
+/* Careers Page Styles */
+.careers-page {
+    min-height: 100vh;
+}
+
+/* Careers Hero Section */
+.careers-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 100px 0 80px;
+    text-align: center;
+}
+
+.careers-hero .hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.careers-hero .hero-subtitle {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+}
+
+.careers-hero .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.careers-hero .stat {
+    text-align: center;
+}
+
+.careers-hero .stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #fff, #e2e8f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.careers-hero .stat-label {
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+/* Why Join Section */
+.why-join {
+    padding: 100px 0;
+    background: #f8fafc;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.benefit-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+}
+
+.benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.benefit-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.benefit-card p {
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* Current Openings */
+.current-openings {
+    padding: 100px 0;
+    background: white;
+}
+
+.jobs-filter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: var(--light-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.job-card {
+    background: #f8fafc;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.job-card:hover {
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.job-header h3 {
+    color: var(--primary-color);
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.job-type {
+    background: var(--light-color);
+    color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.job-type.remote {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.job-type.internship {
+    background: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.job-details {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.job-location,
+.job-department,
+.job-experience {
+    font-size: 0.9rem;
+    color: var(--light-text);
+}
+
+.job-description {
+    line-height: 1.6;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.job-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-apply {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.btn-apply:hover {
+    background: var(--primary-color);
+}
+
+.no-jobs-content {
+    text-align: center;
+    padding: 3rem;
+    background: #f8fafc;
+    border-radius: 12px;
+}
+
+.no-jobs-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.no-jobs-content p {
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.btn-speculative {
+    background: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-speculative:hover {
+    background: var(--secondary-color);
+    color: white;
+}
+
+/* Application Process */
+.application-process {
+    padding: 100px 0;
+    background: #f8fafc;
+}
+
+.process-steps {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.process-step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.step-number {
+    background: var(--secondary-color);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-right: 2rem;
+    flex-shrink: 0;
+}
+
+.step-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.step-content p {
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* Culture & Values */
+.culture-values {
+    padding: 100px 0;
+    background: white;
+}
+
+.culture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.culture-card {
+    background: #f8fafc;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.culture-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.culture-card p {
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* General Application */
+.general-application {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #1a202c, #2d3748);
+    color: white;
+}
+
+.general-application .application-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.general-application h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.general-application p {
+    text-align: center;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+}
+
+.application-form {
+    background: rgba(255,255,255,0.1);
+    padding: 2.5rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    color: white;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.75rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 6px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 1rem;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+.form-group small {
+    color: rgba(255,255,255,0.7);
+    margin-top: 0.25rem;
+    font-size: 0.8rem;
+}
+
+.form-actions {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn-submit-application {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit-application:hover {
+    background: var(--accent-color);
+}
+
+/* Careers Feedback */
+.careers-feedback {
+    padding: 100px 0;
+    background: white;
+}
+
+.feedback-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.feedback-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.feedback-content p {
+    color: var(--text-color);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+.feedback-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feedback-option {
+    background: #f8fafc;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.feedback-option h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.feedback-option p {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.btn-feedback-option {
+    background: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-feedback-option:hover {
+    background: var(--secondary-color);
+    color: white;
+}
+
+/* Application Modal */
+.application-modal,
+.careers-feedback-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.application-modal.active,
+.careers-feedback-modal.active {
+    display: flex;
+}
+
+.application-modal .modal-content,
+.careers-feedback-modal .modal-content {
+    background: white;
+    border-radius: 12px;
+    max-width: 700px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.application-modal .modal-header,
+.careers-feedback-modal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--light-color);
+}
+
+.application-modal .modal-header h3,
+.careers-feedback-modal .modal-header h3 {
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.application-modal .application-form,
+.careers-feedback-modal .feedback-form {
+    padding: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .careers-hero .hero-title {
+        font-size: 3rem;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .careers-hero {
+        padding: 80px 0 60px;
+    }
+    
+    .careers-hero .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .careers-hero .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .careers-hero .hero-stats {
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+    
+    .careers-hero .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .jobs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .job-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .process-step {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .step-number {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .feedback-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .application-form {
+        padding: 1.5rem;
+    }
+    
+    .application-modal .modal-content,
+    .careers-feedback-modal .modal-content {
+        margin: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .careers-hero .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .jobs-filter {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filter-btn {
+        width: 200px;
+    }
+    
+    .general-application h2 {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact TASKMATE - Get Help & Support | Feedback Welcome</title>
+    <meta name="description" content="Contact TASKMATE for support, feedback, or partnerships. We're here to help with our educational and professional tools. Quick responses guaranteed.">
+    <meta name="keywords" content="contact taskmate, taskmate support, feedback form, customer service, technical support, partnership inquiries, educational tools help">
+    <meta name="author" content="TASKMATE">
+    <meta property="og:title" content="Contact TASKMATE - Get Help & Support | Feedback Welcome">
+    <meta property="og:description" content="Reach out to TASKMATE for support, feedback, or partnership opportunities. We're here to help you succeed.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://taskmate.com/contact">
+    <link rel="stylesheet" href="styles/contact.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/responsive.css">
+</head>
+<body>
+    <!-- Header will be automatically inserted here by components.js -->
+    
+    <main class="contact-page">
+        <!-- Hero Section -->
+        <section class="contact-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">We're Here to Help You Succeed</h1>
+                    <p class="hero-subtitle">Get in touch with our team for support, feedback, or partnership opportunities. We're committed to helping you make the most of our tools.</p>
+                    <div class="hero-features">
+                        <div class="feature">
+                            <div class="feature-icon">⚡</div>
+                            <span>Quick Response Time</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🎯</div>
+                            <span>Expert Support</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">💡</div>
+                            <span>Helpful Solutions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Methods -->
+        <section class="contact-methods">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Choose How You'd Like to Connect</h2>
+                    <p>Multiple ways to get the help and support you need</p>
+                </div>
+                <div class="methods-grid">
+                    <div class="method-card">
+                        <div class="method-icon">📧</div>
+                        <h3>Email Support</h3>
+                        <p>Send us a detailed message and we'll get back to you within 24 hours.</p>
+                        <div class="method-contact">
+                            <strong>support@taskmate.com</strong>
+                        </div>
+                        <a href="mailto:support@taskmate.com" class="method-btn">Send Email</a>
+                    </div>
+                    
+                    <div class="method-card">
+                        <div class="method-icon">💬</div>
+                        <h3>Live Chat</h3>
+                        <p>Get instant answers to your questions during business hours.</p>
+                        <div class="method-contact">
+                            <strong>Available: Mon-Fri, 9AM-6PM</strong>
+                        </div>
+                        <button class="method-btn" id="start-chat">Start Chat</button>
+                    </div>
+                    
+                    <div class="method-card">
+                        <div class="method-icon">📋</div>
+                        <h3>Feedback Form</h3>
+                        <p>Share your thoughts, suggestions, or report issues with our tools.</p>
+                        <div class="method-contact">
+                            <strong>We value your input</strong>
+                        </div>
+                        <button class="method-btn" id="open-feedback-form">Share Feedback</button>
+                    </div>
+                    
+                    <div class="method-card">
+                        <div class="method-icon">🌐</div>
+                        <h3>Community Forum</h3>
+                        <p>Connect with other users and find answers in our community.</p>
+                        <div class="method-contact">
+                            <strong>Join 10,000+ members</strong>
+                        </div>
+                        <a href="/community.html" class="method-btn">Visit Forum</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Contact Form -->
+        <section class="main-contact-form">
+            <div class="container">
+                <div class="form-container">
+                    <div class="form-header">
+                        <h2>Send Us a Message</h2>
+                        <p>Fill out the form below and we'll get back to you as soon as possible</p>
+                    </div>
+                    <form class="contact-form" id="main-contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-name">Full Name *</label>
+                                <input type="text" id="contact-name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Email Address *</label>
+                                <input type="email" id="contact-email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-subject">Subject *</label>
+                            <select id="contact-subject" name="subject" required>
+                                <option value="">Select a topic</option>
+                                <option value="technical-support">Technical Support</option>
+                                <option value="feature-request">Feature Request</option>
+                                <option value="bug-report">Bug Report</option>
+                                <option value="partnership">Partnership Inquiry</option>
+                                <option value="general">General Question</option>
+                                <option value="billing">Billing Issue</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-message">Message *</label>
+                            <textarea id="contact-message" name="message" rows="6" placeholder="Please describe your inquiry in detail..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newsletter" checked>
+                                Send me updates about new tools and features (optional)
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loading" style="display: none;">
+                                <div class="loading-spinner"></div>
+                                Sending...
+                            </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="contact-faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Quick answers to common questions</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>How long does it take to get a response?</h3>
+                        <p>We typically respond to all inquiries within 24 hours. For urgent technical issues, we aim to respond within 4-6 hours during business days.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>Do you offer technical support for your tools?</h3>
+                        <p>Yes! We provide comprehensive technical support for all our tools. Whether you're facing issues or need guidance, our team is here to help.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>Can I suggest new features for your tools?</h3>
+                        <p>Absolutely! We love hearing feature suggestions from our users. Many of our best features started as user suggestions.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>Are your tools really free?</h3>
+                        <p>Yes, all our basic tools are completely free to use. We believe in making quality educational and professional tools accessible to everyone.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>Do you offer custom solutions for organizations?</h3>
+                        <p>Yes, we provide custom solutions and enterprise packages for educational institutions and businesses. Contact us for more information.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>How can I report a bug?</h3>
+                        <p>You can report bugs through our contact form, feedback system, or by emailing support@taskmate.com. Please include detailed steps to reproduce the issue.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Resources -->
+        <section class="support-resources">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Additional Support Resources</h2>
+                    <p>Helpful resources to get you started</p>
+                </div>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon">📚</div>
+                        <h3>Documentation</h3>
+                        <p>Comprehensive guides and tutorials for all our tools.</p>
+                        <a href="/docs.html" class="resource-link">View Documentation →</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-icon">🎥</div>
+                        <h3>Video Tutorials</h3>
+                        <p>Step-by-step video guides to help you master our tools.</p>
+                        <a href="/tutorials.html" class="resource-link">Watch Tutorials →</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-icon">🔄</div>
+                        <h3>Status Page</h3>
+                        <p>Check the current status of all our tools and services.</p>
+                        <a href="/status.html" class="resource-link">Check Status →</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-icon">💭</div>
+                        <h3>Blog & Updates</h3>
+                        <p>Latest news, updates, and tips for using our tools effectively.</p>
+                        <a href="/blog.html" class="resource-link">Read Blog →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Feedback Modal -->
+    <div class="feedback-modal" id="feedback-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Share Your Feedback</h3>
+                <button class="modal-close" id="close-feedback">&times;</button>
+            </div>
+            <form class="feedback-form" id="feedback-form">
+                <div class="form-group">
+                    <label for="feedback-type">Feedback Type *</label>
+                    <select id="feedback-type" name="type" required>
+                        <option value="">What type of feedback do you have?</option>
+                        <option value="bug">Bug Report</option>
+                        <option value="feature">Feature Request</option>
+                        <option value="improvement">Improvement Suggestion</option>
+                        <option value="usability">Usability Issue</option>
+                        <option value="general">General Feedback</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="feedback-tool">Which Tool? *</label>
+                    <select id="feedback-tool" name="tool" required>
+                        <option value="">Select a tool</option>
+                        <option value="cv-generator">CV Generator</option>
+                        <option value="task-manager">Task Manager</option>
+                        <option value="document-tools">Document Tools</option>
+                        <option value="project-planner">Project Planner</option>
+                        <option value="website">Website</option>
+                        <option value="all">All Tools</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="feedback-rating">How would you rate your experience?</label>
+                    <div class="rating-stars">
+                        <input type="radio" id="star5" name="rating" value="5">
+                        <label for="star5">★</label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4">★</label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3">★</label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2">★</label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1">★</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="feedback-message">Your Feedback *</label>
+                    <textarea id="feedback-message" name="message" placeholder="Please share your thoughts, suggestions, or describe any issues you encountered..." required rows="5"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="feedback-email">Email (optional)</label>
+                    <input type="email" id="feedback-email" name="email" placeholder="Enter your email if you'd like us to follow up">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" id="cancel-feedback">Cancel</button>
+                    <button type="submit" class="btn-submit">Submit Feedback</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer will be automatically inserted here by components.js -->
+
+    <script src="/js/components.js"></script>
+    <script src="/js/contact.js"></script>
+</body>
+</html>
