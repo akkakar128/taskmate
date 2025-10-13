@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASKMATE Blog - Educational & Professional Insights | Latest Articles</title>
+    <meta name="description" content="Explore TASKMATE's blog for expert insights on education tools, career development, productivity tips, and technology trends. Stay updated with our latest articles.">
+    <meta name="keywords" content="education blog, career tips, productivity tools, technology insights, student resources, professional development, taskmate articles">
+    <meta name="author" content="TASKMATE">
+    <meta property="og:title" content="TASKMATE Blog - Educational & Professional Insights">
+    <meta property="og:description" content="Discover expert articles on education tools, career development, and productivity tips from TASKMATE.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://taskmate.com/blog">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/responsive.css">
+    <link rel="stylesheet" href="/styles/blogs.css">
+</head>
+<body>
+    <!-- Header will be automatically inserted here by components.js -->
+    
+    <main class="blogs-page">
+        <!-- Blog Hero Section -->
+        <section class="blog-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">TASKMATE Insights</h1>
+                    <p class="hero-subtitle">Expert articles on education, career development, productivity tools, and technology trends</p>
+                    <div class="hero-search">
+                        <input type="text" id="blog-search" placeholder="Search articles..." class="search-input">
+                        <button class="search-btn">Search</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Blogs -->
+        <section class="featured-blogs" id="featured-blogs">
+            <div class="container">
+                <h2 class="section-title">Featured Articles</h2>
+                <div class="featured-grid" id="featured-grid">
+                    <!-- Featured blogs will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Blog Content -->
+        <section class="blog-main">
+            <div class="container">
+                <div class="blog-layout">
+                    <!-- Blog Filters -->
+                    <aside class="blog-sidebar">
+                        <div class="sidebar-widget">
+                            <h3>Categories</h3>
+                            <div class="category-filters" id="category-filters">
+                                <!-- Categories will be loaded here -->
+                            </div>
+                        </div>
+                        
+                        <div class="sidebar-widget">
+                            <h3>Popular Tags</h3>
+                            <div class="tag-cloud" id="tag-cloud">
+                                <!-- Tags will be loaded here -->
+                            </div>
+                        </div>
+
+                        <div class="sidebar-widget">
+                            <h3>Subscribe</h3>
+                            <p>Get the latest articles delivered to your inbox</p>
+                            <form class="subscribe-form" id="blog-subscribe">
+                                <input type="email" placeholder="Your email address" required>
+                                <button type="submit">Subscribe</button>
+                            </form>
+                        </div>
+
+                        <div class="sidebar-widget contribute-widget">
+                            <h3>Share Your Knowledge</h3>
+                            <p>Have expertise to share? Contribute to our blog!</p>
+                            <button class="btn-contribute" id="open-contribute">Write for Us</button>
+                        </div>
+                    </aside>
+
+                    <!-- Blog Posts -->
+                    <div class="blog-content">
+                        <div class="blog-header">
+                            <h2>Latest Articles</h2>
+                            <div class="blog-controls">
+                                <select id="sort-blogs" class="sort-select">
+                                    <option value="newest">Newest First</option>
+                                    <option value="oldest">Oldest First</option>
+                                    <option value="popular">Most Popular</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="blogs-grid" id="blogs-grid">
+                            <!-- Blogs will be loaded here by JavaScript -->
+                        </div>
+
+                        <div class="load-more-container">
+                            <button class="btn-load-more" id="load-more">Load More Articles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="blog-newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Stay Updated</h2>
+                    <p>Get weekly insights on education technology, career development, and productivity tools</p>
+                    <form class="newsletter-form" id="main-newsletter">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit">Subscribe to Newsletter</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contribute Modal -->
+    <div class="contribute-modal" id="contribute-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Contribute to Our Blog</h3>
+                <button class="modal-close" id="close-contribute">&times;</button>
+            </div>
+            <form class="contribute-form" id="contribute-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="author-name">Your Name</label>
+                        <input type="text" id="author-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="author-email">Email</label>
+                        <input type="email" id="author-email" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="blog-title">Article Title</label>
+                    <input type="text" id="blog-title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="blog-category">Category</label>
+                    <select id="blog-category" required>
+                        <option value="">Select Category</option>
+                        <option value="Education">Education</option>
+                        <option value="Career">Career</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Productivity">Productivity</option>
+                        <option value="Security">Security</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="blog-excerpt">Article Excerpt (Brief Summary)</label>
+                    <textarea id="blog-excerpt" required placeholder="Provide a brief summary of your article..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="blog-content">Article Content</label>
+                    <textarea id="blog-content" required placeholder="Write your full article here..." rows="10"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="blog-tags">Tags (comma separated)</label>
+                    <input type="text" id="blog-tags" placeholder="education, technology, productivity">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" id="cancel-contribute">Cancel</button>
+                    <button type="submit" class="btn-submit">Submit Article</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer will be automatically inserted here by components.js -->
+
+    <script src="/js/components.js"></script>
+    <script src="/js/blogs.js"></script>
+</body>
+</html>

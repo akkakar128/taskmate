@@ -1,0 +1,140 @@
+{
+  "hero": {
+    "title": "Transform Your Productivity with TASKMATE",
+    "subtitle": "Free, powerful tools for students and professionals. Streamline your workflow with our ever-growing collection of educational and professional resources.",
+    "ctaButtons": [
+      {
+        "text": "Explore All Tools",
+        "url": "/tools.html",
+        "type": "primary"
+      },
+      {
+        "text": "Learn More",
+        "url": "/about.html",
+        "type": "secondary"
+      }
+    ]
+  },
+  "features": [
+    {
+      "icon": "🚀",
+      "title": "Completely Free",
+      "description": "Access all our tools without any cost or hidden fees. Forever free for everyone."
+    },
+    {
+      "icon": "🔒",
+      "title": "100% Secure",
+      "description": "Your data stays on your device. We don't store or track any personal information."
+    },
+    {
+      "icon": "💡",
+      "title": "Easy to Use",
+      "description": "Intuitive interfaces designed for everyone, regardless of technical expertise."
+    },
+    {
+      "icon": "🔄",
+      "title": "Always Improving",
+      "description": "We continuously update and add new tools based on user feedback and needs."
+    }
+  ],
+  "tools": [
+    {
+      "id": "cv-generator",
+      "name": "CV Generator",
+      "description": "Create professional CVs and resumes with multiple templates and themes",
+      "icon": "📄",
+      "url": "/cv-generator.html",
+      "category": "document",
+      "featured": true,
+      "new": false
+    },
+    {
+      "id": "task-manager",
+      "name": "Task Manager",
+      "description": "Organize your projects and tasks with our intuitive management system",
+      "icon": "✅",
+      "url": "/task-manager.html",
+      "category": "productivity",
+      "featured": true,
+      "new": true
+    },
+    {
+      "id": "document-converter",
+      "name": "Document Converter",
+      "description": "Convert between different document formats quickly and easily",
+      "icon": "🔄",
+      "url": "/document-converter.html",
+      "category": "document",
+      "featured": false,
+      "new": true
+    },
+    {
+      "id": "study-planner",
+      "name": "Study Planner",
+      "description": "Plan your study sessions and track your learning progress",
+      "icon": "📚",
+      "url": "/study-planner.html",
+      "category": "education",
+      "featured": true,
+      "new": false
+    },
+    {
+      "id": "project-planner",
+      "name": "Project Planner",
+      "description": "Plan and manage your projects with comprehensive tools",
+      "icon": "📊",
+      "url": "/project-planner.html",
+      "category": "productivity",
+      "featured": false,
+      "new": false
+    },
+    {
+      "id": "code-formatter",
+      "name": "Code Formatter",
+      "description": "Format and beautify your code in multiple programming languages",
+      "icon": "💻",
+      "url": "/code-formatter.html",
+      "category": "development",
+      "featured": false,
+      "new": true
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Sarah Johnson",
+      "role": "University Student",
+      "content": "TASKMATE's CV Generator helped me create a professional resume that landed me my first internship. The templates are amazing!",
+      "avatar": "👩‍🎓"
+    },
+    {
+      "name": "Michael Chen",
+      "role": "Project Manager",
+      "content": "The task management tools have streamlined our team's workflow. We've increased productivity by 40% since we started using TASKMATE.",
+      "avatar": "👨‍💼"
+    },
+    {
+      "name": "Dr. Emily Rodriguez",
+      "role": "Professor",
+      "content": "My students love the study tools. They're intuitive, free, and actually help with learning. Highly recommended for educators!",
+      "avatar": "👩‍🏫"
+    }
+  ],
+  "stats": [
+    {
+      "number": "50+",
+      "label": "Tools Available"
+    },
+    {
+      "number": "100,000+",
+      "label": "Users Empowered"
+    },
+    {
+      "number": "99.9%",
+      "label": "Uptime"
+    },
+    {
+      "number": "24/7",
+      "label": "Free Access"
+    }
+  ]
+}

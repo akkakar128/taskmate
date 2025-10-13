@@ -3,306 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional CV Generator - Multiple Templates & Themes</title>
-    <link rel="stylesheet" href="style/cv-gen.css">
+    <title>TASKMATE - Free Educational & Professional Tools | Boost Your Productivity</title>
+    <meta name="description" content="TASKMATE offers free, secure educational and professional tools. CV generator, task manager, document tools, and more. No registration required.">
+    <meta name="keywords" content="free tools, educational tools, professional tools, cv generator, task manager, productivity apps, document tools, study tools">
+    <meta name="author" content="TASKMATE">
+    <meta property="og:title" content="TASKMATE - Free Educational & Professional Tools">
+    <meta property="og:description" content="Boost your productivity with TASKMATE's free tools. CV generator, task manager, document tools, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://taskmate.com">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/responsive.css">
 </head>
 <body>
-    <div class="container">
-        <header class="no-print">
-            <h1>Professional CV Generator</h1>
-            <p class="subtitle">Create a polished CV with multiple templates, themes and formats</p>
-        </header>
+    <!-- Header will be automatically inserted here by components.js -->
+    
+    <main class="homepage">
+        <!-- Hero Section -->
+        <section class="home-hero" id="home-hero">
+            <!-- Content will be loaded from JSON -->
+        </section>
 
-        <div class="main-content">
-            <div class="input-section no-print">
-                <div class="input-content">
-                    <h2 class="section-title">Input Your Data</h2>
-                    
-                    <div class="template-selector">
-                        <div class="template-option selected" data-template="modern">
-                            <h3>Modern</h3>
-                            <p>Clean, professional design with accent colors</p>
-                            <div class="template-preview">
-                                <div class="template-preview-content">
-                                    <div class="template-preview-line" style="background: #2c3e50;"></div>
-                                    <div class="template-preview-line short" style="background: #3498db;"></div>
-                                    <div class="template-preview-line medium"></div>
-                                    <div class="template-preview-line"></div>
-                                    <div class="template-preview-line short"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="template-option" data-template="classic">
-                            <h3>Classic</h3>
-                            <p>Traditional, elegant layout with centered header</p>
-                            <div class="template-preview">
-                                <div class="template-preview-content">
-                                    <div class="template-preview-line" style="background: #2c3e50;"></div>
-                                    <div class="template-preview-line short" style="background: #7f8c8d;"></div>
-                                    <div class="template-preview-line medium"></div>
-                                    <div class="template-preview-line"></div>
-                                    <div class="template-preview-line short"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="template-option" data-template="minimalist">
-                            <h3>Minimalist</h3>
-                            <p>Simple, clean design with maximum readability</p>
-                            <div class="template-preview">
-                                <div class="template-preview-content">
-                                    <div class="template-preview-line" style="background: #000;"></div>
-                                    <div class="template-preview-line short" style="background: #666;"></div>
-                                    <div class="template-preview-line medium"></div>
-                                    <div class="template-preview-line"></div>
-                                    <div class="template-preview-line short"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="template-option" data-template="executive">
-                            <h3>Executive</h3>
-                            <p>Professional layout suitable for senior roles</p>
-                            <div class="template-preview">
-                                <div class="template-preview-content">
-                                    <div class="template-preview-line" style="background: #2c3e50;"></div>
-                                    <div class="template-preview-line short" style="background: #7f8c8d;"></div>
-                                    <div class="template-preview-line medium"></div>
-                                    <div class="template-preview-line"></div>
-                                    <div class="template-preview-line short"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="theme-selector">
-                        <h3 class="section-title">Choose Theme</h3>
-                        <div class="theme-options" id="themeOptions">
-                            <!-- Theme options will be populated by JavaScript -->
-                        </div>
-                    </div>
-                    
-                    <div class="format-selector">
-                        <div class="format-option selected" id="photoFormat">
-                            <h3>Photo CV</h3>
-                            <p>Includes photo</p>
-                        </div>
-                        <div class="format-option" id="internationalFormat">
-                            <h3>International CV</h3>
-                            <p>No photo</p>
-                        </div>
-                    </div>
-                    
-                    <div class="upload-area" id="uploadArea">
-                        <div class="upload-icon">📄</div>
-                        <h3>Upload JSON File</h3>
-                        <p>Drag & drop or click to upload your CV data as JSON</p>
-                        <input type="file" id="jsonFile" accept=".json" class="hidden">
-                    </div>
-                    <p class="json-upload-info">Use the JSON format shown in the example below</p>
-                    
-                    <div class="json-examples">
-                        <h3>Don't know JSON format? Download example:</h3>
-                        <div class="json-example-buttons">
-                            <button id="downloadExample" class="btn btn-example">Download <span id="currentFormatText">Photo</span> Format Example</button>
-                        </div>
-                    </div>
-                    
-                    <p style="text-align: center; margin: 15px 0; color: var(--light-text);">- OR -</p>
-                    
-                    <form id="cvForm">
-                        <div id="photoUploadSection">
-                            <div class="form-group">
-                                <label>Professional Photo (Photo CV)</label>
-                                <div class="photo-upload-area" id="photoUploadArea">
-                                    <div class="photo-upload-icon">📷</div>
-                                    <h4>Upload Your Photo</h4>
-                                    <p>Click to select a photo (Max: 200KB)</p>
-                                    <input type="file" id="photoFile" accept="image/*" class="hidden">
-                                </div>
-                                <p class="photo-size-info">Recommended size: 150x180 pixels, Max file size: 200KB</p>
-                                <p class="photo-error" id="photoError">File size exceeds 200KB limit. Please choose a smaller image.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="fullName">Full Name</label>
-                            <input type="text" id="fullName" placeholder="John Doe" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="jobTitle">Professional Title</label>
-                            <input type="text" id="jobTitle" placeholder="e.g., Marketing Manager, Software Engineer, Nurse" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="john.doe@example.com" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="tel" id="phone" placeholder="+1 (555) 123-4567">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="location">Location</label>
-                            <input type="text" id="location" placeholder="New York, NY">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="linkedin">LinkedIn Profile</label>
-                            <input type="url" id="linkedin" placeholder="https://linkedin.com/in/johndoe">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="github">GitHub Profile</label>
-                            <input type="url" id="github" placeholder="https://github.com/username">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="portfolio">Portfolio/Website</label>
-                            <input type="url" id="portfolio" placeholder="https://johndoe.dev">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="summary">Professional Summary</label>
-                            <textarea id="summary" placeholder="Brief overview of your experience, skills, and career goals..."></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="skills">Skills (comma separated)</label>
-                            <textarea id="skills" placeholder="Project Management, Data Analysis, Customer Service, Team Leadership"></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="languages">Languages (comma separated, with proficiency if needed)</label>
-                            <textarea id="languages" placeholder="English (Native), Spanish (Intermediate), French (Basic)"></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Professional Experience</label>
-                            <div id="experienceList" class="dynamic-list">
-                                <!-- Experience items will be added here dynamically -->
-                            </div>
-                            <button type="button" id="addExperience" class="add-btn">+ Add Experience</button>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Education</label>
-                            <div id="educationList" class="dynamic-list">
-                                <!-- Education items will be added here dynamically -->
-                            </div>
-                            <button type="button" id="addEducation" class="add-btn">+ Add Education</button>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="certifications">Certifications (comma separated)</label>
-                            <textarea id="certifications" placeholder="PMP, Google Analytics, Salesforce Administrator"></textarea>
-                        </div>
-                    </form>
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Why Choose TASKMATE?</h2>
+                    <p>We're committed to providing the best free tools for your educational and professional journey</p>
                 </div>
-                
-                <div class="sticky-footer">
-                    <button type="button" id="generateBtn" class="btn btn-block">Generate CV</button>
+                <div class="features-grid" id="features-grid">
+                    <!-- Content will be loaded from JSON -->
                 </div>
             </div>
-            
-            <div class="preview-section">
-                <div class="preview-content">
-                    <h2 class="section-title no-print">CV Preview</h2>
-                    
-                    <div class="cv-template modern theme-blue" id="cvPreview">
-                        <div class="cv-header">
-                            <div class="personal-info">
-                                <h2 id="previewName">Your Name</h2>
-                                <h3 id="previewTitle">Professional Title</h3>
-                                <div class="contact-info">
-                                    <p id="previewEmail">email@example.com</p>
-                                    <p id="previewPhone">+1 (555) 123-4567</p>
-                                    <p id="previewLocation">City, State</p>
-                                    <p id="previewLinkedIn">linkedin.com/in/username</p>
-                                    <p id="previewGithub">github.com/username</p>
-                                    <p id="previewPortfolio">yourwebsite.com</p>
-                                </div>
-                            </div>
-                            <div class="photo-container">
-                                <div class="photo-placeholder" id="photoPlaceholder">
-                                    Professional Photo<br>(150x180 px)
-                                </div>
-                                <img id="photoPreview" class="photo-preview hidden" src="" alt="Professional Photo">
-                            </div>
-                        </div>
-                        
-                        <div class="cv-section">
-                            <h3 class="cv-section-title">Professional Summary</h3>
-                            <p id="previewSummary">Your professional summary will appear here. This should be a brief overview of your experience, skills, and career goals.</p>
-                        </div>
-                        
-                        <div class="two-column">
-                            <div class="cv-section">
-                                <h3 class="cv-section-title">Skills</h3>
-                                <div class="skills-list" id="previewSkills">
-                                    <div class="skill-tag">Sample Skill 1</div>
-                                    <div class="skill-tag">Sample Skill 2</div>
-                                    <div class="skill-tag">Sample Skill 3</div>
-                                </div>
-                            </div>
-                            
-                            <div class="cv-section">
-                                <h3 class="cv-section-title">Languages</h3>
-                                <div class="skills-list" id="previewLanguages">
-                                    <div class="skill-tag">English (Native)</div>
-                                    <div class="skill-tag">Spanish (Intermediate)</div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="cv-section">
-                            <h3 class="cv-section-title">Professional Experience</h3>
-                            <div id="previewExperience">
-                                <div class="experience-item">
-                                    <div class="item-header">
-                                        <div class="item-title">Job Title</div>
-                                        <div class="item-date">Jan 2020 - Present</div>
-                                    </div>
-                                    <div class="item-subtitle">Company Name, Location</div>
-                                    <p>Brief description of your responsibilities and achievements in this role.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="cv-section">
-                            <h3 class="cv-section-title">Education</h3>
-                            <div id="previewEducation">
-                                <div class="education-item">
-                                    <div class="item-header">
-                                        <div class="item-title">Degree Name</div>
-                                        <div class="item-date">2016 - 2020</div>
-                                    </div>
-                                    <div class="item-subtitle">University Name, Location</div>
-                                    <p>Additional details about your education, honors, or relevant coursework.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="cv-section">
-                            <h3 class="cv-section-title">Certifications</h3>
-                            <div class="skills-list" id="previewCertifications">
-                                <div class="skill-tag">Sample Certification 1</div>
-                                <div class="skill-tag">Sample Certification 2</div>
-                            </div>
-                        </div>
-                    </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section class="tools-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Popular Tools</h2>
+                    <p>Discover our growing collection of free tools designed to make your life easier</p>
                 </div>
-                
-                <div class="download-options no-print">
-                    <button id="printBtn" class="btn btn-download">Print CV</button>
-                    <button id="pdfBtn" class="btn btn-download">Save as PDF</button>
-                    <button id="exportJsonBtn" class="btn btn-download">Export JSON</button>
+                <div class="tools-filter" id="tools-filter">
+                    <!-- Filter buttons will be generated dynamically -->
+                </div>
+                <div class="tools-grid" id="tools-grid">
+                    <!-- Tools will be loaded from JSON -->
+                </div>
+                <div class="tools-cta">
+                    <a href="/tools.html" class="btn btn-primary">View All Tools</a>
                 </div>
             </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid" id="stats-grid">
+                    <!-- Stats will be loaded from JSON -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What Our Users Say</h2>
+                    <p>Join thousands of satisfied students and professionals</p>
+                </div>
+                <div class="testimonials-grid" id="testimonials-grid">
+                    <!-- Testimonials will be loaded from JSON -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Feedback Section -->
+        <section class="feedback-section">
+            <div class="container">
+                <div class="feedback-content">
+                    <div class="feedback-text">
+                        <h2>Help Us Improve</h2>
+                        <p>Your feedback helps us create better tools. Share your thoughts and suggestions with us.</p>
+                    </div>
+                    <div class="feedback-actions">
+                        <button class="btn btn-primary" id="open-feedback-modal">Share Feedback</button>
+                        <a href="/contact.html" class="btn btn-secondary">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Boost Your Productivity?</h2>
+                    <p>Join thousands of users who trust TASKMATE for their daily tools</p>
+                    <div class="cta-buttons">
+                        <a href="/tools.html" class="btn btn-primary">Get Started Free</a>
+                        <a href="/about.html" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Feedback Modal -->
+    <div class="feedback-modal" id="feedback-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Share Your Feedback</h3>
+                <button class="modal-close" id="close-feedback-modal">&times;</button>
+            </div>
+            <form class="feedback-form" id="feedback-form">
+                <div class="form-group">
+                    <label for="feedback-type">What type of feedback do you have?</label>
+                    <select id="feedback-type" required>
+                        <option value="">Select feedback type</option>
+                        <option value="feature-request">Feature Request</option>
+                        <option value="bug-report">Bug Report</option>
+                        <option value="improvement">Improvement Suggestion</option>
+                        <option value="general">General Feedback</option>
+                        <option value="tool-request">New Tool Request</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="feedback-tool">Which tool is this about? (Optional)</label>
+                    <select id="feedback-tool">
+                        <option value="">Select a tool</option>
+                        <!-- Tools will be populated dynamically -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="feedback-message">Your Message *</label>
+                    <textarea id="feedback-message" placeholder="Tell us what you think, suggest improvements, or request new features..." required rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="feedback-email">Email (Optional - if you'd like a response)</label>
+                    <input type="email" id="feedback-email" placeholder="Enter your email">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancel-feedback">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                </div>
+            </form>
         </div>
     </div>
 
-    <script src="script/cv-gen.js"></script>
+    <!-- Footer will be automatically inserted here by components.js -->
+
+    <script src="/js/components.js"></script>
+    <script src="/js/home.js"></script>
 </body>
 </html>

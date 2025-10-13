@@ -1,0 +1,109 @@
+{
+  "blogs": [
+    {
+      "id": 1,
+      "title": "10 Essential Tools Every Student Needs in 2024",
+      "slug": "essential-tools-for-students-2024",
+      "excerpt": "Discover the must-have digital tools that can transform your academic journey and boost productivity.",
+      "content": "In today's digital age, students have access to an incredible array of tools that can make studying more efficient and effective. From organization apps to research assistants, here are the 10 essential tools every student should be using in 2024...",
+      "author": "Adil ur Rehman",
+      "publish_date": "2024-01-15",
+      "read_time": "5 min read",
+      "category": "Education",
+      "tags": ["student tools", "productivity", "education technology", "study tips"],
+      "featured": true,
+      "image": "/assets/blog-images/student-tools.jpg",
+      "alt_text": "Student using digital tools on laptop and tablet"
+    },
+    {
+      "id": 2,
+      "title": "How to Create a Professional CV That Stands Out",
+      "slug": "professional-cv-creation-guide",
+      "excerpt": "Learn the secrets to crafting a CV that catches recruiters' attention and lands you interviews.",
+      "content": "Creating a professional CV is more than just listing your experiences. It's about telling your career story in a way that resonates with employers. In this comprehensive guide, we'll walk you through every step of creating a CV that stands out...",
+      "author": "Adil ur Rehman",
+      "publish_date": "2024-01-10",
+      "read_time": "8 min read",
+      "category": "Career",
+      "tags": ["cv tips", "job search", "career advice", "professional development"],
+      "featured": false,
+      "image": "/assets/blog-images/professional-cv.jpg",
+      "alt_text": "Professional CV document on desk with laptop"
+    },
+    {
+      "id": 3,
+      "title": "The Future of Online Education Tools",
+      "slug": "future-online-education-tools",
+      "excerpt": "Exploring how AI and new technologies are shaping the next generation of educational tools.",
+      "content": "The landscape of online education is rapidly evolving, with artificial intelligence and machine learning leading the charge. These technologies are creating more personalized, engaging, and effective learning experiences...",
+      "author": "Adil ur Rehman",
+      "publish_date": "2024-01-05",
+      "read_time": "6 min read",
+      "category": "Technology",
+      "tags": ["AI education", "edtech", "future learning", "digital transformation"],
+      "featured": true,
+      "image": "/assets/blog-images/future-education.jpg",
+      "alt_text": "Futuristic education technology concept with holographic interface"
+    },
+    {
+      "id": 4,
+      "title": "Maximizing Productivity with TASKMATE's Tool Suite",
+      "slug": "maximize-productivity-taskmate-tools",
+      "excerpt": "Get the most out of TASKMATE's comprehensive tool collection with these pro tips and tricks.",
+      "content": "TASKMATE offers a wide range of tools designed to streamline your workflow and boost productivity. Whether you're a student, professional, or entrepreneur, learning to use these tools effectively can save you hours each week...",
+      "author": "Adil ur Rehman",
+      "publish_date": "2024-01-01",
+      "read_time": "7 min read",
+      "category": "Productivity",
+      "tags": ["taskmate", "productivity tips", "tool guide", "workflow optimization"],
+      "featured": false,
+      "image": "/assets/blog-images/taskmate-tools.jpg",
+      "alt_text": "TASKMATE tools interface showing multiple productivity applications"
+    },
+    {
+      "id": 5,
+      "title": "Why Data Security Matters in Educational Tools",
+      "slug": "data-security-educational-tools",
+      "excerpt": "Understanding the importance of privacy and security when using online educational resources.",
+      "content": "In an era where data breaches are increasingly common, understanding how educational tools handle your information is crucial. At TASKMATE, we've built our tools with security as a foundational principle...",
+      "author": "Adil ur Rehman",
+      "publish_date": "2023-12-28",
+      "read_time": "5 min read",
+      "category": "Security",
+      "tags": ["data privacy", "security", "educational technology", "user protection"],
+      "featured": false,
+      "image": "/assets/blog-images/data-security.jpg",
+      "alt_text": "Digital lock protecting educational data and documents"
+    },
+    {
+      "id": 6,
+      "title": "From Student to Professional: Tools for Career Transition",
+      "slug": "student-to-professional-career-tools",
+      "excerpt": "Essential tools and resources to help you smoothly transition from academia to the professional world.",
+      "content": "Moving from student life to a professional career can be challenging, but the right tools can make this transition much smoother. This guide covers everything from networking platforms to skill development resources...",
+      "author": "Adil ur Rehman",
+      "publish_date": "2023-12-20",
+      "read_time": "9 min read",
+      "category": "Career",
+      "tags": ["career transition", "professional development", "job preparation", "skill building"],
+      "featured": true,
+      "image": "/assets/blog-images/career-transition.jpg",
+      "alt_text": "Graduation cap transforming into briefcase representing career transition"
+    }
+  ],
+  "categories": [
+    "Education",
+    "Career",
+    "Technology",
+    "Productivity",
+    "Security"
+  ],
+  "authors": [
+    {
+      "name": "Adil ur Rehman",
+      "role": "Founder & Lead Developer",
+      "bio": "Passionate about creating tools that empower education and professional growth.",
+      "avatar": "/assets/team/adil-avatar.jpg"
+    }
+  ]
+}
