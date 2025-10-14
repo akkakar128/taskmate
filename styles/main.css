@@ -1,4 +1,5 @@
 @import url('components.css');
+@import url('auth.css'); 
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #3498db;

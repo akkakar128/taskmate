@@ -12,7 +12,7 @@
       "category": "Education",
       "tags": ["student tools", "productivity", "education technology", "study tips"],
       "featured": true,
-      "image": "/assets/blog-images/student-tools.jpg",
+      "image": "/assets/blog-images/student-tools.webp",
       "alt_text": "Student using digital tools on laptop and tablet"
     },
     {
@@ -27,7 +27,7 @@
       "category": "Career",
       "tags": ["cv tips", "job search", "career advice", "professional development"],
       "featured": false,
-      "image": "/assets/blog-images/professional-cv.jpg",
+      "image": "/assets/blog-images/professional-cv.webp",
       "alt_text": "Professional CV document on desk with laptop"
     },
     {
@@ -42,7 +42,7 @@
       "category": "Technology",
       "tags": ["AI education", "edtech", "future learning", "digital transformation"],
       "featured": true,
-      "image": "/assets/blog-images/future-education.jpg",
+      "image": "/assets/blog-images/future-education.webp",
       "alt_text": "Futuristic education technology concept with holographic interface"
     },
     {
@@ -57,7 +57,7 @@
       "category": "Productivity",
       "tags": ["taskmate", "productivity tips", "tool guide", "workflow optimization"],
       "featured": false,
-      "image": "/assets/blog-images/taskmate-tools.jpg",
+      "image": "/assets/blog-images/taskmate-tools.webp",
       "alt_text": "TASKMATE tools interface showing multiple productivity applications"
     },
     {
@@ -72,7 +72,7 @@
       "category": "Security",
       "tags": ["data privacy", "security", "educational technology", "user protection"],
       "featured": false,
-      "image": "/assets/blog-images/data-security.jpg",
+      "image": "/assets/blog-images/data-security.webp",
       "alt_text": "Digital lock protecting educational data and documents"
     },
     {
@@ -87,7 +87,7 @@
       "category": "Career",
       "tags": ["career transition", "professional development", "job preparation", "skill building"],
       "featured": true,
-      "image": "/assets/blog-images/career-transition.jpg",
+      "image": "/assets/blog-images/career-transition.webp",
       "alt_text": "Graduation cap transforming into briefcase representing career transition"
     }
   ],
@@ -103,7 +103,7 @@
       "name": "Adil ur Rehman",
       "role": "Founder & Lead Developer",
       "bio": "Passionate about creating tools that empower education and professional growth.",
-      "avatar": "/assets/team/adil-avatar.jpg"
+      "avatar": "/assets/team/adil-avatar.webp"
     }
   ]
 }

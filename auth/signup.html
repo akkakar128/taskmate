@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - TASKMATE | Create Your Free Account</title>
+    <meta name="description" content="Create your free TASKMATE account to access all our educational and professional tools. Secure signup with email verification.">
+    <meta name="keywords" content="taskmate signup, create account, free tools account, educational tools registration">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/auth.css">
+</head>
+<body>
+    <!-- Header will be automatically inserted here by components.js -->
+    
+    <main class="auth-page">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1>Create Your Account</h1>
+                    <p>Join thousands of users benefiting from our tools</p>
+                </div>
+
+                <form class="auth-form" id="signupForm">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                        <span class="error-message" id="firstNameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                        <span class="error-message" id="lastNameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                        <div class="password-requirements">
+                            <span>Must contain at least 8 characters, one uppercase, one lowercase, one number, and one special character</span>
+                        </div>
+                        <span class="error-message" id="passwordError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        <span class="error-message" id="confirmPasswordError"></span>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">
+                            I agree to the <a href="/terms.html" target="_blank">Terms of Service</a> and <a href="/privacy.html" target="_blank">Privacy Policy</a>
+                        </label>
+                        <span class="error-message" id="termsError"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full" id="signupBtn">
+                        <span class="btn-text">Create Account</span>
+                        <div class="btn-loading hidden">
+                            <div class="spinner"></div>
+                            <span>Creating Account...</span>
+                        </div>
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="/auth/login.html">Sign In</a></p>
+                </div>
+            </div>
+
+            <div class="auth-features">
+                <h3>Why Create an Account?</h3>
+                <ul class="features-list">
+                    <li>💾 Save your work and access it anytime</li>
+                    <li>🚀 Access premium features</li>
+                    <li>📊 Track your progress</li>
+                    <li>🔔 Get personalized recommendations</li>
+                    <li>👥 Sync across multiple devices</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Email Verification Modal -->
+    <div class="modal" id="verificationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Verify Your Email</h3>
+                <button type="button" class="modal-close" id="closeVerificationModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>We've sent a verification code to <strong id="verificationEmail"></strong></p>
+                <form id="verificationForm">
+                    <div class="form-group">
+                        <label for="verificationCode">Enter Verification Code</label>
+                        <input type="text" id="verificationCode" name="verificationCode" maxlength="6" required>
+                        <span class="error-message" id="verificationCodeError"></span>
+                    </div>
+                    <div class="verification-actions">
+                        <button type="button" class="btn btn-secondary" id="resendCode">
+                            Resend Code
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            Verify Email
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer will be automatically inserted here by components.js -->
+
+    <script src="/js/components.js"></script>
+    <script src="/js/validation.js"></script>
+    <script src="/js/auth.js"></script>
+    <script>
+        // Signup specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const signupForm = document.getElementById('signupForm');
+            const verificationModal = document.getElementById('verificationModal');
+            const verificationForm = document.getElementById('verificationForm');
+            const resendCodeBtn = document.getElementById('resendCode');
+            
+            let currentUserEmail = '';
+
+            signupForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                if (validateSignupForm()) {
+                    const formData = {
+                        firstName: document.getElementById('firstName').value,
+                        lastName: document.getElementById('lastName').value,
+                        email: document.getElementById('email').value,
+                        password: document.getElementById('password').value
+                    };
+
+                    currentUserEmail = formData.email;
+                    
+                    try {
+                        showLoading(true);
+                        const result = await Auth.signup(formData);
+                        
+                        if (result.success) {
+                            document.getElementById('verificationEmail').textContent = formData.email;
+                            verificationModal.classList.add('active');
+                        } else {
+                            showError('signupError', result.message);
+                        }
+                    } catch (error) {
+                        showError('signupError', 'An error occurred. Please try again.');
+                    } finally {
+                        showLoading(false);
+                    }
+                }
+            });
+
+            verificationForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const code = document.getElementById('verificationCode').value;
+                
+                if (!code || code.length !== 6) {
+                    showError('verificationCodeError', 'Please enter a valid 6-digit code');
+                    return;
+                }
+
+                try {
+                    const result = await Auth.verifyEmail(currentUserEmail, code);
+                    
+                    if (result.success) {
+                        alert('Email verified successfully! You can now login.');
+                        window.location.href = '/auth/login.html';
+                    } else {
+                        showError('verificationCodeError', result.message);
+                    }
+                } catch (error) {
+                    showError('verificationCodeError', 'An error occurred. Please try again.');
+                }
+            });
+
+            resendCodeBtn.addEventListener('click', async function() {
+                try {
+                    const result = await Auth.resendVerificationCode(currentUserEmail);
+                    
+                    if (result.success) {
+                        alert('Verification code has been resent to your email.');
+                    } else {
+                        alert('Failed to resend verification code. Please try again.');
+                    }
+                } catch (error) {
+                    alert('An error occurred. Please try again.');
+                }
+            });
+
+            document.getElementById('closeVerificationModal').addEventListener('click', function() {
+                verificationModal.classList.remove('active');
+            });
+
+            function showLoading(loading) {
+                const btn = document.getElementById('signupBtn');
+                const btnText = btn.querySelector('.btn-text');
+                const btnLoading = btn.querySelector('.btn-loading');
+                
+                if (loading) {
+                    btnText.classList.add('hidden');
+                    btnLoading.classList.remove('hidden');
+                    btn.disabled = true;
+                } else {
+                    btnText.classList.remove('hidden');
+                    btnLoading.classList.add('hidden');
+                    btn.disabled = false;
+                }
+            }
+
+            function showError(fieldId, message) {
+                const errorElement = document.getElementById(fieldId);
+                errorElement.textContent = message;
+                errorElement.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
     Components.load();
 });
 
+
+
 // Components Loader and Manager
 const Components = (function () {
     let footerData = null;
@@ -227,6 +229,87 @@ const Components = (function () {
 
         // Initialize feedback modal
         initializeFeedbackModal();
+    }
+
+    function initializeAuthModal() {
+        const authModal = document.getElementById('auth-modal');
+        const modalClose = document.getElementById('auth-modal-close');
+        const modalOverlay = document.querySelector('.modal-overlay');
+
+        // Close modal events
+        if (modalClose) {
+            modalClose.addEventListener('click', () => {
+                authModal.classList.remove('active');
+            });
+        }
+
+        if (modalOverlay) {
+            modalOverlay.addEventListener('click', () => {
+                authModal.classList.remove('active');
+            });
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && authModal.classList.contains('active')) {
+                authModal.classList.remove('active');
+            }
+        });
+
+        // Auth button events
+        document.addEventListener('click', (e) => {
+            // Desktop sign in/up buttons
+            if (e.target.matches('.btn-login') || e.target.closest('.btn-login')) {
+                e.preventDefault();
+                showAuthForm('signin');
+                authModal.classList.add('active');
+            }
+
+            if (e.target.matches('.btn-signup') || e.target.closest('.btn-signup')) {
+                e.preventDefault();
+                showAuthForm('signup');
+                authModal.classList.add('active');
+            }
+
+            // Mobile sign in/up buttons
+            if (e.target.matches('.btn-login-mobile') || e.target.closest('.btn-login-mobile')) {
+                e.preventDefault();
+                showAuthForm('signin');
+                authModal.classList.add('active');
+                // Close mobile menu
+                document.querySelector('.mobile-menu').classList.remove('active');
+            }
+
+            if (e.target.matches('.btn-signup-mobile') || e.target.closest('.btn-signup-mobile')) {
+                e.preventDefault();
+                showAuthForm('signup');
+                authModal.classList.add('active');
+                // Close mobile menu
+                document.querySelector('.mobile-menu').classList.remove('active');
+            }
+
+            // Form switching
+            if (e.target.matches('.switch-to-signup')) {
+                e.preventDefault();
+                showAuthForm('signup');
+            }
+
+            if (e.target.matches('.switch-to-signin')) {
+                e.preventDefault();
+                showAuthForm('signin');
+            }
+        });
+    }
+
+    // Show specific auth form
+    function showAuthForm(formType) {
+        const forms = document.querySelectorAll('.auth-form');
+        forms.forEach(form => form.classList.remove('active'));
+
+        const targetForm = document.getElementById(`${formType}-form`);
+        if (targetForm) {
+            targetForm.classList.add('active');
+        }
     }
 
     // Social media icons

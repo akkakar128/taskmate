@@ -1,0 +1,14 @@
+{
+  "feedback": [
+    {
+      "id": "feedback_1",
+      "userId": "user_1",
+      "type": "bug",
+      "message": "Found an issue with the CV generator",
+      "email": "user@example.com",
+      "status": "new",
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    }
+  ]
+}
