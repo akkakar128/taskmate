@@ -1,0 +1,129 @@
+{
+  "tools": [
+    {
+      "id": "cv-generator",
+      "name": "Professional CV Generator",
+      "description": "Create ATS-friendly CVs with multiple templates. Download as PDF/Word and get hired faster.",
+      "category": "Professional",
+      "subcategory": "Career Tools",
+      "keywords": ["cv generator", "resume builder", "professional cv", "free cv maker", "job cv", "cv templates", "pdf cv", "international cv"],
+      "icon": "📄",
+      "color": "#3498db",
+      "popularity": 95,
+      "featured": true,
+      "premium": false,
+      "lastUpdated": "2024-01-15",
+      "version": "1.2.0",
+      "htmlFile": "tools/cv-generator.html",
+      "cssFile": "tools/cv-generator.css",
+      "jsFile": "tools/cv-generator.js",
+      "meta": {
+        "title": "Professional CV Generator - Create Perfect CVs in Minutes | Free Online Tool",
+        "description": "Free professional CV generator with multiple templates. Create ATS-friendly CVs, download as PDF/Word, and get hired faster. No registration required.",
+        "ogImage": "assets/og-cv-generator.jpg"
+      },
+      "instructions": {
+        "steps": [
+          {
+            "number": 1,
+            "title": "Choose Your Template & Theme",
+            "description": "Select from 4 professional templates and customize with different color themes."
+          },
+          {
+            "number": 2,
+            "title": "Select CV Format",
+            "description": "Choose between Photo CV or International CV based on your country's standards."
+          },
+          {
+            "number": 3,
+            "title": "Input Your Information",
+            "description": "Fill in details manually or upload JSON/TXT file. Add multiple experiences and education entries."
+          },
+          {
+            "number": 4,
+            "title": "Preview & Customize",
+            "description": "See your CV in real-time as you type. Make adjustments to ensure perfection."
+          },
+          {
+            "number": 5,
+            "title": "Download & Apply",
+            "description": "Download as PDF, JSON, or TXT. Your CV is ready for job applications!"
+          }
+        ],
+        "proTips": [
+          {
+            "title": "Keep it Concise",
+            "description": "Limit your CV to 2 pages maximum. Recruiters spend only 6-8 seconds on initial screening."
+          },
+          {
+            "title": "Use Action Verbs",
+            "description": "Start bullet points with words like 'Managed,' 'Developed,' 'Increased,' 'Implemented.'"
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "question": "Is this CV generator completely free?",
+          "answer": "Yes! Our professional CV generator is 100% free with no hidden costs, no registration required, and no watermarks."
+        },
+        {
+          "question": "What formats can I download my CV in?",
+          "answer": "You can download your CV as PDF (perfect for job applications), JSON (for future editing), or TXT format."
+        }
+      ]
+    },
+    {
+      "id": "plagiarism-checker",
+      "name": "Plagiarism Checker",
+      "description": "Check your documents for plagiarism with advanced AI detection.",
+      "category": "Academic",
+      "subcategory": "Writing Tools",
+      "keywords": ["plagiarism checker", "academic writing", "content originality", "ai detection"],
+      "icon": "🔍",
+      "color": "#e74c3c",
+      "popularity": 88,
+      "featured": true,
+      "premium": false,
+      "lastUpdated": "2024-01-10",
+      "version": "1.0.0",
+      "htmlFile": "tools/plagiarism-checker.html",
+      "cssFile": "tools/plagiarism-checker.css",
+      "jsFile": "tools/plagiarism-checker.js",
+      "meta": {
+        "title": "Free Plagiarism Checker - AI-Powered Content Originality Tool",
+        "description": "Check your documents for plagiarism with our advanced AI detection tool. Ensure academic integrity and content originality.",
+        "ogImage": "assets/og-plagiarism-checker.jpg"
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": "professional",
+      "name": "Professional Tools",
+      "description": "Tools for career development and professional growth",
+      "icon": "💼",
+      "color": "#3498db"
+    },
+    {
+      "id": "academic",
+      "name": "Academic Tools",
+      "description": "Tools for students and academic purposes",
+      "icon": "🎓",
+      "color": "#9b59b6"
+    },
+    {
+      "id": "productivity",
+      "name": "Productivity Tools",
+      "description": "Tools to boost your productivity and efficiency",
+      "icon": "⚡",
+      "color": "#f39c12"
+    },
+    {
+      "id": "creative",
+      "name": "Creative Tools",
+      "description": "Tools for creative projects and design",
+      "icon": "🎨",
+      "color": "#e74c3c"
+    }
+  ]
+}

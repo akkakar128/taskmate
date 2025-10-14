@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-json="meta.title">Tool Name - Professional Online Tool</title>
+    <meta name="description" data-json="meta.description">
+    <meta name="keywords" data-json="meta.keywords">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <style id="tool-css">
+        /* Tool-specific CSS will be loaded here from JSON */
+    </style>
+</head>
+
+<body>
+    <!-- Header loaded from root directory -->
+    <div id="header-container"></div>
+
+    <div class="container">
+        <header class="no-print">
+            <h1 data-json="tool.name">Tool Name</h1>
+            <p class="subtitle" data-json="tool.subtitle">Tool description goes here</p>
+        </header>
+
+        <div class="main-content">
+            <div class="input-section no-print">
+                <div class="input-content">
+                    <h2 class="section-title" data-json="sections.input.title">Input Your Data</h2>
+                    
+                    <!-- Dynamic input section loaded from JSON -->
+                    <div id="input-container">
+                        <!-- Content will be populated by JavaScript from JSON -->
+                    </div>
+                </div>
+
+                <div class="sticky-footer">
+                    <button type="button" id="generateBtn" class="btn btn-block" data-json="buttons.generate.text">
+                        Generate Output
+                    </button>
+                </div>
+            </div>
+
+            <div class="preview-section">
+                <div class="preview-content">
+                    <h2 class="section-title no-print" data-json="sections.preview.title">Preview</h2>
+                    
+                    <!-- Preview area loaded from JSON -->
+                    <div id="preview-container">
+                        <!-- Content will be populated by JavaScript from JSON -->
+                    </div>
+                </div>
+
+                <div class="download-options no-print">
+                    <!-- Download buttons loaded from JSON -->
+                    <div id="action-buttons">
+                        <!-- Buttons will be populated by JavaScript from JSON -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Instructions Section -->
+    <section class="instructions-section no-print">
+        <div class="instructions-content">
+            <h2 data-json="instructions.title">How to Use This Tool</h2>
+
+            <div class="steps-container" id="steps-container">
+                <!-- Steps will be populated by JavaScript from JSON -->
+            </div>
+
+            <div class="pro-tips" id="pro-tips-container">
+                <!-- Tips will be populated by JavaScript from JSON -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section no-print">
+        <div class="faq-content">
+            <h2 data-json="faq.title">Frequently Asked Questions</h2>
+
+            <div class="faq-grid" id="faq-container">
+                <!-- FAQ items will be populated by JavaScript from JSON -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer loaded from root directory -->
+    <div id="footer-container"></div>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="../js/components.js"></script>
+    <script src="../js/tool-loader.js"></script>
+    <script id="tool-js">
+        // Tool-specific JavaScript will be loaded here from JSON
+    </script>
+</body>
+
+</html>

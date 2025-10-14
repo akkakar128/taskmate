@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "title": "Professional CV Generator - Create Perfect CVs in Minutes | Free Online Tool",
+    "description": "Free professional CV generator with multiple templates. Create ATS-friendly CVs, download as PDF/Word, and get hired faster. No registration required.",
+    "keywords": "cv generator, resume builder, professional cv, free cv maker, job cv, cv templates, pdf cv, international cv"
+  },
+  "tool": {
+    "name": "Professional CV Generator",
+    "subtitle": "Create a polished CV with multiple templates, themes and formats",
+    "version": "1.0",
+    "category": "Professional Tools"
+  },
+  "styles": {
+    "files": [
+      "../tools/cv-generator/styles.css"
+    ],
+    "custom": "/* Additional tool-specific CSS */"
+  },
+  "scripts": {
+    "files": [
+      "../tools/cv-generator/form-handler.js",
+      "../tools/cv-generator/pdf-export.js",
+      "../tools/cv-generator/templates.js"
+    ],
+    "custom": "// Tool-specific JavaScript initialization\nconsole.log('CV Generator loaded');"
+  },
+  "sections": {
+    "input": {
+      "title": "Input Your Data",
+      "content": "<div class=\"template-selector\"><div class=\"template-option selected\" data-template=\"modern\"><h3>Modern</h3><p>Clean, professional design with accent colors</p><div class=\"template-preview\"><div class=\"template-preview-content\"><div class=\"template-preview-line\" style=\"background: #2c3e50;\"></div><div class=\"template-preview-line short\" style=\"background: #3498db;\"></div><div class=\"template-preview-line medium\"></div><div class=\"template-preview-line\"></div><div class=\"template-preview-line short\"></div></div></div></div></div>"
+    },
+    "preview": {
+      "title": "CV Preview",
+      "content": "<div class=\"cv-template modern theme-blue\" id=\"cvPreview\"><div class=\"cv-header\"><div class=\"personal-info\"><h2 id=\"previewName\">Your Name</h2><h3 id=\"previewTitle\">Professional Title</h3><div class=\"contact-info\"><p id=\"previewEmail\">email@example.com</p><p id=\"previewPhone\">+1 (555) 123-4567</p><p id=\"previewLocation\">City, State</p></div></div></div></div>"
+    }
+  },
+  "buttons": {
+    "generate": {
+      "text": "Generate CV",
+      "id": "generateBtn"
+    },
+    "actions": [
+      {
+        "text": "Print CV",
+        "id": "printBtn",
+        "class": "btn-download"
+      },
+      {
+        "text": "Save as PDF",
+        "id": "pdfBtn",
+        "class": "btn-download"
+      }
+    ]
+  },
+  "instructions": {
+    "title": "How to Create Your Professional CV in 5 Easy Steps",
+    "steps": [
+      {
+        "title": "Choose Your Template & Theme",
+        "description": "Select from 4 professional templates and customize with different color themes to match your industry and personal style."
+      },
+      {
+        "title": "Select CV Format",
+        "description": "Choose between Photo CV (includes professional photo) or International CV (no photo) based on your country's job application standards."
+      }
+    ],
+    "tips": {
+      "title": "Professional Tips for Best Results",
+      "items": [
+        {
+          "title": "Keep it Concise",
+          "description": "Limit your CV to 2 pages maximum. Recruiters spend only 6-8 seconds on initial screening."
+        },
+        {
+          "title": "Use Action Verbs",
+          "description": "Start bullet points with words like 'Managed,' 'Developed,' 'Increased,' 'Implemented.'"
+        }
+      ]
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "🤔 Is this CV generator completely free?",
+        "answer": "Yes! Our professional CV generator is 100% free with no hidden costs, no registration required, and no watermarks on your downloaded CVs."
+      },
+      {
+        "question": "📄 What formats can I download my CV in?",
+        "answer": "You can download your CV as PDF (perfect for job applications), JSON (for future editing), or TXT (simple text format). All formats maintain professional formatting."
+      }
+    ]
+  },
+  "files": {
+    "html": "../tools/cv-generator/index.html",
+    "css": "../tools/cv-generator/styles.css",
+    "js": [
+      "../tools/cv-generator/form-handler.js",
+      "../tools/cv-generator/pdf-export.js"
+    ],
+    "assets": [
+      "../tools/cv-generator/assets/",
+      "../tools/cv-generator/images/"
+    ]
+  }
+}

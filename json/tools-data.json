@@ -1,0 +1,307 @@
+{
+  "pageMeta": {
+    "title": "Free Productivity Tools - TASKMATE | Educational & Professional Software",
+    "description": "Discover TASKMATE's complete suite of free productivity tools. CV generators, document tools, project managers, and educational resources. No registration required.",
+    "keywords": "free tools, productivity tools, educational software, professional tools, cv generator, document tools, project management, taskmate tools"
+  },
+  "heroSection": {
+    "title": "Powerful Tools for Education & Professional Growth",
+    "subtitle": "Access our complete suite of free, no-registration-required tools designed to streamline your workflow and boost productivity",
+    "stats": [
+      {
+        "number": "50+",
+        "label": "Free Tools"
+      },
+      {
+        "number": "100%",
+        "label": "No Registration"
+      },
+      {
+        "number": "99.9%",
+        "label": "Uptime"
+      },
+      {
+        "number": "100K+",
+        "label": "Active Users"
+      }
+    ]
+  },
+  "featuredTools": [
+    {
+      "id": "cv-generator",
+      "name": "Professional CV Generator",
+      "description": "Create stunning, ATS-friendly resumes and CVs with multiple templates and themes. Export to PDF, Word, or JSON formats.",
+      "category": "document-tools",
+      "icon": "📄",
+      "url": "/cv-generator.html",
+      "isNew": true,
+      "isFeatured": true,
+      "tags": ["CV", "Resume", "PDF", "ATS Friendly", "Templates"],
+      "features": ["Multiple Templates", "Real-time Preview", "PDF Export", "No Registration"]
+    },
+    {
+      "id": "task-manager",
+      "name": "Smart Task Manager",
+      "description": "Organize your projects and daily tasks with our intuitive task management system. Set priorities, deadlines, and track progress.",
+      "category": "productivity",
+      "icon": "✅",
+      "url": "/task-manager.html",
+      "isNew": false,
+      "isFeatured": true,
+      "tags": ["Tasks", "Projects", "Productivity", "Organization"],
+      "features": ["Drag & Drop", "Priority Levels", "Progress Tracking", "Team Collaboration"]
+    },
+    {
+      "id": "document-converter",
+      "name": "Universal Document Converter",
+      "description": "Convert between multiple document formats instantly. Support for PDF, Word, Excel, and image formats with preserved formatting.",
+      "category": "document-tools",
+      "icon": "🔄",
+      "url": "/document-converter.html",
+      "isNew": false,
+      "isFeatured": true,
+      "tags": ["PDF", "Word", "Conversion", "Documents"],
+      "features": ["Multiple Formats", "Batch Processing", "Format Preserving", "Fast Conversion"]
+    }
+  ],
+  "toolCategories": [
+    {
+      "id": "document-tools",
+      "name": "Document Tools",
+      "description": "Create, edit, and manage all types of documents with our comprehensive suite of document processing tools.",
+      "icon": "📄",
+      "tools": [
+        {
+          "id": "cv-generator",
+          "name": "CV Generator",
+          "description": "Professional resume and CV creation with multiple templates",
+          "icon": "📝",
+          "url": "/cv-generator.html",
+          "isNew": true
+        },
+        {
+          "id": "resume-builder",
+          "name": "Resume Builder",
+          "description": "Build ATS-optimized resumes for job applications",
+          "icon": "💼",
+          "url": "/resume-builder.html",
+          "isNew": false
+        },
+        {
+          "id": "cover-letter-creator",
+          "name": "Cover Letter Creator",
+          "description": "Craft compelling cover letters tailored to specific jobs",
+          "icon": "✉️",
+          "url": "/cover-letter-creator.html",
+          "isNew": false
+        },
+        {
+          "id": "document-converter",
+          "name": "Document Converter",
+          "description": "Convert between PDF, Word, Excel and other formats",
+          "icon": "🔄",
+          "url": "/document-converter.html",
+          "isNew": false
+        },
+        {
+          "id": "pdf-tools",
+          "name": "PDF Toolkit",
+          "description": "Merge, split, compress, and edit PDF documents",
+          "icon": "📑",
+          "url": "/pdf-tools.html",
+          "isNew": false
+        },
+        {
+          "id": "citation-generator",
+          "name": "Citation Generator",
+          "description": "Generate citations in APA, MLA, Chicago, and other formats",
+          "icon": "📚",
+          "url": "/citation-generator.html",
+          "isNew": true
+        }
+      ]
+    },
+    {
+      "id": "educational-tools",
+      "name": "Educational Resources",
+      "description": "Tools designed specifically for students, teachers, and lifelong learners to enhance the educational experience.",
+      "icon": "🎓",
+      "tools": [
+        {
+          "id": "study-planner",
+          "name": "Study Planner",
+          "description": "Create optimized study schedules and track progress",
+          "icon": "📅",
+          "url": "/study-planner.html",
+          "isNew": false
+        },
+        {
+          "id": "essay-outliner",
+          "name": "Essay Outliner",
+          "description": "Structure and organize your academic writing projects",
+          "icon": "📝",
+          "url": "/essay-outliner.html",
+          "isNew": false
+        },
+        {
+          "id": "research-organizer",
+          "name": "Research Organizer",
+          "description": "Manage research materials, notes, and references",
+          "icon": "🔍",
+          "url": "/research-organizer.html",
+          "isNew": true
+        },
+        {
+          "id": "flashcard-maker",
+          "name": "Flashcard Maker",
+          "description": "Create digital flashcards for effective memorization",
+          "icon": "🎴",
+          "url": "/flashcard-maker.html",
+          "isNew": false
+        },
+        {
+          "id": "grade-calculator",
+          "name": "Grade Calculator",
+          "description": "Calculate grades and track academic performance",
+          "icon": "📊",
+          "url": "/grade-calculator.html",
+          "isNew": false
+        }
+      ]
+    },
+    {
+      "id": "productivity-tools",
+      "name": "Productivity Tools",
+      "description": "Boost your efficiency with our suite of productivity-enhancing tools for personal and professional use.",
+      "icon": "⚡",
+      "tools": [
+        {
+          "id": "task-manager",
+          "name": "Task Manager",
+          "description": "Comprehensive task and project management system",
+          "icon": "✅",
+          "url": "/task-manager.html",
+          "isNew": false
+        },
+        {
+          "id": "time-tracker",
+          "name": "Time Tracker",
+          "description": "Monitor time spent on tasks and projects",
+          "icon": "⏱️",
+          "url": "/time-tracker.html",
+          "isNew": false
+        },
+        {
+          "id": "meeting-scheduler",
+          "name": "Meeting Scheduler",
+          "description": "Schedule and organize meetings with automatic reminders",
+          "icon": "📅",
+          "url": "/meeting-scheduler.html",
+          "isNew": true
+        },
+        {
+          "id": "goal-setter",
+          "name": "Goal Setter",
+          "description": "Set and track personal and professional goals",
+          "icon": "🎯",
+          "url": "/goal-setter.html",
+          "isNew": false
+        },
+        {
+          "id": "habit-tracker",
+          "name": "Habit Tracker",
+          "description": "Build and maintain positive habits with daily tracking",
+          "icon": "📈",
+          "url": "/habit-tracker.html",
+          "isNew": false
+        }
+      ]
+    },
+    {
+      "id": "development-tools",
+      "name": "Development Tools",
+      "description": "Essential tools for developers, programmers, and tech enthusiasts to streamline their workflow.",
+      "icon": "💻",
+      "tools": [
+        {
+          "id": "code-formatter",
+          "name": "Code Formatter",
+          "description": "Format and beautify code in multiple programming languages",
+          "icon": "⌨️",
+          "url": "/code-formatter.html",
+          "isNew": true
+        },
+        {
+          "id": "json-validator",
+          "name": "JSON Validator",
+          "description": "Validate and format JSON data with syntax highlighting",
+          "icon": "🔍",
+          "url": "/json-validator.html",
+          "isNew": false
+        },
+        {
+          "id": "color-picker",
+          "name": "Color Picker",
+          "description": "Advanced color selection with multiple format outputs",
+          "icon": "🎨",
+          "url": "/color-picker.html",
+          "isNew": false
+        },
+        {
+          "id": "api-tester",
+          "name": "API Tester",
+          "description": "Test and debug REST APIs with comprehensive features",
+          "icon": "🔧",
+          "url": "/api-tester.html",
+          "isNew": false
+        }
+      ]
+    }
+  ],
+  "upcomingTools": [
+    {
+      "name": "AI Writing Assistant",
+      "description": "Advanced AI-powered writing and editing tool",
+      "eta": "Q1 2024",
+      "status": "in-development"
+    },
+    {
+      "name": "Data Visualizer",
+      "description": "Create stunning data visualizations and charts",
+      "eta": "Q2 2024",
+      "status": "planning"
+    },
+    {
+      "name": "Presentation Maker",
+      "description": "Build professional presentations with ease",
+      "eta": "Q2 2024",
+      "status": "planning"
+    },
+    {
+      "name": "Team Collaborator",
+      "description": "Real-time collaboration tools for teams",
+      "eta": "Q3 2024",
+      "status": "research"
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Sarah Chen",
+      "role": "University Student",
+      "content": "The CV Generator helped me land my first internship! The templates are professional and the process was incredibly easy.",
+      "tool": "CV Generator"
+    },
+    {
+      "name": "Michael Rodriguez",
+      "role": "Project Manager",
+      "content": "TASKMATE's productivity tools have streamlined our team's workflow. The task manager is intuitive and powerful.",
+      "tool": "Task Manager"
+    },
+    {
+      "name": "Dr. Emily Watson",
+      "role": "Professor",
+      "content": "The educational tools are perfect for my students. The citation generator alone saves hours of work each week.",
+      "tool": "Citation Generator"
+    }
+  ]
+}
