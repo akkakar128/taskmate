@@ -1,20 +1,33 @@
 // Form handling and data management
 const FormHandler = (function () {
-    // Helper function to populate form with JSON data
-    // Helper function to populate form with JSON data
+    // Internal sanitization function to prevent XSS
+    function sanitize(str) {
+        if (typeof sanitizeHTML === 'function') {
+            return sanitizeHTML(str);
+        }
+        // Fallback if validation.js not loaded
+        if (str === null || str === undefined) return '';
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
     // Helper function to populate form with JSON data
     function populateForm(data) {
         // Update basic form fields
-        document.getElementById('fullName').value = data.personalInfo?.name || '';
-        document.getElementById('jobTitle').value = data.personalInfo?.title || '';
-        document.getElementById('email').value = data.contact?.email || '';
-        document.getElementById('phone').value = data.contact?.phone || '';
-        document.getElementById('location').value = data.contact?.location || '';
-        document.getElementById('linkedin').value = data.contact?.linkedin || '';
-        document.getElementById('github').value = data.contact?.github || '';
-        document.getElementById('portfolio').value = data.contact?.portfolio || '';
-        document.getElementById('summary').value = data.summary || '';
-        document.getElementById('skills').value = data.skills?.join(', ') || '';
+        document.getElementById('fullName').value = sanitize(data.personalInfo?.name || '');
+        document.getElementById('jobTitle').value = sanitize(data.personalInfo?.title || '');
+        document.getElementById('email').value = sanitize(data.contact?.email || '');
+        document.getElementById('phone').value = sanitize(data.contact?.phone || '');
+        document.getElementById('location').value = sanitize(data.contact?.location || '');
+        document.getElementById('linkedin').value = sanitize(data.contact?.linkedin || '');
+        document.getElementById('github').value = sanitize(data.contact?.github || '');
+        document.getElementById('portfolio').value = sanitize(data.contact?.portfolio || '');
+        document.getElementById('summary').value = sanitize(data.summary || '');
+        document.getElementById('skills').value = data.skills?.map(s => sanitize(s)).join(', ') || '';
         document.getElementById('languages').value = data.languages?.map(lang =>
             `${lang.language}${lang.proficiency ? ` (${lang.proficiency})` : ''}`).join(', ') || '';
         document.getElementById('certifications').value = data.certifications?.join(', ') || '';
@@ -78,27 +91,27 @@ const FormHandler = (function () {
                 <button type="button" class="remove-btn" onclick="this.parentElement.remove()">×</button>
                 <div class="form-group">
                     <label for="expTitle${experienceCount}">Job Title</label>
-                    <input type="text" id="expTitle${experienceCount}" value="${exp.title || ''}" placeholder="e.g., Marketing Manager">
+                    <input type="text" id="expTitle${experienceCount}" value="${sanitize(exp.title || '')}" placeholder="e.g., Marketing Manager">
                 </div>
                 <div class="form-group">
                     <label for="expCompany${experienceCount}">Company</label>
-                    <input type="text" id="expCompany${experienceCount}" value="${exp.company || ''}" placeholder="Company Name">
+                    <input type="text" id="expCompany${experienceCount}" value="${sanitize(exp.company || '')}" placeholder="Company Name">
                 </div>
                 <div class="form-group">
                     <label for="expLocation${experienceCount}">Location</label>
-                    <input type="text" id="expLocation${experienceCount}" value="${exp.location || ''}" placeholder="City, State">
+                    <input type="text" id="expLocation${experienceCount}" value="${sanitize(exp.location || '')}" placeholder="City, State">
                 </div>
                 <div class="form-group">
                     <label for="expStart${experienceCount}">Start Date</label>
-                    <input type="text" id="expStart${experienceCount}" value="${exp.startDate || ''}" placeholder="MMM YYYY (e.g., Jan 2020)">
+                    <input type="text" id="expStart${experienceCount}" value="${sanitize(exp.startDate || '')}" placeholder="MMM YYYY (e.g., Jan 2020)">
                 </div>
                 <div class="form-group">
                     <label for="expEnd${experienceCount}">End Date</label>
-                    <input type="text" id="expEnd${experienceCount}" value="${exp.endDate || ''}" placeholder="MMM YYYY or Present">
+                    <input type="text" id="expEnd${experienceCount}" value="${sanitize(exp.endDate || '')}" placeholder="MMM YYYY or Present">
                 </div>
                 <div class="form-group">
                     <label for="expDescription${experienceCount}">Description</label>
-                    <textarea id="expDescription${experienceCount}" placeholder="Describe your responsibilities and achievements">${exp.description || ''}</textarea>
+                    <textarea id="expDescription${experienceCount}" placeholder="Describe your responsibilities and achievements">${sanitize(exp.description || '')}</textarea>
                 </div>
             `;
                 document.getElementById('experienceList').appendChild(experienceItem);
@@ -115,27 +128,27 @@ const FormHandler = (function () {
                 <button type="button" class="remove-btn" onclick="this.parentElement.remove()">×</button>
                 <div class="form-group">
                     <label for="eduDegree${educationCount}">Degree/Certificate</label>
-                    <input type="text" id="eduDegree${educationCount}" value="${edu.degree || ''}" placeholder="e.g., Bachelor of Science in Business">
+                    <input type="text" id="eduDegree${educationCount}" value="${sanitize(edu.degree || '')}" placeholder="e.g., Bachelor of Science in Business">
                 </div>
                 <div class="form-group">
                     <label for="eduInstitution${educationCount}">Institution</label>
-                    <input type="text" id="eduInstitution${educationCount}" value="${edu.institution || ''}" placeholder="University Name">
+                    <input type="text" id="eduInstitution${educationCount}" value="${sanitize(edu.institution || '')}" placeholder="University Name">
                 </div>
                 <div class="form-group">
                     <label for="eduLocation${educationCount}">Location</label>
-                    <input type="text" id="eduLocation${educationCount}" value="${edu.location || ''}" placeholder="City, State">
+                    <input type="text" id="eduLocation${educationCount}" value="${sanitize(edu.location || '')}" placeholder="City, State">
                 </div>
                 <div class="form-group">
                     <label for="eduStart${educationCount}">Start Date</label>
-                    <input type="text" id="eduStart${educationCount}" value="${edu.startDate || ''}" placeholder="MMM YYYY (e.g., Aug 2016)">
+                    <input type="text" id="eduStart${educationCount}" value="${sanitize(edu.startDate || '')}" placeholder="MMM YYYY (e.g., Aug 2016)">
                 </div>
                 <div class="form-group">
                     <label for="eduEnd${educationCount}">End Date</label>
-                    <input type="text" id="eduEnd${educationCount}" value="${edu.endDate || ''}" placeholder="MMM YYYY or Present">
+                    <input type="text" id="eduEnd${educationCount}" value="${sanitize(edu.endDate || '')}" placeholder="MMM YYYY or Present">
                 </div>
                 <div class="form-group">
                     <label for="eduDescription${educationCount}">Description</label>
-                    <textarea id="eduDescription${educationCount}" placeholder="Honors, relevant coursework, or achievements">${edu.description || ''}</textarea>
+                    <textarea id="eduDescription${educationCount}" placeholder="Honors, relevant coursework, or achievements">${sanitize(edu.description || '')}</textarea>
                 </div>
             `;
                 document.getElementById('educationList').appendChild(educationItem);

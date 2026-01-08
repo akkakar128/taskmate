@@ -1,28 +1,29 @@
 {
-  "users": [
-    {
-      "id": "user_1",
-      "email": "user@example.com",
-      "password": "$2b$10$hashed_password_here",
-      "isVerified": true,
-      "verificationCode": null,
-      "verificationCodeExpires": null,
-      "resetPasswordCode": null,
-      "resetPasswordExpires": null,
-      "createdAt": "2024-01-01T00:00:00.000Z",
-      "lastLogin": "2024-01-01T00:00:00.000Z",
+  "users": [],
+  "sessions": [],
+  "_note": "This file is used for demo purposes only. In production, user data should be stored in a secure database with proper encryption.",
+  "_schema": {
+    "user": {
+      "id": "string (unique identifier)",
+      "email": "string (user email)",
+      "password": "string (hashed password - never store plain text)",
+      "isVerified": "boolean",
+      "verificationCode": "string (null after verification)",
+      "verificationCodeExpires": "ISO date string",
+      "resetPasswordCode": "string (for password reset)",
+      "resetPasswordExpires": "ISO date string",
+      "createdAt": "ISO date string",
+      "lastLogin": "ISO date string",
       "profile": {
-        "firstName": "John",
-        "lastName": "Doe"
+        "firstName": "string",
+        "lastName": "string"
       }
+    },
+    "session": {
+      "userId": "string (references user.id)",
+      "token": "string (session token)",
+      "expiresAt": "ISO date string",
+      "createdAt": "ISO date string"
     }
-  ],
-  "sessions": [
-    {
-      "userId": "user_1",
-      "token": "session_token_here",
-      "expiresAt": "2024-01-02T00:00:00.000Z",
-      "createdAt": "2024-01-01T00:00:00.000Z"
-    }
-  ]
+  }
 }

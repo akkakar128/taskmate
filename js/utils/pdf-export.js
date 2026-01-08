@@ -5,7 +5,8 @@ const PDFExport = (function() {
     
     function exportToPDF() {
         // Future implementation using jsPDF or similar library
-        console.log('PDF export functionality to be implemented');
+        // For now, trigger browser's native print dialog
+        window.print();
     }
 
     // Public API

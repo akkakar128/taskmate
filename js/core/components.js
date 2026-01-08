@@ -40,16 +40,11 @@ const Components = (function () {
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
 
-        console.log('Initializing header...');
-        console.log('Mobile menu button:', mobileMenuBtn);
-        console.log('Mobile menu:', mobileMenu);
-
         // Mobile menu toggle
         if (mobileMenuBtn && mobileMenu) {
             mobileMenuBtn.addEventListener('click', function (e) {
                 e.stopPropagation();
-                console.log('Mobile menu button clicked');
-                mobileMenu.classList.toggle('active');
+                mobileMenu.classList.toggle('active');;
                 mobileMenuBtn.classList.toggle('active');
 
                 // Toggle aria-expanded for accessibility
@@ -106,7 +101,6 @@ const Components = (function () {
                 if (mobileMenu.classList.contains('active') &&
                     !e.target.closest('.mobile-menu') &&
                     !e.target.closest('.mobile-menu-btn')) {
-                    console.log('Closing mobile menu - clicked outside');
                     mobileMenu.classList.remove('active');
                     mobileMenuBtn.classList.remove('active');
                     mobileMenuBtn.setAttribute('aria-expanded', 'false');
@@ -329,8 +323,7 @@ const Components = (function () {
         e.preventDefault();
         const email = document.getElementById('newsletter-email').value;
 
-        // Here you would typically send this to your backend
-        console.log('Newsletter subscription:', email);
+        // Send to backend API in production
         alert('Thank you for subscribing to our newsletter!');
         e.target.reset();
     }
@@ -383,9 +376,7 @@ const Components = (function () {
         const message = document.getElementById('feedback-message').value;
         const email = document.getElementById('feedback-email').value;
 
-        // Here you would typically send this to your backend
-        console.log('Feedback submitted:', { type, message, email });
-
+        // Send to backend API in production
         alert('Thank you for your feedback! We appreciate your input.');
 
         // Close modal and reset form

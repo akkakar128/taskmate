@@ -5,12 +5,12 @@
     "ctaButtons": [
       {
         "text": "Explore All Tools",
-        "url": "/tools.html",
+        "url": "/pages/tools.html",
         "type": "primary"
       },
       {
         "text": "Learn More",
-        "url": "/about.html",
+        "url": "/pages/about.html",
         "type": "secondary"
       }
     ]
@@ -43,7 +43,7 @@
       "name": "CV Generator",
       "description": "Create professional CVs and resumes with multiple templates and themes",
       "icon": "📄",
-      "url": "/cv-generator.html",
+      "url": "/pages/cv-generator.html",
       "category": "document",
       "featured": true,
       "new": false
@@ -53,50 +53,55 @@
       "name": "Task Manager",
       "description": "Organize your projects and tasks with our intuitive management system",
       "icon": "✅",
-      "url": "/task-manager.html",
+      "url": "/pages/tools.html",
       "category": "productivity",
       "featured": true,
-      "new": true
+      "new": true,
+      "comingSoon": true
     },
     {
       "id": "document-converter",
       "name": "Document Converter",
       "description": "Convert between different document formats quickly and easily",
       "icon": "🔄",
-      "url": "/document-converter.html",
+      "url": "/pages/tools.html",
       "category": "document",
       "featured": false,
-      "new": true
+      "new": true,
+      "comingSoon": true
     },
     {
       "id": "study-planner",
       "name": "Study Planner",
       "description": "Plan your study sessions and track your learning progress",
       "icon": "📚",
-      "url": "/study-planner.html",
+      "url": "/pages/tools.html",
       "category": "education",
       "featured": true,
-      "new": false
+      "new": false,
+      "comingSoon": true
     },
     {
       "id": "project-planner",
       "name": "Project Planner",
       "description": "Plan and manage your projects with comprehensive tools",
       "icon": "📊",
-      "url": "/project-planner.html",
+      "url": "/pages/tools.html",
       "category": "productivity",
       "featured": false,
-      "new": false
+      "new": false,
+      "comingSoon": true
     },
     {
       "id": "code-formatter",
       "name": "Code Formatter",
       "description": "Format and beautify your code in multiple programming languages",
       "icon": "💻",
-      "url": "/code-formatter.html",
+      "url": "/pages/tools.html",
       "category": "development",
       "featured": false,
-      "new": true
+      "new": true,
+      "comingSoon": true
     }
   ],
   "testimonials": [

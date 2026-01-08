@@ -42,45 +42,45 @@
     {
       "title": "Products",
       "links": [
-        {"name": "CV Generator", "url": "/cv-generator.html"},
-        {"name": "Task Manager", "url": "/task-manager.html"},
-        {"name": "Document Tools", "url": "/document-tools.html"},
-        {"name": "Project Planner", "url": "/project-planner.html"}
+        {"name": "CV Generator", "url": "/pages/cv-generator.html"},
+        {"name": "All Tools", "url": "/pages/tools.html"},
+        {"name": "Documentation", "url": "/pages/docs.html"},
+        {"name": "Help Center", "url": "/pages/help.html"}
       ]
     },
     {
       "title": "Company",
       "links": [
-        {"name": "About Us", "url": "/about.html"},
-        {"name": "Our Team", "url": "/team.html"},
-        {"name": "Careers", "url": "/careers.html"},
-        {"name": "Press Kit", "url": "/press.html"}
+        {"name": "About Us", "url": "/pages/about.html"},
+        {"name": "Our Team", "url": "/pages/team.html"},
+        {"name": "Careers", "url": "/pages/career.html"},
+        {"name": "Contact Us", "url": "/pages/contact.html"}
       ]
     },
     {
       "title": "Resources",
       "links": [
-        {"name": "Blog", "url": "/blog.html"},
-        {"name": "Tutorials", "url": "/tutorials.html"},
-        {"name": "Documentation", "url": "/docs.html"},
-        {"name": "API", "url": "/api.html"}
+        {"name": "Blog", "url": "/pages/blogs.html"},
+        {"name": "Community", "url": "/pages/community.html"},
+        {"name": "Documentation", "url": "/pages/docs.html"},
+        {"name": "Help Center", "url": "/pages/help.html"}
       ]
     },
     {
       "title": "Support",
       "links": [
-        {"name": "Help Center", "url": "/help.html"},
-        {"name": "Contact Us", "url": "/contact.html"},
-        {"name": "Status", "url": "/status.html"},
-        {"name": "Community", "url": "/community.html"}
+        {"name": "Help Center", "url": "/pages/help.html"},
+        {"name": "Contact Us", "url": "/pages/contact.html"},
+        {"name": "Documentation", "url": "/pages/docs.html"},
+        {"name": "Community", "url": "/pages/community.html"}
       ]
     }
   ],
   "legal": [
-    {"name": "Privacy Policy", "url": "/privacy.html"},
-    {"name": "Terms of Service", "url": "/terms.html"},
-    {"name": "Cookie Policy", "url": "/cookies.html"},
-    {"name": "Data Processing", "url": "/data-processing.html"}
+    {"name": "Privacy Policy", "url": "/pages/contact.html"},
+    {"name": "Terms of Service", "url": "/pages/contact.html"},
+    {"name": "Cookie Policy", "url": "/pages/contact.html"},
+    {"name": "Contact", "url": "/pages/contact.html"}
   ],
   "newsletter": {
     "title": "Stay Updated",

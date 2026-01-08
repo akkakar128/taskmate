@@ -331,8 +331,6 @@ const BlogsManager = (function() {
         };
 
         // Here you would typically send this to your backend
-        console.log('Blog contribution submitted:', formData);
-        
         alert('Thank you for your contribution! We will review your article and get back to you soon.');
         
         // Close modal and reset form
@@ -346,7 +344,6 @@ const BlogsManager = (function() {
         const email = e.target.querySelector('input[type="email"]').value;
         
         // Here you would typically send this to your backend
-        console.log('Newsletter subscription:', email);
         alert('Thank you for subscribing to our newsletter!');
         e.target.reset();
     }
@@ -355,9 +352,7 @@ const BlogsManager = (function() {
     function openBlog(blogId) {
         const blog = blogsData.blogs.find(b => b.id == blogId);
         if (blog) {
-            // For now, just log to console
             // In a real implementation, you might open a modal or navigate to a blog detail page
-            console.log('Opening blog:', blog.title);
             // window.location.href = `/blog/${blog.slug}`;
         }
     }

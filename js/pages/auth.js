@@ -68,10 +68,6 @@ const Auth = (function() {
 
     // Email simulation (in production, this would call your email service)
     async function sendEmail(to, subject, html) {
-        console.log('Sending email to:', to);
-        console.log('Subject:', subject);
-        console.log('HTML:', html);
-        
         // In a real application, you would integrate with an email service
         // like SendGrid, Mailgun, or AWS SES
         return { success: true };

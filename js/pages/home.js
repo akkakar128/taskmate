@@ -228,8 +228,6 @@ const Homepage = (function() {
         };
 
         // Here you would typically send this to your backend
-        console.log('Feedback submitted:', formData);
-        
         // For now, we'll store in localStorage and show success message
         saveFeedback(formData);
         

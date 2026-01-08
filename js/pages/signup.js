@@ -230,7 +230,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     localStorage.setItem('taskmate_verification_codes', JSON.stringify(codes));
 
                     // Show verification code (in real app, this would be sent via email)
-                    console.log(`Verification code for ${userData.email}: ${verificationCode}`);
                     alert(`DEMO: Verification code for ${userData.email}: ${verificationCode}\n\nIn production, this would be sent via email.`);
 
                     resolve(newUser);

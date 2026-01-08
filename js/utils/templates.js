@@ -181,27 +181,17 @@ const CVGenerator = (function () {
         }
     }
 
-    // Temporary debug function - add this to js/templates.js
-    function debugFileUpload(content, filename) {
-        console.log('=== FILE UPLOAD DEBUG ===');
-        console.log('Filename:', filename);
-        console.log('File content:', content);
-        console.log('File type:', filename.endsWith('.json') ? 'JSON' : 'TXT');
-
+    // Parse uploaded file data
+    function parseFileData(content, filename) {
         try {
             let data;
             if (filename.endsWith('.json')) {
                 data = JSON.parse(content);
-                console.log('Parsed JSON data:', data);
             } else if (filename.endsWith('.txt')) {
                 data = parseTxtFile(content);
-                console.log('Parsed TXT data:', data);
             }
-            console.log('=== END DEBUG ===');
             return data;
         } catch (error) {
-            console.error('Parse error:', error);
-            console.log('=== END DEBUG ===');
             throw error;
         }
     }
@@ -212,8 +202,7 @@ const CVGenerator = (function () {
             const reader = new FileReader();
             reader.onload = function (e) {
                 try {
-                    console.log('Starting file upload processing...');
-                    const data = debugFileUpload(e.target.result, file.name);
+                    const data = parseFileData(e.target.result, file.name);
 
                     // First populate the form with the loaded data
                     FormHandler.populateForm(data);
@@ -224,7 +213,6 @@ const CVGenerator = (function () {
                     alert('Data file loaded successfully! CV preview updated.');
                 } catch (error) {
                     alert('Error parsing file. Please check the format. Error: ' + error.message);
-                    console.error('File parsing error:', error);
                 }
             };
             reader.onerror = function () {
