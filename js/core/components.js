@@ -29,6 +29,9 @@ const Components = (function () {
             // Initialize components
             initializeHeader();
             initializeFooter();
+            
+            // Dispatch event for other scripts that depend on header being loaded
+            document.dispatchEvent(new CustomEvent('headerLoaded'));
 
         } catch (error) {
             console.error('Error loading components:', error);

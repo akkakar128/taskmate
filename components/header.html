@@ -36,6 +36,16 @@
 
             <!-- User Actions -->
             <div class="nav-actions">
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
                 <button class="btn-search" aria-label="Search">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                         <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -85,6 +95,17 @@
             <div class="mobile-auth-buttons" id="mobileAuthButtons">
                 <a href="/pages/auth/login.html" class="btn-login-mobile">Login</a>
                 <a href="/pages/auth/signup.html" class="btn-signup-mobile">Sign Up Free</a>
+            </div>
+            <!-- Mobile Theme Toggle -->
+            <div class="mobile-theme-toggle">
+                <span class="theme-label">Theme</span>
+                <button class="theme-toggle-mobile" id="mobileThemeToggle" aria-label="Toggle dark mode">
+                    <span class="toggle-track">
+                        <span class="toggle-thumb"></span>
+                    </span>
+                    <span class="theme-icon sun">☀️</span>
+                    <span class="theme-icon moon">🌙</span>
+                </button>
             </div>
             <div class="mobile-user-menu hidden" id="mobileUserMenu">
                 <div class="mobile-user-info">
