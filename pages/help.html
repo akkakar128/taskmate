@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASKMATE Help Center - Comprehensive Guides & Support | Tool Instructions</title>
+    <meta name="description" content="Get comprehensive help for all TASKMATE tools. Step-by-step guides, FAQs, troubleshooting, and expert tips for CV Generator, Plagiarism Checker, and more.">
+    <meta name="keywords" content="taskmate help, tool instructions, cv generator guide, plagiarism checker tutorial, support center, faq, troubleshooting">
+    <meta name="author" content="TASKMATE">
+    <meta property="og:title" content="TASKMATE Help Center - Comprehensive Guides & Support">
+    <meta property="og:description" content="Get step-by-step instructions for all TASKMATE tools. Expert guides, FAQs, and troubleshooting help.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://taskmate.com/help">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+            "@type": "Question",
+            "name": "How do I use the CV Generator?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our CV Generator is simple to use: 1) Choose from 4 professional templates, 2) Select Photo or International CV format, 3) Fill in your information manually or upload a file, 4) Preview in real-time, 5) Download as PDF, JSON, or TXT."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Are TASKMATE tools completely free?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! All TASKMATE tools are 100% free with no hidden costs, no registration required, and no watermarks on your downloads."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Is my data secure when using TASKMATE tools?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely! All processing happens locally in your browser. We don't store, transmit, or have access to any of your personal data. Your privacy is our top priority."
+            }
+        }]
+    }
+    </script>
+    <link rel="stylesheet" href="/css/base/main.css">
+    <link rel="stylesheet" href="/css/base/responsive.css">
+</head>
+<body>
+    <!-- Header will be automatically inserted here by components.js -->
+    
+    <main class="help-page">
+        <!-- Hero Section -->
+        <section class="help-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">TASKMATE Help Center</h1>
+                    <p class="hero-subtitle">Your comprehensive guide to mastering all our tools. Find step-by-step instructions, troubleshooting tips, and expert advice.</p>
+                    
+                    <!-- Search Bar -->
+                    <div class="help-search">
+                        <div class="search-container">
+                            <input type="text" id="help-search" placeholder="Search for help topics, tool instructions, or FAQs..." class="search-input">
+                            <button class="search-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number" data-count="50">0</div>
+                            <div class="stat-label">Tools Covered</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number" data-count="200">0</div>
+                            <div class="stat-label">Help Articles</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number" data-count="99">0</div>
+                            <div class="stat-label">Success Rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Help Categories -->
+        <section class="quick-help">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Quick Help Categories</h2>
+                    <p>Find help organized by tool categories and common topics</p>
+                </div>
+                <div class="help-categories" id="help-categories">
+                    <!-- Categories will be loaded dynamically from JSON -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Tools Instructions -->
+        <section class="featured-tools">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Popular Tool Guides</h2>
+                    <p>Step-by-step instructions for our most used tools</p>
+                </div>
+                <div class="tools-instructions" id="tools-instructions">
+                    <!-- Tool instructions will be loaded dynamically from JSON -->
+                </div>
+            </div>
+        </section>
+
+        <!-- All Tools Directory -->
+        <section class="all-tools-directory">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Complete Tool Directory</h2>
+                    <p>Browse all available tools and their documentation</p>
+                </div>
+                <div class="tools-filter">
+                    <div class="filter-buttons" id="category-filters">
+                        <!-- Category filters will be loaded dynamically -->
+                    </div>
+                    <div class="search-tools">
+                        <input type="text" id="tool-search" placeholder="Search tools by name or keyword..." class="tool-search-input">
+                    </div>
+                </div>
+                <div class="tools-grid" id="all-tools-grid">
+                    <!-- All tools will be loaded dynamically from JSON -->
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="help-faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Quick answers to common questions about TASKMATE</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-category">
+                        <h3>General Questions</h3>
+                        <div class="faq-items">
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h4>Are TASKMATE tools completely free?</h4>
+                                    <span class="faq-toggle">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Yes! All TASKMATE tools are 100% free with no hidden costs, no registration required, and no watermarks on your downloads. We believe in making quality tools accessible to everyone.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h4>Is my data secure when using TASKMATE tools?</h4>
+                                    <span class="faq-toggle">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Absolutely! All processing happens locally in your browser. We don't store, transmit, or have access to any of your personal data. Your documents and information never leave your computer.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h4>Do I need to create an account to use the tools?</h4>
+                                    <span class="faq-toggle">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>No account required! You can start using any TASKMATE tool immediately without signing up. We've designed our tools to be instantly accessible.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-category">
+                        <h3>Technical Support</h3>
+                        <div class="faq-items">
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h4>What browsers are supported?</h4>
+                                    <span class="faq-toggle">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>TASKMATE works on all modern browsers including Chrome, Firefox, Safari, and Edge. We recommend using the latest version for the best experience.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h4>Why is a tool not working properly?</h4>
+                                    <span class="faq-toggle">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>If you're experiencing issues, try refreshing the page, clearing your browser cache, or updating your browser. Most issues are resolved with these simple steps.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h4>Can I use TASKMATE on mobile devices?</h4>
+                                    <span class="faq-toggle">+</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Yes! All TASKMATE tools are fully responsive and work perfectly on smartphones and tablets. Create and edit on the go with our mobile-optimized interface.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Support -->
+        <section class="contact-support">
+            <div class="container">
+                <div class="support-content">
+                    <div class="support-text">
+                        <h2>Still Need Help?</h2>
+                        <p>Our support team is here to assist you with any questions or issues you might have.</p>
+                        <div class="support-options">
+                            <div class="support-option">
+                                <div class="option-icon">📧</div>
+                                <h4>Email Support</h4>
+                                <p>Send us a detailed message and we'll get back to you within 24 hours.</p>
+                                <a href="mailto:support@taskmate.com" class="support-link">support@taskmate.com</a>
+                            </div>
+                            <div class="support-option">
+                                <div class="option-icon">💬</div>
+                                <h4>Community Forum</h4>
+                                <p>Get help from our community of users and experts.</p>
+                                <a href="/community.html" class="support-link">Visit Community</a>
+                            </div>
+                            <div class="support-option">
+                                <div class="option-icon">📚</div>
+                                <h4>Documentation</h4>
+                                <p>Browse our comprehensive documentation and tutorials.</p>
+                                <a href="/docs.html" class="support-link">View Documentation</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer will be automatically inserted here by components.js -->
+
+    <script src="/js/core/components.js"></script>
+    <script>
+        // Tools data and dynamic content loading
+        let toolsData = null;
+        let allTools = [];
+
+        // Load tools data and initialize page
+        document.addEventListener('DOMContentLoaded', async function() {
+            await loadToolsData();
+            initializePage();
+            setupEventListeners();
+            animateStatistics();
+        });
+
+        // Load tools data from JSON
+        async function loadToolsData() {
+            try {
+                const response = await fetch('/data/tools.json');
+                toolsData = await response.json();
+                allTools = toolsData.tools;
+            } catch (error) {
+                console.error('Error loading tools data:', error);
+            }
+        }
+
+        // Initialize page content
+        function initializePage() {
+            loadHelpCategories();
+            loadFeaturedTools();
+            loadAllTools();
+            setupCategoryFilters();
+        }
+
+        // Load help categories
+        function loadHelpCategories() {
+            const categoriesContainer = document.getElementById('help-categories');
+            if (!toolsData || !categoriesContainer) return;
+
+            categoriesContainer.innerHTML = toolsData.categories.map(category => `
+                <div class="help-category" data-category="${category.id}">
+                    <div class="category-icon" style="background-color: ${category.color}20; color: ${category.color}">
+                        <span>${category.icon}</span>
+                    </div>
+                    <h3>${category.name}</h3>
+                    <p>${category.description}</p>
+                    <div class="category-tools">
+                        ${toolsData.tools.filter(tool => tool.category.toLowerCase() === category.id).slice(0, 3).map(tool => `
+                            <span class="tool-tag">${tool.name}</span>
+                        `).join('')}
+                    </div>
+                    <a href="#${category.id}-tools" class="category-link">View All ${category.name} →</a>
+                </div>
+            `).join('');
+        }
+
+        // Load featured tools with instructions
+        function loadFeaturedTools() {
+            const instructionsContainer = document.getElementById('tools-instructions');
+            if (!toolsData || !instructionsContainer) return;
+
+            const featuredTools = toolsData.tools.filter(tool => tool.featured && tool.instructions);
+            
+            instructionsContainer.innerHTML = featuredTools.map(tool => `
+                <div class="tool-guide" id="${tool.id}-guide">
+                    <div class="guide-header">
+                        <div class="tool-icon" style="background-color: ${tool.color}20; color: ${tool.color}">
+                            ${tool.icon}
+                        </div>
+                        <div class="tool-info">
+                            <h3>${tool.name}</h3>
+                            <p>${tool.description}</p>
+                            <div class="tool-meta">
+                                <span class="meta-item">Version: ${tool.version}</span>
+                                <span class="meta-item">Last Updated: ${tool.lastUpdated}</span>
+                                <span class="meta-item popularity">Popularity: ${tool.popularity}%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    ${tool.instructions ? `
+                    <div class="guide-content">
+                        <div class="instructions-section">
+                            <h4>Step-by-Step Instructions</h4>
+                            <div class="instructions-steps">
+                                ${tool.instructions.steps.map(step => `
+                                    <div class="instruction-step">
+                                        <div class="step-number">${step.number}</div>
+                                        <div class="step-content">
+                                            <h5>${step.title}</h5>
+                                            <p>${step.description}</p>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        
+                        ${tool.instructions.proTips ? `
+                        <div class="pro-tips-section">
+                            <h4>Pro Tips</h4>
+                            <div class="pro-tips">
+                                ${tool.instructions.proTips.map(tip => `
+                                    <div class="pro-tip">
+                                        <div class="tip-icon">💡</div>
+                                        <div class="tip-content">
+                                            <h5>${tip.title}</h5>
+                                            <p>${tip.description}</p>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        ` : ''}
+                        
+                        ${tool.faqs ? `
+                        <div class="tool-faqs">
+                            <h4>Frequently Asked Questions</h4>
+                            <div class="faq-items">
+                                ${tool.faqs.map(faq => `
+                                    <div class="faq-item">
+                                        <div class="faq-question">
+                                            <h5>${faq.question}</h5>
+                                            <span class="faq-toggle">+</span>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <p>${faq.answer}</p>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        ` : ''}
+                    </div>
+                    ` : '<p class="no-instructions">Instructions coming soon...</p>'}
+                    
+                    <div class="guide-actions">
+                        <a href="/${tool.htmlFile}" class="btn btn-primary">Use Tool</a>
+                        <button class="btn btn-secondary share-guide" data-tool="${tool.name}">Share Guide</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Load all tools for directory
+        function loadAllTools() {
+            const toolsGrid = document.getElementById('all-tools-grid');
+            if (!toolsData || !toolsGrid) return;
+
+            toolsGrid.innerHTML = toolsData.tools.map(tool => `
+                <div class="tool-card" data-category="${tool.category.toLowerCase()}" data-name="${tool.name.toLowerCase()}">
+                    <div class="tool-card-header">
+                        <div class="tool-icon" style="background-color: ${tool.color}20; color: ${tool.color}">
+                            ${tool.icon}
+                        </div>
+                        <div class="tool-badge ${tool.featured ? 'featured' : ''} ${tool.premium ? 'premium' : 'free'}">
+                            ${tool.featured ? '⭐ Featured' : (tool.premium ? '💎 Premium' : '🆓 Free')}
+                        </div>
+                    </div>
+                    <h3>${tool.name}</h3>
+                    <p>${tool.description}</p>
+                    <div class="tool-meta">
+                        <span class="meta-item">${tool.category}</span>
+                        <span class="meta-item">v${tool.version}</span>
+                    </div>
+                    <div class="tool-keywords">
+                        ${tool.keywords.slice(0, 3).map(keyword => `
+                            <span class="keyword-tag">${keyword}</span>
+                        `).join('')}
+                    </div>
+                    <div class="tool-actions">
+                        <a href="/${tool.htmlFile}" class="btn btn-sm btn-primary">Use Tool</a>
+                        <a href="#${tool.id}-guide" class="btn btn-sm btn-secondary">View Guide</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Setup category filters
+        function setupCategoryFilters() {
+            const filtersContainer = document.getElementById('category-filters');
+            if (!toolsData || !filtersContainer) return;
+
+            filtersContainer.innerHTML = `
+                <button class="filter-btn active" data-category="all">All Tools</button>
+                ${toolsData.categories.map(category => `
+                    <button class="filter-btn" data-category="${category.id}">
+                        ${category.icon} ${category.name}
+                    </button>
+                `).join('')}
+            `;
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // FAQ toggle
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('faq-toggle') || e.target.closest('.faq-question')) {
+                    const faqItem = e.target.closest('.faq-item');
+                    const answer = faqItem.querySelector('.faq-answer');
+                    const toggle = faqItem.querySelector('.faq-toggle');
+                    
+                    answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                    toggle.textContent = answer.style.display === 'block' ? '−' : '+';
+                }
+            });
+
+            // Category filters
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('filter-btn')) {
+                    // Update active button
+                    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                    
+                    // Filter tools
+                    const category = e.target.dataset.category;
+                    filterTools(category);
+                }
+            });
+
+            // Tool search
+            const toolSearch = document.getElementById('tool-search');
+            if (toolSearch) {
+                toolSearch.addEventListener('input', function(e) {
+                    searchTools(e.target.value);
+                });
+            }
+
+            // Help search
+            const helpSearch = document.getElementById('help-search');
+            if (helpSearch) {
+                helpSearch.addEventListener('input', function(e) {
+                    searchHelpContent(e.target.value);
+                });
+            }
+
+            // Share guide buttons
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('share-guide')) {
+                    const toolName = e.target.dataset.tool;
+                    shareGuide(toolName);
+                }
+            });
+        }
+
+        // Filter tools by category
+        function filterTools(category) {
+            const toolCards = document.querySelectorAll('.tool-card');
+            toolCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Search tools
+        function searchTools(query) {
+            const toolCards = document.querySelectorAll('.tool-card');
+            const searchTerm = query.toLowerCase();
+            
+            toolCards.forEach(card => {
+                const toolName = card.dataset.name;
+                const toolText = card.textContent.toLowerCase();
+                
+                if (toolName.includes(searchTerm) || toolText.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Search help content
+        function searchHelpContent(query) {
+            // This would be implemented with a more comprehensive search
+            // For now, just highlight matching terms
+            console.log('Searching for:', query);
+        }
+
+        // Share guide
+        function shareGuide(toolName) {
+            if (navigator.share) {
+                navigator.share({
+                    title: `${toolName} - TASKMATE Guide`,
+                    text: `Check out this comprehensive guide for ${toolName} on TASKMATE`,
+                    url: window.location.href
+                });
+            } else {
+                // Fallback: copy to clipboard
+                navigator.clipboard.writeText(window.location.href);
+                alert('Guide link copied to clipboard!');
+            }
+        }
+
+        // Animate statistics
+        function animateStatistics() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const stat = entry.target;
+                        const target = parseInt(stat.getAttribute('data-count'));
+                        const duration = 2000;
+                        const step = target / (duration / 16);
+                        let current = 0;
+                        
+                        const timer = setInterval(() => {
+                            current += step;
+                            if (current >= target) {
+                                current = target;
+                                clearInterval(timer);
+                            }
+                            stat.textContent = Math.floor(current) + (stat.getAttribute('data-count').includes('.') ? '%' : '+');
+                        }, 16);
+                        
+                        observer.unobserve(stat);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            statNumbers.forEach(stat => observer.observe(stat));
+        }
+    </script>
+</body>
+</html>

@@ -11,7 +11,7 @@ const BlogsManager = (function() {
     async function init() {
         try {
             // Load blogs data
-            const response = await fetch('/json/blogs.json');
+            const response = await fetch('/data/blogs.json');
             blogsData = await response.json();
             
             // Initialize the page

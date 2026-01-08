@@ -7,7 +7,7 @@ const ToolsManager = (function() {
     async function init() {
         try {
             // Load tools data
-            const response = await fetch('/json/tools-data.json');
+            const response = await fetch('/data/tools-data.json');
             toolsData = await response.json();
             
             // Update page meta

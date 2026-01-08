@@ -23,7 +23,7 @@ const Components = (function () {
             document.body.insertAdjacentHTML('beforeend', footerHTML);
 
             // Load footer data
-            const dataResponse = await fetch('/json/footer-data.json');
+            const dataResponse = await fetch('/data/footer-data.json');
             footerData = await dataResponse.json();
 
             // Initialize components

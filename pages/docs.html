@@ -11,8 +11,9 @@
     <meta property="og:description" content="Learn how to use all TASKMATE tools effectively with our comprehensive documentation and tutorials.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://taskmate.com/docs">
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/responsive.css">
+    <link rel="stylesheet" href="/css/base/main.css">
+    <link rel="stylesheet" href="/css/pages/docs.css">
+    <link rel="stylesheet" href="/css/base/responsive.css">
 </head>
 <body>
     <!-- Header will be automatically inserted here by components.js -->
@@ -352,7 +353,7 @@
 
     <!-- Footer will be automatically inserted here by components.js -->
 
-    <script src="/js/components.js"></script>
+    <script src="/js/core/components.js"></script>
     <script>
         // Documentation functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -362,7 +363,7 @@
             // Load tools data from JSON
             async function loadToolsData() {
                 try {
-                    const response = await fetch('/json/tools.json');
+                    const response = await fetch('/data/tools.json');
                     const data = await response.json();
                     toolsData = data.tools;
                     categoriesData = data.categories;

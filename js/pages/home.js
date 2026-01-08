@@ -7,7 +7,7 @@ const Homepage = (function() {
     async function init() {
         try {
             // Load home data from JSON
-            const response = await fetch('/json/home-data.json');
+            const response = await fetch('/data/home-data.json');
             homeData = await response.json();
             
             // Initialize all sections
