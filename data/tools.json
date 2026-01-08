@@ -14,7 +14,7 @@
       "premium": false,
       "lastUpdated": "2024-01-15",
       "version": "1.2.0",
-      "htmlFile": "tools/cv-generator.html",
+      "htmlFile": "pages/cv-generator.html",
       "cssFile": "tools/cv-generator.css",
       "jsFile": "tools/cv-generator.js",
       "meta": {

@@ -33,7 +33,7 @@
       "description": "Create stunning, ATS-friendly resumes and CVs with multiple templates and themes. Export to PDF, Word, or JSON formats.",
       "category": "document-tools",
       "icon": "📄",
-      "url": "/cv-generator.html",
+      "url": "/pages/cv-generator.html",
       "isNew": true,
       "isFeatured": true,
       "tags": ["CV", "Resume", "PDF", "ATS Friendly", "Templates"],
@@ -45,7 +45,7 @@
       "description": "Organize your projects and daily tasks with our intuitive task management system. Set priorities, deadlines, and track progress.",
       "category": "productivity",
       "icon": "✅",
-      "url": "/task-manager.html",
+      "url": "/pages/tools.html",
       "isNew": false,
       "isFeatured": true,
       "tags": ["Tasks", "Projects", "Productivity", "Organization"],
@@ -57,7 +57,7 @@
       "description": "Convert between multiple document formats instantly. Support for PDF, Word, Excel, and image formats with preserved formatting.",
       "category": "document-tools",
       "icon": "🔄",
-      "url": "/document-converter.html",
+      "url": "/pages/tools.html",
       "isNew": false,
       "isFeatured": true,
       "tags": ["PDF", "Word", "Conversion", "Documents"],
@@ -76,7 +76,7 @@
           "name": "CV Generator",
           "description": "Professional resume and CV creation with multiple templates",
           "icon": "📝",
-          "url": "/cv-generator.html",
+          "url": "/pages/cv-generator.html",
           "isNew": true
         },
         {
@@ -84,7 +84,7 @@
           "name": "Resume Builder",
           "description": "Build ATS-optimized resumes for job applications",
           "icon": "💼",
-          "url": "/resume-builder.html",
+          "url": "/pages/tools.html",
           "isNew": false
         },
         {
@@ -92,7 +92,7 @@
           "name": "Cover Letter Creator",
           "description": "Craft compelling cover letters tailored to specific jobs",
           "icon": "✉️",
-          "url": "/cover-letter-creator.html",
+          "url": "/pages/tools.html",
           "isNew": false
         },
         {
@@ -100,7 +100,7 @@
           "name": "Document Converter",
           "description": "Convert between PDF, Word, Excel and other formats",
           "icon": "🔄",
-          "url": "/document-converter.html",
+          "url": "/pages/tools.html",
           "isNew": false
         },
         {
@@ -108,7 +108,7 @@
           "name": "PDF Toolkit",
           "description": "Merge, split, compress, and edit PDF documents",
           "icon": "📑",
-          "url": "/pdf-tools.html",
+          "url": "/pages/tools.html",
           "isNew": false
         },
         {
@@ -116,7 +116,7 @@
           "name": "Citation Generator",
           "description": "Generate citations in APA, MLA, Chicago, and other formats",
           "icon": "📚",
-          "url": "/citation-generator.html",
+          "url": "/pages/tools.html",
           "isNew": true
         }
       ]
@@ -132,7 +132,7 @@
           "name": "Study Planner",
           "description": "Create optimized study schedules and track progress",
           "icon": "📅",
-          "url": "/study-planner.html",
+          "url": "/pages/tools.html",
           "isNew": false
         },
         {
@@ -140,7 +140,7 @@
           "name": "Essay Outliner",
           "description": "Structure and organize your academic writing projects",
           "icon": "📝",
-          "url": "/essay-outliner.html",
+          "url": "/pages/tools.html",
           "isNew": false
         },
         {
@@ -148,7 +148,7 @@
           "name": "Research Organizer",
           "description": "Manage research materials, notes, and references",
           "icon": "🔍",
-          "url": "/research-organizer.html",
+          "url": "/pages/tools.html",
           "isNew": true
         },
         {
@@ -156,7 +156,7 @@
           "name": "Flashcard Maker",
           "description": "Create digital flashcards for effective memorization",
           "icon": "🎴",
-          "url": "/flashcard-maker.html",
+          "url": "/pages/tools.html",
           "isNew": false
         },
         {
@@ -164,7 +164,7 @@
           "name": "Grade Calculator",
           "description": "Calculate grades and track academic performance",
           "icon": "📊",
-          "url": "/grade-calculator.html",
+          "url": "/pages/tools.html",
           "isNew": false
         }
       ]
@@ -180,7 +180,7 @@
           "name": "Task Manager",
           "description": "Comprehensive task and project management system",
           "icon": "✅",
-          "url": "/task-manager.html",
+          "url": "/pages/tools.html",
           "isNew": false
         },
         {
@@ -188,7 +188,7 @@
           "name": "Time Tracker",
           "description": "Monitor time spent on tasks and projects",
           "icon": "⏱️",
-          "url": "/time-tracker.html",
+          "url": "/pages/tools.html",
           "isNew": false
         },
         {
@@ -196,7 +196,7 @@
           "name": "Meeting Scheduler",
           "description": "Schedule and organize meetings with automatic reminders",
           "icon": "📅",
-          "url": "/meeting-scheduler.html",
+          "url": "/pages/tools.html",
           "isNew": true
         },
         {
@@ -212,7 +212,7 @@
           "name": "Habit Tracker",
           "description": "Build and maintain positive habits with daily tracking",
           "icon": "📈",
-          "url": "/habit-tracker.html",
+          "url": "/pages/tools.html",
           "isNew": false
         }
       ]
@@ -228,7 +228,7 @@
           "name": "Code Formatter",
           "description": "Format and beautify code in multiple programming languages",
           "icon": "⌨️",
-          "url": "/code-formatter.html",
+          "url": "/pages/tools.html",
           "isNew": true
         },
         {
@@ -244,7 +244,7 @@
           "name": "Color Picker",
           "description": "Advanced color selection with multiple format outputs",
           "icon": "🎨",
-          "url": "/color-picker.html",
+          "url": "/pages/tools.html",
           "isNew": false
         },
         {
