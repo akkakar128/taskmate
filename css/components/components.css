@@ -1126,7 +1126,7 @@
 .mobile-sub-link {
     padding-left: 1.5rem;
     font-size: 1rem;
-    color: var(--light-text);
+    color: #64748b;
     background: rgba(52, 152, 219, 0.03);
 }
 
