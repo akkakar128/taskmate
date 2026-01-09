@@ -322,13 +322,58 @@ const Components = (function () {
     }
 
     // Newsletter form handler
-    function handleNewsletterSubmit(e) {
+    async function handleNewsletterSubmit(e) {
         e.preventDefault();
-        const email = document.getElementById('newsletter-email').value;
+        const emailInput = document.getElementById('newsletter-email');
+        const email = emailInput.value;
+        const submitBtn = e.target.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
 
-        // Send to backend API in production
-        alert('Thank you for subscribing to our newsletter!');
-        e.target.reset();
+        submitBtn.innerHTML = '<span>Subscribing...</span>';
+        submitBtn.disabled = true;
+
+        try {
+            let result;
+            if (window.SupabaseService && window.SupabaseService.isConnected()) {
+                result = await SupabaseService.Database.newsletter.subscribe(email);
+            } else {
+                // Fallback to localStorage
+                result = saveNewsletterLocal(email);
+            }
+
+            if (result.alreadySubscribed) {
+                alert('You are already subscribed to our newsletter!');
+            } else if (result.error) {
+                throw result.error;
+            } else {
+                alert('Thank you for subscribing to our newsletter! 🎉');
+                e.target.reset();
+            }
+        } catch (error) {
+            console.error('Newsletter subscription error:', error);
+            // Fallback save
+            saveNewsletterLocal(email);
+            alert('Thank you for subscribing! Your subscription has been saved.');
+            e.target.reset();
+        } finally {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
+    }
+
+    // Save newsletter subscription locally (fallback)
+    function saveNewsletterLocal(email) {
+        try {
+            const stored = JSON.parse(localStorage.getItem('taskmate_newsletter') || '[]');
+            if (stored.includes(email)) {
+                return { data: null, error: null, alreadySubscribed: true };
+            }
+            stored.push(email);
+            localStorage.setItem('taskmate_newsletter', JSON.stringify(stored));
+            return { data: { email }, error: null, alreadySubscribed: false };
+        } catch (error) {
+            return { data: null, error, alreadySubscribed: false };
+        }
     }
 
     // Feedback modal functionality

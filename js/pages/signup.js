@@ -192,8 +192,40 @@ document.addEventListener('DOMContentLoaded', function () {
         signupForm.parentNode.insertBefore(messageDiv, signupForm);
     }
 
-    // Create user account
+    // Create user account - Uses Supabase if configured
     async function createUserAccount(userData) {
+        // Try Supabase first
+        if (window.SupabaseService && window.SupabaseService.isConnected()) {
+            const names = userData.name.split(' ');
+            const firstName = names[0] || '';
+            const lastName = names.slice(1).join(' ') || '';
+            
+            const { data, error } = await SupabaseService.Auth.signUp(
+                userData.email,
+                userData.password,
+                { firstName, lastName }
+            );
+            
+            if (error) {
+                if (error.message.includes('already registered')) {
+                    throw new Error('An account with this email already exists. Please sign in instead.');
+                }
+                throw new Error(error.message);
+            }
+            
+            if (data && data.user) {
+                return {
+                    id: data.user.id,
+                    name: userData.name,
+                    email: userData.email,
+                    verified: false
+                };
+            }
+            
+            throw new Error('Failed to create account. Please try again.');
+        }
+        
+        // Fallback to localStorage
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 try {
@@ -236,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 } catch (error) {
                     reject(new Error('Failed to create account. Please try again.'));
                 }
-            }, 1500);
+            }, 500);
         });
     }
 

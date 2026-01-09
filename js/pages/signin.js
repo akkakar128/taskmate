@@ -137,8 +137,33 @@ document.addEventListener('DOMContentLoaded', function () {
         signinForm.parentNode.insertBefore(messageDiv, signinForm);
     }
 
-    // Authentication function
+    // Authentication function - Uses Supabase if configured, falls back to localStorage
     async function authenticateUser(email, password) {
+        // Try Supabase authentication first
+        if (window.SupabaseService && window.SupabaseService.isConnected()) {
+            const { data, error } = await SupabaseService.Auth.signIn(email, password);
+            
+            if (error) {
+                if (error.message.includes('Invalid login credentials')) {
+                    throw new Error('Invalid email or password. Please try again.');
+                }
+                throw new Error(error.message);
+            }
+            
+            if (data && data.user) {
+                return {
+                    id: data.user.id,
+                    email: data.user.email,
+                    firstName: data.user.user_metadata?.firstName || '',
+                    lastName: data.user.user_metadata?.lastName || '',
+                    verified: data.user.email_confirmed_at !== null
+                };
+            }
+            
+            throw new Error('Authentication failed. Please try again.');
+        }
+        
+        // Fallback to localStorage authentication
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 try {
@@ -160,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 } catch (error) {
                     reject(new Error('Authentication failed. Please try again.'));
                 }
-            }, 1000);
+            }, 500);
         });
     }
 

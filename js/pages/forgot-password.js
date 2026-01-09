@@ -277,8 +277,23 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 1000);
     }
 
-    // Simulation functions
+    // Simulation functions - Uses Supabase if configured
     async function sendResetCode(email) {
+        // Try Supabase first
+        if (window.SupabaseService && window.SupabaseService.isConnected()) {
+            const { error } = await SupabaseService.Auth.resetPassword(email);
+            
+            if (error) {
+                throw new Error(error.message);
+            }
+            
+            // With Supabase, the email is sent automatically
+            // Skip step 2 (code verification) and go to reset-password page
+            alert('Password reset email sent! Please check your inbox and click the reset link.');
+            return { skipCodeStep: true };
+        }
+        
+        // Fallback to localStorage
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 // Check if user exists
@@ -302,8 +317,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Show code (in real app, send email)
                 alert(`DEMO: Password reset code for ${email}: ${resetCode}\n\nIn production, this would be sent via email.`);
 
-                resolve();
-            }, 1500);
+                resolve({ skipCodeStep: false });
+            }, 1000);
         });
     }
 

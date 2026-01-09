@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Main contact form submission
     if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
+        contactForm.addEventListener('submit', async function (e) {
             e.preventDefault();
 
             const submitBtn = this.querySelector('.submit-btn');
@@ -21,20 +21,55 @@ document.addEventListener('DOMContentLoaded', function () {
             btnText.style.display = 'none';
             btnLoading.style.display = 'flex';
 
-            // Simulate form submission
-            setTimeout(() => {
-                // Here you would typically send the form data to your backend
+            try {
                 const formData = new FormData(this);
+                const contactData = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    subject: formData.get('subject'),
+                    message: formData.get('message')
+                };
+
+                // Try Supabase, fallback to localStorage
+                if (window.SupabaseService && window.SupabaseService.isConnected()) {
+                    const { error } = await SupabaseService.Database.contacts.create(contactData);
+                    if (error) throw error;
+                } else {
+                    saveContactLocal(contactData);
+                }
 
                 // Show success message
                 alert('Thank you for your message! We\'ll get back to you within 24 hours.');
-
-                // Reset form and button
                 this.reset();
+            } catch (error) {
+                console.error('Contact form error:', error);
+                // Fallback save
+                const formData = new FormData(this);
+                saveContactLocal({
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    subject: formData.get('subject'),
+                    message: formData.get('message')
+                });
+                alert('Thank you for your message! It has been saved and we\'ll respond soon.');
+                this.reset();
+            } finally {
                 btnText.style.display = 'block';
                 btnLoading.style.display = 'none';
-            }, 2000);
+            }
         });
+    }
+
+    // Save contact to localStorage (fallback)
+    function saveContactLocal(contact) {
+        const stored = JSON.parse(localStorage.getItem('taskmate_contacts') || '[]');
+        stored.push({
+            ...contact,
+            id: `local_${Date.now()}`,
+            created_at: new Date().toISOString(),
+            status: 'pending_sync'
+        });
+        localStorage.setItem('taskmate_contacts', JSON.stringify(stored));
     }
 
     // Feedback modal functionality

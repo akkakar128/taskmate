@@ -216,32 +216,58 @@ const Homepage = (function() {
     }
 
     // Handle feedback form submission
-    function handleFeedbackSubmit(e) {
+    async function handleFeedbackSubmit(e) {
         e.preventDefault();
+        
+        const submitBtn = e.target.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Submitting...';
+        submitBtn.disabled = true;
         
         const formData = {
             type: document.getElementById('feedback-type').value,
-            tool: document.getElementById('feedback-tool').value,
+            tool: document.getElementById('feedback-tool').value || null,
             message: document.getElementById('feedback-message').value,
-            email: document.getElementById('feedback-email').value,
-            timestamp: new Date().toISOString()
+            email: document.getElementById('feedback-email').value || null
         };
 
-        // Here you would typically send this to your backend
-        // For now, we'll store in localStorage and show success message
-        saveFeedback(formData);
-        
-        alert('Thank you for your feedback! We appreciate your input and will use it to improve our tools.');
-        
-        // Close modal and reset form
-        document.getElementById('feedback-modal').classList.remove('active');
-        e.target.reset();
+        try {
+            // Try to save to Supabase, fallback to localStorage
+            if (window.SupabaseService && window.SupabaseService.isConnected()) {
+                const { data, error } = await SupabaseService.Database.feedback.create(formData);
+                if (error) throw error;
+            } else {
+                // Fallback to localStorage
+                saveFeedbackLocal(formData);
+            }
+            
+            alert('Thank you for your feedback! We appreciate your input and will use it to improve our tools.');
+            
+            // Close modal and reset form
+            document.getElementById('feedback-modal').classList.remove('active');
+            e.target.reset();
+        } catch (error) {
+            console.error('Error submitting feedback:', error);
+            // Fallback to localStorage on error
+            saveFeedbackLocal(formData);
+            alert('Thank you for your feedback! It has been saved locally.');
+            document.getElementById('feedback-modal').classList.remove('active');
+            e.target.reset();
+        } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
     }
 
-    // Save feedback to localStorage (temporary solution)
-    function saveFeedback(feedback) {
+    // Save feedback to localStorage (fallback)
+    function saveFeedbackLocal(feedback) {
         const existingFeedback = JSON.parse(localStorage.getItem('taskmate-feedback') || '[]');
-        existingFeedback.push(feedback);
+        existingFeedback.push({
+            ...feedback,
+            id: `local_${Date.now()}`,
+            created_at: new Date().toISOString(),
+            status: 'pending_sync'
+        });
         localStorage.setItem('taskmate-feedback', JSON.stringify(existingFeedback));
     }
 
