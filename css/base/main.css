@@ -62,60 +62,66 @@
 }
 
 /* ============================================
-   DARK THEME
+   DARK THEME - Professional & Modern
    ============================================ */
 [data-theme="dark"] {
-    /* Primary Colors - Brighter for dark mode */
-    --primary-color: #818cf8;
-    --primary-dark: #6366f1;
-    --primary-light: #a5b4fc;
+    /* Primary Colors - Refined indigo/violet */
+    --primary-color: #7c3aed;
+    --primary-dark: #6d28d9;
+    --primary-light: #a78bfa;
     
-    /* Secondary Colors */
-    --secondary-color: #2dd4bf;
-    --secondary-dark: #14b8a6;
-    --secondary-light: #5eead4;
+    /* Secondary Colors - Elegant teal */
+    --secondary-color: #06b6d4;
+    --secondary-dark: #0891b2;
+    --secondary-light: #22d3ee;
     
-    /* Accent Colors */
-    --accent-color: #fb923c;
-    --accent-dark: #f97316;
-    --accent-light: #fdba74;
+    /* Accent Colors - Warm amber */
+    --accent-color: #f59e0b;
+    --accent-dark: #d97706;
+    --accent-light: #fbbf24;
     
-    /* Gradients - Adjusted for dark mode */
-    --gradient-primary: linear-gradient(135deg, #818cf8 0%, #a78bfa 50%, #c084fc 100%);
-    --gradient-secondary: linear-gradient(135deg, #2dd4bf 0%, #22d3ee 100%);
-    --gradient-hero: linear-gradient(135deg, #818cf8 0%, #a855f7 50%, #f0abfc 100%);
+    /* Gradients - Sophisticated dark gradients */
+    --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #6366f1 50%, #8b5cf6 100%);
+    --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    --gradient-hero: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
+    --gradient-dark: linear-gradient(135deg, #0c0a1d 0%, #1a1744 100%);
     
-    /* Neutral Colors */
-    --light-color: #1e293b;
-    --dark-color: #f1f5f9;
-    --text-color: #e2e8f0;
-    --text-light: #94a3b8;
-    --text-muted: #64748b;
+    /* Text Colors - High contrast, easy on eyes */
+    --text-color: #f1f5f9;
+    --text-light: #cbd5e1;
+    --text-muted: #94a3b8;
+    --dark-color: #f8fafc;
+    --light-color: #1e1b4b;
     
-    /* Background Colors */
-    --bg-primary: #0f172a;
-    --bg-secondary: #1e293b;
-    --bg-tertiary: #334155;
-    --bg-dark: #020617;
+    /* Background Colors - Rich, deep purples */
+    --bg-primary: #0c0a1d;
+    --bg-secondary: #13102b;
+    --bg-tertiary: #1e1b4b;
+    --bg-dark: #050409;
     
     /* UI Elements */
-    --border-color: #334155;
-    --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
-    --box-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.2);
-    --box-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
-    --box-shadow-glow: 0 0 40px rgba(129, 140, 248, 0.2);
+    --border-color: rgba(139, 92, 246, 0.15);
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --box-shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
+    --box-shadow-xl: 0 25px 60px rgba(0, 0, 0, 0.6);
+    --box-shadow-glow: 0 0 60px rgba(124, 58, 237, 0.15);
     
-    /* Card & Surface Colors */
-    --card-bg: #1e293b;
-    --card-border: #334155;
-    --input-bg: #1e293b;
-    --input-border: #475569;
-    --navbar-bg: rgba(15, 23, 42, 0.9);
-    --footer-bg: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+    /* Card & Surface Colors - Glassmorphism style */
+    --card-bg: rgba(30, 27, 75, 0.6);
+    --card-border: rgba(139, 92, 246, 0.2);
+    --input-bg: rgba(19, 16, 43, 0.8);
+    --input-border: rgba(139, 92, 246, 0.25);
+    --navbar-bg: rgba(12, 10, 29, 0.85);
+    --footer-bg: linear-gradient(180deg, #13102b 0%, #0c0a1d 50%, #050409 100%);
     
     /* Overlay Colors */
-    --overlay-light: rgba(30, 41, 59, 0.95);
-    --overlay-dark: rgba(0, 0, 0, 0.7);
+    --overlay-light: rgba(19, 16, 43, 0.95);
+    --overlay-dark: rgba(5, 4, 9, 0.85);
+    
+    /* Special Dark Theme Colors */
+    --glow-primary: rgba(124, 58, 237, 0.4);
+    --glow-secondary: rgba(6, 182, 212, 0.3);
+    --surface-shine: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%);
 }
 
 * {
@@ -2121,4 +2127,107 @@ textarea {
     .faq-item {
         padding: 15px;
     }
+}
+/* ============================================
+   GLOBAL DARK THEME - Additional Styles
+   ============================================ */
+
+/* Dark Theme Body Background */
+[data-theme="dark"] body {
+    background: var(--bg-primary);
+    background-image: 
+        radial-gradient(ellipse at top, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
+    background-attachment: fixed;
+}
+
+/* Dark Theme Global Form Styles */
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] select:focus,
+[data-theme="dark"] textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+    outline: none;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+    color: var(--text-muted);
+}
+
+/* Dark Theme Global Card Styles */
+[data-theme="dark"] .input-section,
+[data-theme="dark"] .preview-section {
+    background: var(--card-bg);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+/* Dark Theme Links */
+[data-theme="dark"] a:not([class]) {
+    color: var(--secondary-color);
+}
+
+[data-theme="dark"] a:not([class]):hover {
+    color: var(--primary-light);
+}
+
+/* Dark Theme Headings */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4 {
+    color: #fff;
+}
+
+/* Dark Theme Scrollbar */
+[data-theme="dark"] ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--primary-color), #6366f1);
+    border-radius: 5px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--primary-light), #818cf8);
+}
+
+/* Dark Theme Selection */
+[data-theme="dark"] ::selection {
+    background: rgba(124, 58, 237, 0.4);
+    color: #fff;
+}
+
+/* Dark Theme Focus States */
+[data-theme="dark"] button:focus-visible,
+[data-theme="dark"] a:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Dark Theme FAQ & Instructions */
+[data-theme="dark"] .faq-item,
+[data-theme="dark"] .step {
+    background: var(--card-bg);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+}
+
+[data-theme="dark"] .step-number {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: #fff;
 }
